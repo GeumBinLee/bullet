@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../screens/bullet_journal_screen.dart';
+import '../screens/bullet_journal/bullet_journal_screen.dart';
 import '../screens/diary_detail_screen.dart';
-import '../screens/entry_note_detail_screen.dart';
+import '../screens/entry_note_detail/entry_note_detail_screen.dart';
 import '../models/bullet_entry.dart';
 
 final GoRouter appRouter = GoRouter(
