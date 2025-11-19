@@ -1,225 +1,68 @@
 import 'package:bloc/bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../data/sample_entries.dart';
 import '../models/bullet_entry.dart';
-import '../models/key_definition.dart';
 import '../models/diary.dart';
 import '../models/diary_page.dart';
 import '../models/diary_section.dart';
+import '../models/key_definition.dart';
+import 'bullet_journal_event.dart';
+import 'bullet_journal_state.dart';
 
-part 'bullet_journal_bloc.freezed.dart';
-
-Map<String, String> _defaultStatusKeyMapping() => {
-      TaskStatus.planned.id: 'key-incomplete',
-      TaskStatus.inProgress.id: 'key-progress',
-      TaskStatus.completed.id: 'key-completed',
-    };
-
-@freezed
-class BulletJournalEvent with _$BulletJournalEvent {
-  const factory BulletJournalEvent.loadEntries() = _LoadEntries;
-  const factory BulletJournalEvent.toggleTask({
-    required String entryId,
-    required String taskId,
-  }) = _ToggleTask;
-  const factory BulletJournalEvent.snoozeTask({
-    required String entryId,
-    required String taskId,
-    required Duration postpone,
-  }) = _SnoozeTask;
-  const factory BulletJournalEvent.addCustomKey(KeyDefinition definition) =
-      _AddCustomKey;
-  const factory BulletJournalEvent.updateStatusKey({
-    required TaskStatus status,
-    required String keyId,
-  }) = _UpdateStatusKey;
-  const factory BulletJournalEvent.deleteCustomKey(String keyId) =
-      _DeleteCustomKey;
-  const factory BulletJournalEvent.addTaskStatus(TaskStatus status) =
-      _AddTaskStatus;
-  const factory BulletJournalEvent.deleteTaskStatus(String statusId) =
-      _DeleteTaskStatus;
-  const factory BulletJournalEvent.updateTaskStatusOrder({
-    required String statusId,
-    required int newOrder,
-  }) = _UpdateTaskStatusOrder;
-  const factory BulletJournalEvent.addDiary(Diary diary) = _AddDiary;
-  const factory BulletJournalEvent.deleteDiary(String diaryId) = _DeleteDiary;
-  const factory BulletJournalEvent.addEntryToDiary({
-    required String diaryId,
-    required BulletEntry entry,
-  }) = _AddEntryToDiary;
-  const factory BulletJournalEvent.toggleTaskInDiary({
-    required String diaryId,
-    required String entryId,
-    required String taskId,
-  }) = _ToggleTaskInDiary;
-  const factory BulletJournalEvent.snoozeTaskInDiary({
-    required String diaryId,
-    required String entryId,
-    required String taskId,
-    required Duration postpone,
-  }) = _SnoozeTaskInDiary;
-  const factory BulletJournalEvent.updateEntry({
-    required String entryId,
-    required BulletEntry updatedEntry,
-  }) = _UpdateEntry;
-  const factory BulletJournalEvent.updateEntryInDiary({
-    required String diaryId,
-    required String entryId,
-    required BulletEntry updatedEntry,
-  }) = _UpdateEntryInDiary;
-  const factory BulletJournalEvent.updateDiary({
-    required String diaryId,
-    required Diary updatedDiary,
-  }) = _UpdateDiary;
-  const factory BulletJournalEvent.reorderEntriesInDiary({
-    required String diaryId,
-    required List<BulletEntry> reorderedEntries,
-  }) = _ReorderEntriesInDiary;
-  const factory BulletJournalEvent.addPageToDiary({
-    required String diaryId,
-    required DiaryPage page,
-  }) = _AddPageToDiary;
-  const factory BulletJournalEvent.deletePageFromDiary({
-    required String diaryId,
-    required String pageId,
-  }) = _DeletePageFromDiary;
-  const factory BulletJournalEvent.updatePageInDiary({
-    required String diaryId,
-    required String pageId,
-    required DiaryPage updatedPage,
-  }) = _UpdatePageInDiary;
-  const factory BulletJournalEvent.setCurrentPageInDiary({
-    required String diaryId,
-    required String? pageId,
-  }) = _SetCurrentPageInDiary;
-  const factory BulletJournalEvent.togglePageFavoriteInDiary({
-    required String diaryId,
-    required String pageId,
-  }) = _TogglePageFavoriteInDiary;
-  const factory BulletJournalEvent.reorderPagesInDiary({
-    required String diaryId,
-    required List<DiaryPage> reorderedPages,
-  }) = _ReorderPagesInDiary;
-  const factory BulletJournalEvent.addEntryToPage({
-    required String diaryId,
-    required String pageId,
-    required BulletEntry entry,
-  }) = _AddEntryToPage;
-  const factory BulletJournalEvent.updateEntryInPage({
-    required String diaryId,
-    required String pageId,
-    required String entryId,
-    required BulletEntry updatedEntry,
-  }) = _UpdateEntryInPage;
-  const factory BulletJournalEvent.reorderEntriesInPage({
-    required String diaryId,
-    required String pageId,
-    required List<BulletEntry> reorderedEntries,
-  }) = _ReorderEntriesInPage;
-  const factory BulletJournalEvent.toggleTaskInPage({
-    required String diaryId,
-    required String pageId,
-    required String entryId,
-    required String taskId,
-  }) = _ToggleTaskInPage;
-  const factory BulletJournalEvent.snoozeTaskInPage({
-    required String diaryId,
-    required String pageId,
-    required String entryId,
-    required String taskId,
-    required Duration postpone,
-  }) = _SnoozeTaskInPage;
-  const factory BulletJournalEvent.addSectionToPage({
-    required String diaryId,
-    required String pageId,
-    required DiarySection section,
-  }) = _AddSectionToPage;
-  const factory BulletJournalEvent.deleteSectionFromPage({
-    required String diaryId,
-    required String pageId,
-    required String sectionId,
-  }) = _DeleteSectionFromPage;
-  const factory BulletJournalEvent.updateSectionInPage({
-    required String diaryId,
-    required String pageId,
-    required String sectionId,
-    required DiarySection updatedSection,
-  }) = _UpdateSectionInPage;
-  const factory BulletJournalEvent.reorderSectionsInPage({
-    required String diaryId,
-    required String pageId,
-    required List<DiarySection> reorderedSections,
-  }) = _ReorderSectionsInPage;
-  const factory BulletJournalEvent.assignEntryToSection({
-    required String diaryId,
-    required String pageId,
-    required String entryId,
-    required String? sectionId,
-  }) = _AssignEntryToSection;
-}
-
-@freezed
-class BulletJournalState with _$BulletJournalState {
-  const factory BulletJournalState({
-    @Default(<BulletEntry>[]) List<BulletEntry> entries,
-    @Default(true) bool isLoading,
-    @Default(<KeyDefinition>[]) List<KeyDefinition> customKeys,
-    @Default(TaskStatus.defaultStatuses) List<TaskStatus> taskStatuses,
-    @Default({}) Map<String, String> statusKeyMapping,
-    @Default(<Diary>[]) List<Diary> diaries,
-  }) = _BulletJournalState;
-}
+// Re-export Event and State for convenience
+export 'bullet_journal_event.dart';
+export 'bullet_journal_state.dart';
 
 class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
   BulletJournalBloc({List<BulletEntry>? initialEntries})
       : _initialEntries = initialEntries ?? sampleEntries,
         super(BulletJournalState(
-          statusKeyMapping: _defaultStatusKeyMapping(),
+          statusKeyMapping: BulletJournalStateExtension.defaultStatusKeyMapping(),
         )) {
-    on<_LoadEntries>(_onLoadEntries);
-    on<_ToggleTask>(_onToggleTask);
-    on<_SnoozeTask>(_onSnoozeTask);
-    on<_AddCustomKey>(_onAddCustomKey);
-    on<_UpdateStatusKey>(_onUpdateStatusKey);
-    on<_DeleteCustomKey>(_onDeleteCustomKey);
-    on<_AddTaskStatus>(_onAddTaskStatus);
-    on<_DeleteTaskStatus>(_onDeleteTaskStatus);
-    on<_UpdateTaskStatusOrder>(_onUpdateTaskStatusOrder);
-    on<_AddDiary>(_onAddDiary);
-    on<_DeleteDiary>(_onDeleteDiary);
-    on<_AddEntryToDiary>(_onAddEntryToDiary);
-    on<_ToggleTaskInDiary>(_onToggleTaskInDiary);
-    on<_SnoozeTaskInDiary>(_onSnoozeTaskInDiary);
-    on<_UpdateEntry>(_onUpdateEntry);
-    on<_UpdateEntryInDiary>(_onUpdateEntryInDiary);
-    on<_UpdateDiary>(_onUpdateDiary);
-    on<_ReorderEntriesInDiary>(_onReorderEntriesInDiary);
-    on<_AddPageToDiary>(_onAddPageToDiary);
-    on<_DeletePageFromDiary>(_onDeletePageFromDiary);
-    on<_UpdatePageInDiary>(_onUpdatePageInDiary);
-    on<_SetCurrentPageInDiary>(_onSetCurrentPageInDiary);
-    on<_TogglePageFavoriteInDiary>(_onTogglePageFavoriteInDiary);
-    on<_ReorderPagesInDiary>(_onReorderPagesInDiary);
-    on<_AddEntryToPage>(_onAddEntryToPage);
-    on<_UpdateEntryInPage>(_onUpdateEntryInPage);
-    on<_ReorderEntriesInPage>(_onReorderEntriesInPage);
-    on<_ToggleTaskInPage>(_onToggleTaskInPage);
-    on<_SnoozeTaskInPage>(_onSnoozeTaskInPage);
-    on<_AddSectionToPage>(_onAddSectionToPage);
-    on<_DeleteSectionFromPage>(_onDeleteSectionFromPage);
-    on<_UpdateSectionInPage>(_onUpdateSectionInPage);
-    on<_ReorderSectionsInPage>(_onReorderSectionsInPage);
-    on<_AssignEntryToSection>(_onAssignEntryToSection);
+    on<BulletJournalEvent>((event, emit) {
+      event.when(
+        loadEntries: () => _onLoadEntries(emit),
+        toggleTask: (entryId, taskId) => _onToggleTask(entryId, taskId, emit),
+        snoozeTask: (entryId, taskId, postpone) => _onSnoozeTask(entryId, taskId, postpone, emit),
+        addCustomKey: (definition) => _onAddCustomKey(definition, emit),
+        updateStatusKey: (status, keyId) => _onUpdateStatusKey(status, keyId, emit),
+        deleteCustomKey: (keyId) => _onDeleteCustomKey(keyId, emit),
+        addTaskStatus: (status) => _onAddTaskStatus(status, emit),
+        deleteTaskStatus: (statusId) => _onDeleteTaskStatus(statusId, emit),
+        updateTaskStatusOrder: (statusId, newOrder) => _onUpdateTaskStatusOrder(statusId, newOrder, emit),
+        addDiary: (diary) => _onAddDiary(diary, emit),
+        deleteDiary: (diaryId) => _onDeleteDiary(diaryId, emit),
+        addEntryToDiary: (diaryId, entry) => _onAddEntryToDiary(diaryId, entry, emit),
+        toggleTaskInDiary: (diaryId, entryId, taskId) => _onToggleTaskInDiary(diaryId, entryId, taskId, emit),
+        snoozeTaskInDiary: (diaryId, entryId, taskId, postpone) => _onSnoozeTaskInDiary(diaryId, entryId, taskId, postpone, emit),
+        updateEntry: (entryId, updatedEntry) => _onUpdateEntry(entryId, updatedEntry, emit),
+        updateEntryInDiary: (diaryId, entryId, updatedEntry) => _onUpdateEntryInDiary(diaryId, entryId, updatedEntry, emit),
+        updateDiary: (diaryId, updatedDiary) => _onUpdateDiary(diaryId, updatedDiary, emit),
+        reorderEntriesInDiary: (diaryId, reorderedEntries) => _onReorderEntriesInDiary(diaryId, reorderedEntries, emit),
+        addPageToDiary: (diaryId, page) => _onAddPageToDiary(diaryId, page, emit),
+        deletePageFromDiary: (diaryId, pageId) => _onDeletePageFromDiary(diaryId, pageId, emit),
+        updatePageInDiary: (diaryId, pageId, updatedPage) => _onUpdatePageInDiary(diaryId, pageId, updatedPage, emit),
+        setCurrentPageInDiary: (diaryId, pageId) => _onSetCurrentPageInDiary(diaryId, pageId, emit),
+        togglePageFavoriteInDiary: (diaryId, pageId) => _onTogglePageFavoriteInDiary(diaryId, pageId, emit),
+        reorderPagesInDiary: (diaryId, reorderedPages) => _onReorderPagesInDiary(diaryId, reorderedPages, emit),
+        addEntryToPage: (diaryId, pageId, entry) => _onAddEntryToPage(diaryId, pageId, entry, emit),
+        updateEntryInPage: (diaryId, pageId, entryId, updatedEntry) => _onUpdateEntryInPage(diaryId, pageId, entryId, updatedEntry, emit),
+        reorderEntriesInPage: (diaryId, pageId, reorderedEntries) => _onReorderEntriesInPage(diaryId, pageId, reorderedEntries, emit),
+        toggleTaskInPage: (diaryId, pageId, entryId, taskId) => _onToggleTaskInPage(diaryId, pageId, entryId, taskId, emit),
+        snoozeTaskInPage: (diaryId, pageId, entryId, taskId, postpone) => _onSnoozeTaskInPage(diaryId, pageId, entryId, taskId, postpone, emit),
+        addSectionToPage: (diaryId, pageId, section) => _onAddSectionToPage(diaryId, pageId, section, emit),
+        deleteSectionFromPage: (diaryId, pageId, sectionId) => _onDeleteSectionFromPage(diaryId, pageId, sectionId, emit),
+        updateSectionInPage: (diaryId, pageId, sectionId, updatedSection) => _onUpdateSectionInPage(diaryId, pageId, sectionId, updatedSection, emit),
+        reorderSectionsInPage: (diaryId, pageId, reorderedSections) => _onReorderSectionsInPage(diaryId, pageId, reorderedSections, emit),
+        assignEntryToSection: (diaryId, pageId, entryId, sectionId) => _onAssignEntryToSection(diaryId, pageId, entryId, sectionId, emit),
+      );
+    });
     add(const BulletJournalEvent.loadEntries());
   }
 
   final List<BulletEntry> _initialEntries;
 
   void _onLoadEntries(
-    _LoadEntries event,
     Emitter<BulletJournalState> emit,
   ) {
     emit(state.copyWith(
@@ -229,14 +72,15 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
   }
 
   void _onToggleTask(
-    _ToggleTask event,
+    String entryId,
+    String taskId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedEntries = state.entries.map((entry) {
-      if (entry.id != event.entryId) return entry;
+      if (entry.id != entryId) return entry;
 
       final updatedTasks = entry.tasks.map((task) {
-        if (task.id != event.taskId) return task;
+        if (task.id != taskId) return task;
         return task.copyWith(
           status: task.status.next(state.taskStatuses),
         );
@@ -248,17 +92,16 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(entries: updatedEntries));
   }
 
-  void _onSnoozeTask(
-    _SnoozeTask event,
+  void _onSnoozeTask(String entryId, String taskId, Duration postpone,
     Emitter<BulletJournalState> emit,
   ) {
     final now = DateTime.now();
     final updatedEntries = state.entries.map((entry) {
-      if (entry.id != event.entryId) return entry;
+      if (entry.id != entryId) return entry;
 
       final updatedTasks = entry.tasks.map((task) {
-        if (task.id != event.taskId) return task;
-        final postponedTo = now.add(event.postpone);
+        if (task.id != taskId) return task;
+        final postponedTo = now.add(postpone);
         final updatedSnoozes = [
           ...task.snoozes,
           SnoozeInfo(requestedAt: now, postponedTo: postponedTo),
@@ -276,51 +119,46 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(entries: updatedEntries));
   }
 
-  void _onAddCustomKey(
-    _AddCustomKey event,
+  void _onAddCustomKey(KeyDefinition definition,
     Emitter<BulletJournalState> emit,
   ) {
-    emit(state.copyWith(customKeys: [...state.customKeys, event.definition]));
+    emit(state.copyWith(customKeys: [...state.customKeys, definition]));
   }
 
-  void _onUpdateStatusKey(
-    _UpdateStatusKey event,
+  void _onUpdateStatusKey(TaskStatus status, String keyId,
     Emitter<BulletJournalState> emit,
   ) {
     emit(state.copyWith(
       statusKeyMapping: {
         ...state.statusKeyMapping,
-        event.status.id: event.keyId,
+        status.id: keyId,
       },
     ));
   }
 
-  void _onDeleteCustomKey(
-    _DeleteCustomKey event,
+  void _onDeleteCustomKey(String keyId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedCustomKeys = state.customKeys
-        .where((key) => key.id != event.keyId)
+        .where((key) => key.id != keyId)
         .toList();
     emit(state.copyWith(customKeys: updatedCustomKeys));
   }
 
-  void _onAddTaskStatus(
-    _AddTaskStatus event,
+  void _onAddTaskStatus(TaskStatus status,
     Emitter<BulletJournalState> emit,
   ) {
-    final updatedStatuses = [...state.taskStatuses, event.status]
+    final updatedStatuses = [...state.taskStatuses, status]
       ..sort((a, b) => a.order.compareTo(b.order));
     emit(state.copyWith(taskStatuses: updatedStatuses));
   }
 
-  void _onDeleteTaskStatus(
-    _DeleteTaskStatus event,
+  void _onDeleteTaskStatus(String statusId,
     Emitter<BulletJournalState> emit,
   ) {
     // 기본 상태는 삭제 불가
     final isDefault = TaskStatus.defaultStatuses
-        .any((status) => status.id == event.statusId);
+        .any((status) => status.id == statusId);
     if (isDefault) return;
 
     // "기타" 상태 찾기
@@ -329,12 +167,12 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     // 기본 엔트리에서 해당 상태를 사용하는 작업들을 "기타"로 마이그레이션
     final updatedEntries = state.entries.map((entry) {
       final hasTargetStatus = entry.tasks.any(
-        (task) => task.status.id == event.statusId,
+        (task) => task.status.id == statusId,
       );
       if (!hasTargetStatus) return entry;
 
       final updatedTasks = entry.tasks.map((task) {
-        if (task.status.id == event.statusId) {
+        if (task.status.id == statusId) {
           return task.copyWith(status: etcStatus);
         }
         return task;
@@ -347,12 +185,12 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     final updatedDiaries = state.diaries.map((diary) {
       final updatedDiaryEntries = diary.entries.map((entry) {
         final hasTargetStatus = entry.tasks.any(
-          (task) => task.status.id == event.statusId,
+          (task) => task.status.id == statusId,
         );
         if (!hasTargetStatus) return entry;
 
         final updatedTasks = entry.tasks.map((task) {
-          if (task.status.id == event.statusId) {
+          if (task.status.id == statusId) {
             return task.copyWith(status: etcStatus);
           }
           return task;
@@ -366,10 +204,10 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
 
     // 상태 목록에서 삭제
     final updatedStatuses = state.taskStatuses
-        .where((status) => status.id != event.statusId)
+        .where((status) => status.id != statusId)
         .toList();
     final updatedMapping = Map<String, String>.from(state.statusKeyMapping)
-      ..remove(event.statusId);
+      ..remove(statusId);
 
     emit(state.copyWith(
       entries: updatedEntries,
@@ -379,13 +217,12 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     ));
   }
 
-  void _onUpdateTaskStatusOrder(
-    _UpdateTaskStatusOrder event,
+  void _onUpdateTaskStatusOrder(String statusId, int newOrder,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedStatuses = state.taskStatuses.map((status) {
-      if (status.id == event.statusId) {
-        return status.copyWith(order: event.newOrder);
+      if (status.id == statusId) {
+        return status.copyWith(order: newOrder);
       }
       return status;
     }).toList()
@@ -393,46 +230,42 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(taskStatuses: updatedStatuses));
   }
 
-  void _onAddDiary(
-    _AddDiary event,
+  void _onAddDiary(Diary diary,
     Emitter<BulletJournalState> emit,
   ) {
-    emit(state.copyWith(diaries: [...state.diaries, event.diary]));
+    emit(state.copyWith(diaries: [...state.diaries, diary]));
   }
 
-  void _onDeleteDiary(
-    _DeleteDiary event,
+  void _onDeleteDiary(String diaryId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries
-        .where((diary) => diary.id != event.diaryId)
+        .where((diary) => diary.id != diaryId)
         .toList();
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onAddEntryToDiary(
-    _AddEntryToDiary event,
+  void _onAddEntryToDiary(String diaryId, BulletEntry entry,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
-      return diary.copyWith(entries: [...diary.entries, event.entry]);
+      if (diary.id != diaryId) return diary;
+      return diary.copyWith(entries: [...diary.entries, entry]);
     }).toList();
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onToggleTaskInDiary(
-    _ToggleTaskInDiary event,
+  void _onToggleTaskInDiary(String diaryId, String entryId, String taskId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
 
       final updatedEntries = diary.entries.map((entry) {
-        if (entry.id != event.entryId) return entry;
+        if (entry.id != entryId) return entry;
 
         final updatedTasks = entry.tasks.map((task) {
-          if (task.id != event.taskId) return task;
+          if (task.id != taskId) return task;
           return task.copyWith(
             status: task.status.next(state.taskStatuses),
           );
@@ -447,20 +280,19 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onSnoozeTaskInDiary(
-    _SnoozeTaskInDiary event,
+  void _onSnoozeTaskInDiary(String diaryId, String entryId, String taskId, Duration postpone,
     Emitter<BulletJournalState> emit,
   ) {
     final now = DateTime.now();
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
 
       final updatedEntries = diary.entries.map((entry) {
-        if (entry.id != event.entryId) return entry;
+        if (entry.id != entryId) return entry;
 
         final updatedTasks = entry.tasks.map((task) {
-          if (task.id != event.taskId) return task;
-          final postponedTo = now.add(event.postpone);
+          if (task.id != taskId) return task;
+          final postponedTo = now.add(postpone);
           final updatedSnoozes = [
             ...task.snoozes,
             SnoozeInfo(requestedAt: now, postponedTo: postponedTo),
@@ -481,27 +313,25 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onUpdateEntry(
-    _UpdateEntry event,
+  void _onUpdateEntry(String entryId, BulletEntry updatedEntry,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedEntries = state.entries.map((entry) {
-      if (entry.id != event.entryId) return entry;
-      return event.updatedEntry;
+      if (entry.id != entryId) return entry;
+      return updatedEntry;
     }).toList();
     emit(state.copyWith(entries: updatedEntries));
   }
 
-  void _onUpdateEntryInDiary(
-    _UpdateEntryInDiary event,
+  void _onUpdateEntryInDiary(String diaryId, String entryId, BulletEntry updatedEntry,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
 
       final updatedEntries = diary.entries.map((entry) {
-        if (entry.id != event.entryId) return entry;
-        return event.updatedEntry;
+        if (entry.id != entryId) return entry;
+        return updatedEntry;
       }).toList();
 
       return diary.copyWith(entries: updatedEntries);
@@ -510,38 +340,35 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onUpdateDiary(
-    _UpdateDiary event,
+  void _onUpdateDiary(String diaryId, Diary updatedDiary,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
-      return event.updatedDiary;
+      if (diary.id != diaryId) return diary;
+      return updatedDiary;
     }).toList();
 
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onReorderEntriesInDiary(
-    _ReorderEntriesInDiary event,
+  void _onReorderEntriesInDiary(String diaryId, List<BulletEntry> reorderedEntries,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
-      return diary.copyWith(entries: event.reorderedEntries);
+      if (diary.id != diaryId) return diary;
+      return diary.copyWith(entries: reorderedEntries);
     }).toList();
 
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onAddPageToDiary(
-    _AddPageToDiary event,
+  void _onAddPageToDiary(String diaryId, DiaryPage page,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
-      final newPages = [...diary.pages, event.page];
-      final newCurrentPageId = diary.currentPageId ?? event.page.id;
+      if (diary.id != diaryId) return diary;
+      final newPages = [...diary.pages, page];
+      final newCurrentPageId = diary.currentPageId ?? page.id;
       return diary.copyWith(
         pages: newPages,
         currentPageId: newCurrentPageId,
@@ -551,15 +378,14 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onDeletePageFromDiary(
-    _DeletePageFromDiary event,
+  void _onDeletePageFromDiary(String diaryId, String pageId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
-      final newPages = diary.pages.where((p) => p.id != event.pageId).toList();
+      if (diary.id != diaryId) return diary;
+      final newPages = diary.pages.where((p) => p.id != pageId).toList();
       String? newCurrentPageId = diary.currentPageId;
-      if (diary.currentPageId == event.pageId) {
+      if (diary.currentPageId == pageId) {
         newCurrentPageId = newPages.isNotEmpty ? newPages.first.id : null;
       }
       return diary.copyWith(
@@ -571,15 +397,14 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onUpdatePageInDiary(
-    _UpdatePageInDiary event,
+  void _onUpdatePageInDiary(String diaryId, String pageId, DiaryPage updatedPage,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
-        return event.updatedPage;
+        if (page.id != pageId) return page;
+        return updatedPage;
       }).toList();
       return diary.copyWith(pages: updatedPages);
     }).toList();
@@ -587,26 +412,24 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onSetCurrentPageInDiary(
-    _SetCurrentPageInDiary event,
+  void _onSetCurrentPageInDiary(String diaryId, String? pageId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
-      return diary.copyWith(currentPageId: event.pageId);
+      if (diary.id != diaryId) return diary;
+      return diary.copyWith(currentPageId: pageId);
     }).toList();
 
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onTogglePageFavoriteInDiary(
-    _TogglePageFavoriteInDiary event,
+  void _onTogglePageFavoriteInDiary(String diaryId, String pageId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         return page.copyWith(isFavorite: !page.isFavorite);
       }).toList();
       return diary.copyWith(pages: updatedPages);
@@ -615,27 +438,25 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onReorderPagesInDiary(
-    _ReorderPagesInDiary event,
+  void _onReorderPagesInDiary(String diaryId, List<DiaryPage> reorderedPages,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
-      return diary.copyWith(pages: event.reorderedPages);
+      if (diary.id != diaryId) return diary;
+      return diary.copyWith(pages: reorderedPages);
     }).toList();
 
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onAddEntryToPage(
-    _AddEntryToPage event,
+  void _onAddEntryToPage(String diaryId, String pageId, BulletEntry entry,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
-        return page.copyWith(entries: [...page.entries, event.entry]);
+        if (page.id != pageId) return page;
+        return page.copyWith(entries: [...page.entries, entry]);
       }).toList();
       return diary.copyWith(pages: updatedPages);
     }).toList();
@@ -643,17 +464,16 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onUpdateEntryInPage(
-    _UpdateEntryInPage event,
+  void _onUpdateEntryInPage(String diaryId, String pageId, String entryId, BulletEntry updatedEntry,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         final updatedEntries = page.entries.map((entry) {
-          if (entry.id != event.entryId) return entry;
-          return event.updatedEntry;
+          if (entry.id != entryId) return entry;
+          return updatedEntry;
         }).toList();
         return page.copyWith(entries: updatedEntries);
       }).toList();
@@ -663,15 +483,14 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onReorderEntriesInPage(
-    _ReorderEntriesInPage event,
+  void _onReorderEntriesInPage(String diaryId, String pageId, List<BulletEntry> reorderedEntries,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
-        return page.copyWith(entries: event.reorderedEntries);
+        if (page.id != pageId) return page;
+        return page.copyWith(entries: reorderedEntries);
       }).toList();
       return diary.copyWith(pages: updatedPages);
     }).toList();
@@ -679,18 +498,17 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onToggleTaskInPage(
-    _ToggleTaskInPage event,
+  void _onToggleTaskInPage(String diaryId, String pageId, String entryId, String taskId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         final updatedEntries = page.entries.map((entry) {
-          if (entry.id != event.entryId) return entry;
+          if (entry.id != entryId) return entry;
           final updatedTasks = entry.tasks.map((task) {
-            if (task.id != event.taskId) return task;
+            if (task.id != taskId) return task;
             return task.copyWith(
               status: task.status.next(state.taskStatuses),
             );
@@ -705,20 +523,19 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onSnoozeTaskInPage(
-    _SnoozeTaskInPage event,
+  void _onSnoozeTaskInPage(String diaryId, String pageId, String entryId, String taskId, Duration postpone,
     Emitter<BulletJournalState> emit,
   ) {
     final now = DateTime.now();
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         final updatedEntries = page.entries.map((entry) {
-          if (entry.id != event.entryId) return entry;
+          if (entry.id != entryId) return entry;
           final updatedTasks = entry.tasks.map((task) {
-            if (task.id != event.taskId) return task;
-            final postponedTo = now.add(event.postpone);
+            if (task.id != taskId) return task;
+            final postponedTo = now.add(postpone);
             final updatedSnoozes = [
               ...task.snoozes,
               SnoozeInfo(requestedAt: now, postponedTo: postponedTo),
@@ -739,16 +556,15 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onAddSectionToPage(
-    _AddSectionToPage event,
+  void _onAddSectionToPage(String diaryId, String pageId, DiarySection section,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         // 섹션의 order 설정 (현재 섹션 개수)
-        final newSection = event.section.copyWith(
+        final newSection = section.copyWith(
           order: page.sections.length,
         );
         return page.copyWith(
@@ -761,23 +577,22 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onDeleteSectionFromPage(
-    _DeleteSectionFromPage event,
+  void _onDeleteSectionFromPage(String diaryId, String pageId, String sectionId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         // 섹션 삭제 및 해당 섹션의 엔트리들 sectionId를 null로 설정
         final updatedEntries = page.entries.map((entry) {
-          if (entry.sectionId == event.sectionId) {
+          if (entry.sectionId == sectionId) {
             return entry.copyWith(sectionId: null);
           }
           return entry;
         }).toList();
         final updatedSections = page.sections
-            .where((section) => section.id != event.sectionId)
+            .where((section) => section.id != sectionId)
             .toList();
         return page.copyWith(
           sections: updatedSections,
@@ -790,17 +605,16 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onUpdateSectionInPage(
-    _UpdateSectionInPage event,
+  void _onUpdateSectionInPage(String diaryId, String pageId, String sectionId, DiarySection updatedSection,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         final updatedSections = page.sections.map((section) {
-          if (section.id != event.sectionId) return section;
-          return event.updatedSection;
+          if (section.id != sectionId) return section;
+          return updatedSection;
         }).toList();
         return page.copyWith(sections: updatedSections);
       }).toList();
@@ -810,16 +624,15 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onReorderSectionsInPage(
-    _ReorderSectionsInPage event,
+  void _onReorderSectionsInPage(String diaryId, String pageId, List<DiarySection> reorderedSections,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         // order 업데이트
-        final updatedSections = event.reorderedSections.asMap().entries.map((entry) {
+        final updatedSections = reorderedSections.asMap().entries.map((entry) {
           return entry.value.copyWith(order: entry.key);
         }).toList();
         return page.copyWith(sections: updatedSections);
@@ -830,17 +643,16 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onAssignEntryToSection(
-    _AssignEntryToSection event,
+  void _onAssignEntryToSection(String diaryId, String pageId, String entryId, String? sectionId,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
-      if (diary.id != event.diaryId) return diary;
+      if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
-        if (page.id != event.pageId) return page;
+        if (page.id != pageId) return page;
         final updatedEntries = page.entries.map((entry) {
-          if (entry.id != event.entryId) return entry;
-          return entry.copyWith(sectionId: event.sectionId);
+          if (entry.id != entryId) return entry;
+          return entry.copyWith(sectionId: sectionId);
         }).toList();
         return page.copyWith(entries: updatedEntries);
       }).toList();
@@ -850,4 +662,3 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 }
-
