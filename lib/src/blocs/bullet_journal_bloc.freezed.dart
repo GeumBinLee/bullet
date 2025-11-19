@@ -1,0 +1,15909 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'bullet_journal_bloc.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+/// @nodoc
+mixin _$BulletJournalEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BulletJournalEventCopyWith<$Res> {
+  factory $BulletJournalEventCopyWith(
+          BulletJournalEvent value, $Res Function(BulletJournalEvent) then) =
+      _$BulletJournalEventCopyWithImpl<$Res, BulletJournalEvent>;
+}
+
+/// @nodoc
+class _$BulletJournalEventCopyWithImpl<$Res, $Val extends BulletJournalEvent>
+    implements $BulletJournalEventCopyWith<$Res> {
+  _$BulletJournalEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$LoadEntriesImplCopyWith<$Res> {
+  factory _$$LoadEntriesImplCopyWith(
+          _$LoadEntriesImpl value, $Res Function(_$LoadEntriesImpl) then) =
+      __$$LoadEntriesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadEntriesImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$LoadEntriesImpl>
+    implements _$$LoadEntriesImplCopyWith<$Res> {
+  __$$LoadEntriesImplCopyWithImpl(
+      _$LoadEntriesImpl _value, $Res Function(_$LoadEntriesImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadEntriesImpl implements _LoadEntries {
+  const _$LoadEntriesImpl();
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.loadEntries()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadEntriesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return loadEntries();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return loadEntries?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (loadEntries != null) {
+      return loadEntries();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return loadEntries(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return loadEntries?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (loadEntries != null) {
+      return loadEntries(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadEntries implements BulletJournalEvent {
+  const factory _LoadEntries() = _$LoadEntriesImpl;
+}
+
+/// @nodoc
+abstract class _$$ToggleTaskImplCopyWith<$Res> {
+  factory _$$ToggleTaskImplCopyWith(
+          _$ToggleTaskImpl value, $Res Function(_$ToggleTaskImpl) then) =
+      __$$ToggleTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String entryId, String taskId});
+}
+
+/// @nodoc
+class __$$ToggleTaskImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$ToggleTaskImpl>
+    implements _$$ToggleTaskImplCopyWith<$Res> {
+  __$$ToggleTaskImplCopyWithImpl(
+      _$ToggleTaskImpl _value, $Res Function(_$ToggleTaskImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? entryId = null,
+    Object? taskId = null,
+  }) {
+    return _then(_$ToggleTaskImpl(
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      taskId: null == taskId
+          ? _value.taskId
+          : taskId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleTaskImpl implements _ToggleTask {
+  const _$ToggleTaskImpl({required this.entryId, required this.taskId});
+
+  @override
+  final String entryId;
+  @override
+  final String taskId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.toggleTask(entryId: $entryId, taskId: $taskId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleTaskImpl &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.taskId, taskId) || other.taskId == taskId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, entryId, taskId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleTaskImplCopyWith<_$ToggleTaskImpl> get copyWith =>
+      __$$ToggleTaskImplCopyWithImpl<_$ToggleTaskImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return toggleTask(entryId, taskId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return toggleTask?.call(entryId, taskId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (toggleTask != null) {
+      return toggleTask(entryId, taskId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return toggleTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return toggleTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (toggleTask != null) {
+      return toggleTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleTask implements BulletJournalEvent {
+  const factory _ToggleTask(
+      {required final String entryId,
+      required final String taskId}) = _$ToggleTaskImpl;
+
+  String get entryId;
+  String get taskId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleTaskImplCopyWith<_$ToggleTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SnoozeTaskImplCopyWith<$Res> {
+  factory _$$SnoozeTaskImplCopyWith(
+          _$SnoozeTaskImpl value, $Res Function(_$SnoozeTaskImpl) then) =
+      __$$SnoozeTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String entryId, String taskId, Duration postpone});
+}
+
+/// @nodoc
+class __$$SnoozeTaskImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$SnoozeTaskImpl>
+    implements _$$SnoozeTaskImplCopyWith<$Res> {
+  __$$SnoozeTaskImplCopyWithImpl(
+      _$SnoozeTaskImpl _value, $Res Function(_$SnoozeTaskImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? entryId = null,
+    Object? taskId = null,
+    Object? postpone = null,
+  }) {
+    return _then(_$SnoozeTaskImpl(
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      taskId: null == taskId
+          ? _value.taskId
+          : taskId // ignore: cast_nullable_to_non_nullable
+              as String,
+      postpone: null == postpone
+          ? _value.postpone
+          : postpone // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SnoozeTaskImpl implements _SnoozeTask {
+  const _$SnoozeTaskImpl(
+      {required this.entryId, required this.taskId, required this.postpone});
+
+  @override
+  final String entryId;
+  @override
+  final String taskId;
+  @override
+  final Duration postpone;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.snoozeTask(entryId: $entryId, taskId: $taskId, postpone: $postpone)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SnoozeTaskImpl &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.taskId, taskId) || other.taskId == taskId) &&
+            (identical(other.postpone, postpone) ||
+                other.postpone == postpone));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, entryId, taskId, postpone);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SnoozeTaskImplCopyWith<_$SnoozeTaskImpl> get copyWith =>
+      __$$SnoozeTaskImplCopyWithImpl<_$SnoozeTaskImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return snoozeTask(entryId, taskId, postpone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return snoozeTask?.call(entryId, taskId, postpone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (snoozeTask != null) {
+      return snoozeTask(entryId, taskId, postpone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return snoozeTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return snoozeTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (snoozeTask != null) {
+      return snoozeTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SnoozeTask implements BulletJournalEvent {
+  const factory _SnoozeTask(
+      {required final String entryId,
+      required final String taskId,
+      required final Duration postpone}) = _$SnoozeTaskImpl;
+
+  String get entryId;
+  String get taskId;
+  Duration get postpone;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SnoozeTaskImplCopyWith<_$SnoozeTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddCustomKeyImplCopyWith<$Res> {
+  factory _$$AddCustomKeyImplCopyWith(
+          _$AddCustomKeyImpl value, $Res Function(_$AddCustomKeyImpl) then) =
+      __$$AddCustomKeyImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({KeyDefinition definition});
+
+  $KeyDefinitionCopyWith<$Res> get definition;
+}
+
+/// @nodoc
+class __$$AddCustomKeyImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AddCustomKeyImpl>
+    implements _$$AddCustomKeyImplCopyWith<$Res> {
+  __$$AddCustomKeyImplCopyWithImpl(
+      _$AddCustomKeyImpl _value, $Res Function(_$AddCustomKeyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? definition = null,
+  }) {
+    return _then(_$AddCustomKeyImpl(
+      null == definition
+          ? _value.definition
+          : definition // ignore: cast_nullable_to_non_nullable
+              as KeyDefinition,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $KeyDefinitionCopyWith<$Res> get definition {
+    return $KeyDefinitionCopyWith<$Res>(_value.definition, (value) {
+      return _then(_value.copyWith(definition: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddCustomKeyImpl implements _AddCustomKey {
+  const _$AddCustomKeyImpl(this.definition);
+
+  @override
+  final KeyDefinition definition;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addCustomKey(definition: $definition)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddCustomKeyImpl &&
+            (identical(other.definition, definition) ||
+                other.definition == definition));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, definition);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddCustomKeyImplCopyWith<_$AddCustomKeyImpl> get copyWith =>
+      __$$AddCustomKeyImplCopyWithImpl<_$AddCustomKeyImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return addCustomKey(definition);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return addCustomKey?.call(definition);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addCustomKey != null) {
+      return addCustomKey(definition);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return addCustomKey(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return addCustomKey?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addCustomKey != null) {
+      return addCustomKey(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddCustomKey implements BulletJournalEvent {
+  const factory _AddCustomKey(final KeyDefinition definition) =
+      _$AddCustomKeyImpl;
+
+  KeyDefinition get definition;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddCustomKeyImplCopyWith<_$AddCustomKeyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateStatusKeyImplCopyWith<$Res> {
+  factory _$$UpdateStatusKeyImplCopyWith(_$UpdateStatusKeyImpl value,
+          $Res Function(_$UpdateStatusKeyImpl) then) =
+      __$$UpdateStatusKeyImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskStatus status, String keyId});
+
+  $TaskStatusCopyWith<$Res> get status;
+}
+
+/// @nodoc
+class __$$UpdateStatusKeyImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdateStatusKeyImpl>
+    implements _$$UpdateStatusKeyImplCopyWith<$Res> {
+  __$$UpdateStatusKeyImplCopyWithImpl(
+      _$UpdateStatusKeyImpl _value, $Res Function(_$UpdateStatusKeyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+    Object? keyId = null,
+  }) {
+    return _then(_$UpdateStatusKeyImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as TaskStatus,
+      keyId: null == keyId
+          ? _value.keyId
+          : keyId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskStatusCopyWith<$Res> get status {
+    return $TaskStatusCopyWith<$Res>(_value.status, (value) {
+      return _then(_value.copyWith(status: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
+  const _$UpdateStatusKeyImpl({required this.status, required this.keyId});
+
+  @override
+  final TaskStatus status;
+  @override
+  final String keyId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateStatusKey(status: $status, keyId: $keyId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateStatusKeyImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.keyId, keyId) || other.keyId == keyId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status, keyId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateStatusKeyImplCopyWith<_$UpdateStatusKeyImpl> get copyWith =>
+      __$$UpdateStatusKeyImplCopyWithImpl<_$UpdateStatusKeyImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updateStatusKey(status, keyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updateStatusKey?.call(status, keyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateStatusKey != null) {
+      return updateStatusKey(status, keyId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updateStatusKey(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updateStatusKey?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateStatusKey != null) {
+      return updateStatusKey(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateStatusKey implements BulletJournalEvent {
+  const factory _UpdateStatusKey(
+      {required final TaskStatus status,
+      required final String keyId}) = _$UpdateStatusKeyImpl;
+
+  TaskStatus get status;
+  String get keyId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateStatusKeyImplCopyWith<_$UpdateStatusKeyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteCustomKeyImplCopyWith<$Res> {
+  factory _$$DeleteCustomKeyImplCopyWith(_$DeleteCustomKeyImpl value,
+          $Res Function(_$DeleteCustomKeyImpl) then) =
+      __$$DeleteCustomKeyImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String keyId});
+}
+
+/// @nodoc
+class __$$DeleteCustomKeyImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$DeleteCustomKeyImpl>
+    implements _$$DeleteCustomKeyImplCopyWith<$Res> {
+  __$$DeleteCustomKeyImplCopyWithImpl(
+      _$DeleteCustomKeyImpl _value, $Res Function(_$DeleteCustomKeyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? keyId = null,
+  }) {
+    return _then(_$DeleteCustomKeyImpl(
+      null == keyId
+          ? _value.keyId
+          : keyId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
+  const _$DeleteCustomKeyImpl(this.keyId);
+
+  @override
+  final String keyId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.deleteCustomKey(keyId: $keyId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteCustomKeyImpl &&
+            (identical(other.keyId, keyId) || other.keyId == keyId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, keyId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteCustomKeyImplCopyWith<_$DeleteCustomKeyImpl> get copyWith =>
+      __$$DeleteCustomKeyImplCopyWithImpl<_$DeleteCustomKeyImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return deleteCustomKey(keyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return deleteCustomKey?.call(keyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomKey != null) {
+      return deleteCustomKey(keyId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return deleteCustomKey(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return deleteCustomKey?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteCustomKey != null) {
+      return deleteCustomKey(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCustomKey implements BulletJournalEvent {
+  const factory _DeleteCustomKey(final String keyId) = _$DeleteCustomKeyImpl;
+
+  String get keyId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteCustomKeyImplCopyWith<_$DeleteCustomKeyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddTaskStatusImplCopyWith<$Res> {
+  factory _$$AddTaskStatusImplCopyWith(
+          _$AddTaskStatusImpl value, $Res Function(_$AddTaskStatusImpl) then) =
+      __$$AddTaskStatusImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TaskStatus status});
+
+  $TaskStatusCopyWith<$Res> get status;
+}
+
+/// @nodoc
+class __$$AddTaskStatusImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AddTaskStatusImpl>
+    implements _$$AddTaskStatusImplCopyWith<$Res> {
+  __$$AddTaskStatusImplCopyWithImpl(
+      _$AddTaskStatusImpl _value, $Res Function(_$AddTaskStatusImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$AddTaskStatusImpl(
+      null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as TaskStatus,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskStatusCopyWith<$Res> get status {
+    return $TaskStatusCopyWith<$Res>(_value.status, (value) {
+      return _then(_value.copyWith(status: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddTaskStatusImpl implements _AddTaskStatus {
+  const _$AddTaskStatusImpl(this.status);
+
+  @override
+  final TaskStatus status;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addTaskStatus(status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddTaskStatusImpl &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddTaskStatusImplCopyWith<_$AddTaskStatusImpl> get copyWith =>
+      __$$AddTaskStatusImplCopyWithImpl<_$AddTaskStatusImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return addTaskStatus(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return addTaskStatus?.call(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addTaskStatus != null) {
+      return addTaskStatus(status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return addTaskStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return addTaskStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addTaskStatus != null) {
+      return addTaskStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddTaskStatus implements BulletJournalEvent {
+  const factory _AddTaskStatus(final TaskStatus status) = _$AddTaskStatusImpl;
+
+  TaskStatus get status;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddTaskStatusImplCopyWith<_$AddTaskStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteTaskStatusImplCopyWith<$Res> {
+  factory _$$DeleteTaskStatusImplCopyWith(_$DeleteTaskStatusImpl value,
+          $Res Function(_$DeleteTaskStatusImpl) then) =
+      __$$DeleteTaskStatusImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String statusId});
+}
+
+/// @nodoc
+class __$$DeleteTaskStatusImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$DeleteTaskStatusImpl>
+    implements _$$DeleteTaskStatusImplCopyWith<$Res> {
+  __$$DeleteTaskStatusImplCopyWithImpl(_$DeleteTaskStatusImpl _value,
+      $Res Function(_$DeleteTaskStatusImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? statusId = null,
+  }) {
+    return _then(_$DeleteTaskStatusImpl(
+      null == statusId
+          ? _value.statusId
+          : statusId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
+  const _$DeleteTaskStatusImpl(this.statusId);
+
+  @override
+  final String statusId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.deleteTaskStatus(statusId: $statusId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteTaskStatusImpl &&
+            (identical(other.statusId, statusId) ||
+                other.statusId == statusId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, statusId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteTaskStatusImplCopyWith<_$DeleteTaskStatusImpl> get copyWith =>
+      __$$DeleteTaskStatusImplCopyWithImpl<_$DeleteTaskStatusImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return deleteTaskStatus(statusId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return deleteTaskStatus?.call(statusId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskStatus != null) {
+      return deleteTaskStatus(statusId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return deleteTaskStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return deleteTaskStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteTaskStatus != null) {
+      return deleteTaskStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteTaskStatus implements BulletJournalEvent {
+  const factory _DeleteTaskStatus(final String statusId) =
+      _$DeleteTaskStatusImpl;
+
+  String get statusId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteTaskStatusImplCopyWith<_$DeleteTaskStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateTaskStatusOrderImplCopyWith<$Res> {
+  factory _$$UpdateTaskStatusOrderImplCopyWith(
+          _$UpdateTaskStatusOrderImpl value,
+          $Res Function(_$UpdateTaskStatusOrderImpl) then) =
+      __$$UpdateTaskStatusOrderImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String statusId, int newOrder});
+}
+
+/// @nodoc
+class __$$UpdateTaskStatusOrderImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdateTaskStatusOrderImpl>
+    implements _$$UpdateTaskStatusOrderImplCopyWith<$Res> {
+  __$$UpdateTaskStatusOrderImplCopyWithImpl(_$UpdateTaskStatusOrderImpl _value,
+      $Res Function(_$UpdateTaskStatusOrderImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? statusId = null,
+    Object? newOrder = null,
+  }) {
+    return _then(_$UpdateTaskStatusOrderImpl(
+      statusId: null == statusId
+          ? _value.statusId
+          : statusId // ignore: cast_nullable_to_non_nullable
+              as String,
+      newOrder: null == newOrder
+          ? _value.newOrder
+          : newOrder // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
+  const _$UpdateTaskStatusOrderImpl(
+      {required this.statusId, required this.newOrder});
+
+  @override
+  final String statusId;
+  @override
+  final int newOrder;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateTaskStatusOrder(statusId: $statusId, newOrder: $newOrder)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTaskStatusOrderImpl &&
+            (identical(other.statusId, statusId) ||
+                other.statusId == statusId) &&
+            (identical(other.newOrder, newOrder) ||
+                other.newOrder == newOrder));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, statusId, newOrder);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTaskStatusOrderImplCopyWith<_$UpdateTaskStatusOrderImpl>
+      get copyWith => __$$UpdateTaskStatusOrderImplCopyWithImpl<
+          _$UpdateTaskStatusOrderImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updateTaskStatusOrder(statusId, newOrder);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updateTaskStatusOrder?.call(statusId, newOrder);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateTaskStatusOrder != null) {
+      return updateTaskStatusOrder(statusId, newOrder);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updateTaskStatusOrder(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updateTaskStatusOrder?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateTaskStatusOrder != null) {
+      return updateTaskStatusOrder(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTaskStatusOrder implements BulletJournalEvent {
+  const factory _UpdateTaskStatusOrder(
+      {required final String statusId,
+      required final int newOrder}) = _$UpdateTaskStatusOrderImpl;
+
+  String get statusId;
+  int get newOrder;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateTaskStatusOrderImplCopyWith<_$UpdateTaskStatusOrderImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddDiaryImplCopyWith<$Res> {
+  factory _$$AddDiaryImplCopyWith(
+          _$AddDiaryImpl value, $Res Function(_$AddDiaryImpl) then) =
+      __$$AddDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Diary diary});
+
+  $DiaryCopyWith<$Res> get diary;
+}
+
+/// @nodoc
+class __$$AddDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AddDiaryImpl>
+    implements _$$AddDiaryImplCopyWith<$Res> {
+  __$$AddDiaryImplCopyWithImpl(
+      _$AddDiaryImpl _value, $Res Function(_$AddDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diary = null,
+  }) {
+    return _then(_$AddDiaryImpl(
+      null == diary
+          ? _value.diary
+          : diary // ignore: cast_nullable_to_non_nullable
+              as Diary,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DiaryCopyWith<$Res> get diary {
+    return $DiaryCopyWith<$Res>(_value.diary, (value) {
+      return _then(_value.copyWith(diary: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddDiaryImpl implements _AddDiary {
+  const _$AddDiaryImpl(this.diary);
+
+  @override
+  final Diary diary;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addDiary(diary: $diary)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddDiaryImpl &&
+            (identical(other.diary, diary) || other.diary == diary));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diary);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddDiaryImplCopyWith<_$AddDiaryImpl> get copyWith =>
+      __$$AddDiaryImplCopyWithImpl<_$AddDiaryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return addDiary(diary);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return addDiary?.call(diary);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addDiary != null) {
+      return addDiary(diary);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return addDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return addDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addDiary != null) {
+      return addDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddDiary implements BulletJournalEvent {
+  const factory _AddDiary(final Diary diary) = _$AddDiaryImpl;
+
+  Diary get diary;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddDiaryImplCopyWith<_$AddDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteDiaryImplCopyWith<$Res> {
+  factory _$$DeleteDiaryImplCopyWith(
+          _$DeleteDiaryImpl value, $Res Function(_$DeleteDiaryImpl) then) =
+      __$$DeleteDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId});
+}
+
+/// @nodoc
+class __$$DeleteDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$DeleteDiaryImpl>
+    implements _$$DeleteDiaryImplCopyWith<$Res> {
+  __$$DeleteDiaryImplCopyWithImpl(
+      _$DeleteDiaryImpl _value, $Res Function(_$DeleteDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+  }) {
+    return _then(_$DeleteDiaryImpl(
+      null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteDiaryImpl implements _DeleteDiary {
+  const _$DeleteDiaryImpl(this.diaryId);
+
+  @override
+  final String diaryId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.deleteDiary(diaryId: $diaryId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteDiaryImplCopyWith<_$DeleteDiaryImpl> get copyWith =>
+      __$$DeleteDiaryImplCopyWithImpl<_$DeleteDiaryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return deleteDiary(diaryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return deleteDiary?.call(diaryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteDiary != null) {
+      return deleteDiary(diaryId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return deleteDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return deleteDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteDiary != null) {
+      return deleteDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteDiary implements BulletJournalEvent {
+  const factory _DeleteDiary(final String diaryId) = _$DeleteDiaryImpl;
+
+  String get diaryId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteDiaryImplCopyWith<_$DeleteDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddEntryToDiaryImplCopyWith<$Res> {
+  factory _$$AddEntryToDiaryImplCopyWith(_$AddEntryToDiaryImpl value,
+          $Res Function(_$AddEntryToDiaryImpl) then) =
+      __$$AddEntryToDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, BulletEntry entry});
+
+  $BulletEntryCopyWith<$Res> get entry;
+}
+
+/// @nodoc
+class __$$AddEntryToDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AddEntryToDiaryImpl>
+    implements _$$AddEntryToDiaryImplCopyWith<$Res> {
+  __$$AddEntryToDiaryImplCopyWithImpl(
+      _$AddEntryToDiaryImpl _value, $Res Function(_$AddEntryToDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? entry = null,
+  }) {
+    return _then(_$AddEntryToDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entry: null == entry
+          ? _value.entry
+          : entry // ignore: cast_nullable_to_non_nullable
+              as BulletEntry,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BulletEntryCopyWith<$Res> get entry {
+    return $BulletEntryCopyWith<$Res>(_value.entry, (value) {
+      return _then(_value.copyWith(entry: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
+  const _$AddEntryToDiaryImpl({required this.diaryId, required this.entry});
+
+  @override
+  final String diaryId;
+  @override
+  final BulletEntry entry;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addEntryToDiary(diaryId: $diaryId, entry: $entry)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddEntryToDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.entry, entry) || other.entry == entry));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, entry);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddEntryToDiaryImplCopyWith<_$AddEntryToDiaryImpl> get copyWith =>
+      __$$AddEntryToDiaryImplCopyWithImpl<_$AddEntryToDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return addEntryToDiary(diaryId, entry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return addEntryToDiary?.call(diaryId, entry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addEntryToDiary != null) {
+      return addEntryToDiary(diaryId, entry);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return addEntryToDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return addEntryToDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addEntryToDiary != null) {
+      return addEntryToDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddEntryToDiary implements BulletJournalEvent {
+  const factory _AddEntryToDiary(
+      {required final String diaryId,
+      required final BulletEntry entry}) = _$AddEntryToDiaryImpl;
+
+  String get diaryId;
+  BulletEntry get entry;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddEntryToDiaryImplCopyWith<_$AddEntryToDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleTaskInDiaryImplCopyWith<$Res> {
+  factory _$$ToggleTaskInDiaryImplCopyWith(_$ToggleTaskInDiaryImpl value,
+          $Res Function(_$ToggleTaskInDiaryImpl) then) =
+      __$$ToggleTaskInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String entryId, String taskId});
+}
+
+/// @nodoc
+class __$$ToggleTaskInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$ToggleTaskInDiaryImpl>
+    implements _$$ToggleTaskInDiaryImplCopyWith<$Res> {
+  __$$ToggleTaskInDiaryImplCopyWithImpl(_$ToggleTaskInDiaryImpl _value,
+      $Res Function(_$ToggleTaskInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? entryId = null,
+    Object? taskId = null,
+  }) {
+    return _then(_$ToggleTaskInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      taskId: null == taskId
+          ? _value.taskId
+          : taskId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
+  const _$ToggleTaskInDiaryImpl(
+      {required this.diaryId, required this.entryId, required this.taskId});
+
+  @override
+  final String diaryId;
+  @override
+  final String entryId;
+  @override
+  final String taskId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.toggleTaskInDiary(diaryId: $diaryId, entryId: $entryId, taskId: $taskId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleTaskInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.taskId, taskId) || other.taskId == taskId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, entryId, taskId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleTaskInDiaryImplCopyWith<_$ToggleTaskInDiaryImpl> get copyWith =>
+      __$$ToggleTaskInDiaryImplCopyWithImpl<_$ToggleTaskInDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return toggleTaskInDiary(diaryId, entryId, taskId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return toggleTaskInDiary?.call(diaryId, entryId, taskId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (toggleTaskInDiary != null) {
+      return toggleTaskInDiary(diaryId, entryId, taskId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return toggleTaskInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return toggleTaskInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (toggleTaskInDiary != null) {
+      return toggleTaskInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleTaskInDiary implements BulletJournalEvent {
+  const factory _ToggleTaskInDiary(
+      {required final String diaryId,
+      required final String entryId,
+      required final String taskId}) = _$ToggleTaskInDiaryImpl;
+
+  String get diaryId;
+  String get entryId;
+  String get taskId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleTaskInDiaryImplCopyWith<_$ToggleTaskInDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SnoozeTaskInDiaryImplCopyWith<$Res> {
+  factory _$$SnoozeTaskInDiaryImplCopyWith(_$SnoozeTaskInDiaryImpl value,
+          $Res Function(_$SnoozeTaskInDiaryImpl) then) =
+      __$$SnoozeTaskInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String entryId, String taskId, Duration postpone});
+}
+
+/// @nodoc
+class __$$SnoozeTaskInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$SnoozeTaskInDiaryImpl>
+    implements _$$SnoozeTaskInDiaryImplCopyWith<$Res> {
+  __$$SnoozeTaskInDiaryImplCopyWithImpl(_$SnoozeTaskInDiaryImpl _value,
+      $Res Function(_$SnoozeTaskInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? entryId = null,
+    Object? taskId = null,
+    Object? postpone = null,
+  }) {
+    return _then(_$SnoozeTaskInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      taskId: null == taskId
+          ? _value.taskId
+          : taskId // ignore: cast_nullable_to_non_nullable
+              as String,
+      postpone: null == postpone
+          ? _value.postpone
+          : postpone // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
+  const _$SnoozeTaskInDiaryImpl(
+      {required this.diaryId,
+      required this.entryId,
+      required this.taskId,
+      required this.postpone});
+
+  @override
+  final String diaryId;
+  @override
+  final String entryId;
+  @override
+  final String taskId;
+  @override
+  final Duration postpone;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.snoozeTaskInDiary(diaryId: $diaryId, entryId: $entryId, taskId: $taskId, postpone: $postpone)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SnoozeTaskInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.taskId, taskId) || other.taskId == taskId) &&
+            (identical(other.postpone, postpone) ||
+                other.postpone == postpone));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, diaryId, entryId, taskId, postpone);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SnoozeTaskInDiaryImplCopyWith<_$SnoozeTaskInDiaryImpl> get copyWith =>
+      __$$SnoozeTaskInDiaryImplCopyWithImpl<_$SnoozeTaskInDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return snoozeTaskInDiary(diaryId, entryId, taskId, postpone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return snoozeTaskInDiary?.call(diaryId, entryId, taskId, postpone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (snoozeTaskInDiary != null) {
+      return snoozeTaskInDiary(diaryId, entryId, taskId, postpone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return snoozeTaskInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return snoozeTaskInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (snoozeTaskInDiary != null) {
+      return snoozeTaskInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SnoozeTaskInDiary implements BulletJournalEvent {
+  const factory _SnoozeTaskInDiary(
+      {required final String diaryId,
+      required final String entryId,
+      required final String taskId,
+      required final Duration postpone}) = _$SnoozeTaskInDiaryImpl;
+
+  String get diaryId;
+  String get entryId;
+  String get taskId;
+  Duration get postpone;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SnoozeTaskInDiaryImplCopyWith<_$SnoozeTaskInDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateEntryImplCopyWith<$Res> {
+  factory _$$UpdateEntryImplCopyWith(
+          _$UpdateEntryImpl value, $Res Function(_$UpdateEntryImpl) then) =
+      __$$UpdateEntryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String entryId, BulletEntry updatedEntry});
+
+  $BulletEntryCopyWith<$Res> get updatedEntry;
+}
+
+/// @nodoc
+class __$$UpdateEntryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdateEntryImpl>
+    implements _$$UpdateEntryImplCopyWith<$Res> {
+  __$$UpdateEntryImplCopyWithImpl(
+      _$UpdateEntryImpl _value, $Res Function(_$UpdateEntryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? entryId = null,
+    Object? updatedEntry = null,
+  }) {
+    return _then(_$UpdateEntryImpl(
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedEntry: null == updatedEntry
+          ? _value.updatedEntry
+          : updatedEntry // ignore: cast_nullable_to_non_nullable
+              as BulletEntry,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BulletEntryCopyWith<$Res> get updatedEntry {
+    return $BulletEntryCopyWith<$Res>(_value.updatedEntry, (value) {
+      return _then(_value.copyWith(updatedEntry: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateEntryImpl implements _UpdateEntry {
+  const _$UpdateEntryImpl({required this.entryId, required this.updatedEntry});
+
+  @override
+  final String entryId;
+  @override
+  final BulletEntry updatedEntry;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateEntry(entryId: $entryId, updatedEntry: $updatedEntry)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateEntryImpl &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.updatedEntry, updatedEntry) ||
+                other.updatedEntry == updatedEntry));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, entryId, updatedEntry);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateEntryImplCopyWith<_$UpdateEntryImpl> get copyWith =>
+      __$$UpdateEntryImplCopyWithImpl<_$UpdateEntryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updateEntry(entryId, updatedEntry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updateEntry?.call(entryId, updatedEntry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateEntry != null) {
+      return updateEntry(entryId, updatedEntry);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updateEntry(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updateEntry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateEntry != null) {
+      return updateEntry(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateEntry implements BulletJournalEvent {
+  const factory _UpdateEntry(
+      {required final String entryId,
+      required final BulletEntry updatedEntry}) = _$UpdateEntryImpl;
+
+  String get entryId;
+  BulletEntry get updatedEntry;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateEntryImplCopyWith<_$UpdateEntryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateEntryInDiaryImplCopyWith<$Res> {
+  factory _$$UpdateEntryInDiaryImplCopyWith(_$UpdateEntryInDiaryImpl value,
+          $Res Function(_$UpdateEntryInDiaryImpl) then) =
+      __$$UpdateEntryInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String entryId, BulletEntry updatedEntry});
+
+  $BulletEntryCopyWith<$Res> get updatedEntry;
+}
+
+/// @nodoc
+class __$$UpdateEntryInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdateEntryInDiaryImpl>
+    implements _$$UpdateEntryInDiaryImplCopyWith<$Res> {
+  __$$UpdateEntryInDiaryImplCopyWithImpl(_$UpdateEntryInDiaryImpl _value,
+      $Res Function(_$UpdateEntryInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? entryId = null,
+    Object? updatedEntry = null,
+  }) {
+    return _then(_$UpdateEntryInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedEntry: null == updatedEntry
+          ? _value.updatedEntry
+          : updatedEntry // ignore: cast_nullable_to_non_nullable
+              as BulletEntry,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BulletEntryCopyWith<$Res> get updatedEntry {
+    return $BulletEntryCopyWith<$Res>(_value.updatedEntry, (value) {
+      return _then(_value.copyWith(updatedEntry: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
+  const _$UpdateEntryInDiaryImpl(
+      {required this.diaryId,
+      required this.entryId,
+      required this.updatedEntry});
+
+  @override
+  final String diaryId;
+  @override
+  final String entryId;
+  @override
+  final BulletEntry updatedEntry;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateEntryInDiary(diaryId: $diaryId, entryId: $entryId, updatedEntry: $updatedEntry)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateEntryInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.updatedEntry, updatedEntry) ||
+                other.updatedEntry == updatedEntry));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, entryId, updatedEntry);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateEntryInDiaryImplCopyWith<_$UpdateEntryInDiaryImpl> get copyWith =>
+      __$$UpdateEntryInDiaryImplCopyWithImpl<_$UpdateEntryInDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updateEntryInDiary(diaryId, entryId, updatedEntry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updateEntryInDiary?.call(diaryId, entryId, updatedEntry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateEntryInDiary != null) {
+      return updateEntryInDiary(diaryId, entryId, updatedEntry);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updateEntryInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updateEntryInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateEntryInDiary != null) {
+      return updateEntryInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateEntryInDiary implements BulletJournalEvent {
+  const factory _UpdateEntryInDiary(
+      {required final String diaryId,
+      required final String entryId,
+      required final BulletEntry updatedEntry}) = _$UpdateEntryInDiaryImpl;
+
+  String get diaryId;
+  String get entryId;
+  BulletEntry get updatedEntry;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateEntryInDiaryImplCopyWith<_$UpdateEntryInDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateDiaryImplCopyWith<$Res> {
+  factory _$$UpdateDiaryImplCopyWith(
+          _$UpdateDiaryImpl value, $Res Function(_$UpdateDiaryImpl) then) =
+      __$$UpdateDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, Diary updatedDiary});
+
+  $DiaryCopyWith<$Res> get updatedDiary;
+}
+
+/// @nodoc
+class __$$UpdateDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdateDiaryImpl>
+    implements _$$UpdateDiaryImplCopyWith<$Res> {
+  __$$UpdateDiaryImplCopyWithImpl(
+      _$UpdateDiaryImpl _value, $Res Function(_$UpdateDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? updatedDiary = null,
+  }) {
+    return _then(_$UpdateDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedDiary: null == updatedDiary
+          ? _value.updatedDiary
+          : updatedDiary // ignore: cast_nullable_to_non_nullable
+              as Diary,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DiaryCopyWith<$Res> get updatedDiary {
+    return $DiaryCopyWith<$Res>(_value.updatedDiary, (value) {
+      return _then(_value.copyWith(updatedDiary: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateDiaryImpl implements _UpdateDiary {
+  const _$UpdateDiaryImpl({required this.diaryId, required this.updatedDiary});
+
+  @override
+  final String diaryId;
+  @override
+  final Diary updatedDiary;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateDiary(diaryId: $diaryId, updatedDiary: $updatedDiary)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.updatedDiary, updatedDiary) ||
+                other.updatedDiary == updatedDiary));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, updatedDiary);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateDiaryImplCopyWith<_$UpdateDiaryImpl> get copyWith =>
+      __$$UpdateDiaryImplCopyWithImpl<_$UpdateDiaryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updateDiary(diaryId, updatedDiary);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updateDiary?.call(diaryId, updatedDiary);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateDiary != null) {
+      return updateDiary(diaryId, updatedDiary);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updateDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updateDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateDiary != null) {
+      return updateDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateDiary implements BulletJournalEvent {
+  const factory _UpdateDiary(
+      {required final String diaryId,
+      required final Diary updatedDiary}) = _$UpdateDiaryImpl;
+
+  String get diaryId;
+  Diary get updatedDiary;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateDiaryImplCopyWith<_$UpdateDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReorderEntriesInDiaryImplCopyWith<$Res> {
+  factory _$$ReorderEntriesInDiaryImplCopyWith(
+          _$ReorderEntriesInDiaryImpl value,
+          $Res Function(_$ReorderEntriesInDiaryImpl) then) =
+      __$$ReorderEntriesInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, List<BulletEntry> reorderedEntries});
+}
+
+/// @nodoc
+class __$$ReorderEntriesInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$ReorderEntriesInDiaryImpl>
+    implements _$$ReorderEntriesInDiaryImplCopyWith<$Res> {
+  __$$ReorderEntriesInDiaryImplCopyWithImpl(_$ReorderEntriesInDiaryImpl _value,
+      $Res Function(_$ReorderEntriesInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? reorderedEntries = null,
+  }) {
+    return _then(_$ReorderEntriesInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      reorderedEntries: null == reorderedEntries
+          ? _value._reorderedEntries
+          : reorderedEntries // ignore: cast_nullable_to_non_nullable
+              as List<BulletEntry>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
+  const _$ReorderEntriesInDiaryImpl(
+      {required this.diaryId,
+      required final List<BulletEntry> reorderedEntries})
+      : _reorderedEntries = reorderedEntries;
+
+  @override
+  final String diaryId;
+  final List<BulletEntry> _reorderedEntries;
+  @override
+  List<BulletEntry> get reorderedEntries {
+    if (_reorderedEntries is EqualUnmodifiableListView)
+      return _reorderedEntries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reorderedEntries);
+  }
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.reorderEntriesInDiary(diaryId: $diaryId, reorderedEntries: $reorderedEntries)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReorderEntriesInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            const DeepCollectionEquality()
+                .equals(other._reorderedEntries, _reorderedEntries));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId,
+      const DeepCollectionEquality().hash(_reorderedEntries));
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReorderEntriesInDiaryImplCopyWith<_$ReorderEntriesInDiaryImpl>
+      get copyWith => __$$ReorderEntriesInDiaryImplCopyWithImpl<
+          _$ReorderEntriesInDiaryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return reorderEntriesInDiary(diaryId, reorderedEntries);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return reorderEntriesInDiary?.call(diaryId, reorderedEntries);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderEntriesInDiary != null) {
+      return reorderEntriesInDiary(diaryId, reorderedEntries);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return reorderEntriesInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return reorderEntriesInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderEntriesInDiary != null) {
+      return reorderEntriesInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReorderEntriesInDiary implements BulletJournalEvent {
+  const factory _ReorderEntriesInDiary(
+          {required final String diaryId,
+          required final List<BulletEntry> reorderedEntries}) =
+      _$ReorderEntriesInDiaryImpl;
+
+  String get diaryId;
+  List<BulletEntry> get reorderedEntries;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReorderEntriesInDiaryImplCopyWith<_$ReorderEntriesInDiaryImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddPageToDiaryImplCopyWith<$Res> {
+  factory _$$AddPageToDiaryImplCopyWith(_$AddPageToDiaryImpl value,
+          $Res Function(_$AddPageToDiaryImpl) then) =
+      __$$AddPageToDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, DiaryPage page});
+
+  $DiaryPageCopyWith<$Res> get page;
+}
+
+/// @nodoc
+class __$$AddPageToDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AddPageToDiaryImpl>
+    implements _$$AddPageToDiaryImplCopyWith<$Res> {
+  __$$AddPageToDiaryImplCopyWithImpl(
+      _$AddPageToDiaryImpl _value, $Res Function(_$AddPageToDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? page = null,
+  }) {
+    return _then(_$AddPageToDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as DiaryPage,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DiaryPageCopyWith<$Res> get page {
+    return $DiaryPageCopyWith<$Res>(_value.page, (value) {
+      return _then(_value.copyWith(page: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddPageToDiaryImpl implements _AddPageToDiary {
+  const _$AddPageToDiaryImpl({required this.diaryId, required this.page});
+
+  @override
+  final String diaryId;
+  @override
+  final DiaryPage page;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addPageToDiary(diaryId: $diaryId, page: $page)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddPageToDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.page, page) || other.page == page));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, page);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddPageToDiaryImplCopyWith<_$AddPageToDiaryImpl> get copyWith =>
+      __$$AddPageToDiaryImplCopyWithImpl<_$AddPageToDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return addPageToDiary(diaryId, page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return addPageToDiary?.call(diaryId, page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addPageToDiary != null) {
+      return addPageToDiary(diaryId, page);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return addPageToDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return addPageToDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addPageToDiary != null) {
+      return addPageToDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddPageToDiary implements BulletJournalEvent {
+  const factory _AddPageToDiary(
+      {required final String diaryId,
+      required final DiaryPage page}) = _$AddPageToDiaryImpl;
+
+  String get diaryId;
+  DiaryPage get page;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddPageToDiaryImplCopyWith<_$AddPageToDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeletePageFromDiaryImplCopyWith<$Res> {
+  factory _$$DeletePageFromDiaryImplCopyWith(_$DeletePageFromDiaryImpl value,
+          $Res Function(_$DeletePageFromDiaryImpl) then) =
+      __$$DeletePageFromDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId});
+}
+
+/// @nodoc
+class __$$DeletePageFromDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$DeletePageFromDiaryImpl>
+    implements _$$DeletePageFromDiaryImplCopyWith<$Res> {
+  __$$DeletePageFromDiaryImplCopyWithImpl(_$DeletePageFromDiaryImpl _value,
+      $Res Function(_$DeletePageFromDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+  }) {
+    return _then(_$DeletePageFromDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
+  const _$DeletePageFromDiaryImpl(
+      {required this.diaryId, required this.pageId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.deletePageFromDiary(diaryId: $diaryId, pageId: $pageId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletePageFromDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletePageFromDiaryImplCopyWith<_$DeletePageFromDiaryImpl> get copyWith =>
+      __$$DeletePageFromDiaryImplCopyWithImpl<_$DeletePageFromDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return deletePageFromDiary(diaryId, pageId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return deletePageFromDiary?.call(diaryId, pageId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deletePageFromDiary != null) {
+      return deletePageFromDiary(diaryId, pageId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return deletePageFromDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return deletePageFromDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deletePageFromDiary != null) {
+      return deletePageFromDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeletePageFromDiary implements BulletJournalEvent {
+  const factory _DeletePageFromDiary(
+      {required final String diaryId,
+      required final String pageId}) = _$DeletePageFromDiaryImpl;
+
+  String get diaryId;
+  String get pageId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeletePageFromDiaryImplCopyWith<_$DeletePageFromDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatePageInDiaryImplCopyWith<$Res> {
+  factory _$$UpdatePageInDiaryImplCopyWith(_$UpdatePageInDiaryImpl value,
+          $Res Function(_$UpdatePageInDiaryImpl) then) =
+      __$$UpdatePageInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId, DiaryPage updatedPage});
+
+  $DiaryPageCopyWith<$Res> get updatedPage;
+}
+
+/// @nodoc
+class __$$UpdatePageInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdatePageInDiaryImpl>
+    implements _$$UpdatePageInDiaryImplCopyWith<$Res> {
+  __$$UpdatePageInDiaryImplCopyWithImpl(_$UpdatePageInDiaryImpl _value,
+      $Res Function(_$UpdatePageInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? updatedPage = null,
+  }) {
+    return _then(_$UpdatePageInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedPage: null == updatedPage
+          ? _value.updatedPage
+          : updatedPage // ignore: cast_nullable_to_non_nullable
+              as DiaryPage,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DiaryPageCopyWith<$Res> get updatedPage {
+    return $DiaryPageCopyWith<$Res>(_value.updatedPage, (value) {
+      return _then(_value.copyWith(updatedPage: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
+  const _$UpdatePageInDiaryImpl(
+      {required this.diaryId, required this.pageId, required this.updatedPage});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final DiaryPage updatedPage;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updatePageInDiary(diaryId: $diaryId, pageId: $pageId, updatedPage: $updatedPage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdatePageInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.updatedPage, updatedPage) ||
+                other.updatedPage == updatedPage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId, updatedPage);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdatePageInDiaryImplCopyWith<_$UpdatePageInDiaryImpl> get copyWith =>
+      __$$UpdatePageInDiaryImplCopyWithImpl<_$UpdatePageInDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updatePageInDiary(diaryId, pageId, updatedPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updatePageInDiary?.call(diaryId, pageId, updatedPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updatePageInDiary != null) {
+      return updatePageInDiary(diaryId, pageId, updatedPage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updatePageInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updatePageInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updatePageInDiary != null) {
+      return updatePageInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePageInDiary implements BulletJournalEvent {
+  const factory _UpdatePageInDiary(
+      {required final String diaryId,
+      required final String pageId,
+      required final DiaryPage updatedPage}) = _$UpdatePageInDiaryImpl;
+
+  String get diaryId;
+  String get pageId;
+  DiaryPage get updatedPage;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdatePageInDiaryImplCopyWith<_$UpdatePageInDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SetCurrentPageInDiaryImplCopyWith<$Res> {
+  factory _$$SetCurrentPageInDiaryImplCopyWith(
+          _$SetCurrentPageInDiaryImpl value,
+          $Res Function(_$SetCurrentPageInDiaryImpl) then) =
+      __$$SetCurrentPageInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String? pageId});
+}
+
+/// @nodoc
+class __$$SetCurrentPageInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$SetCurrentPageInDiaryImpl>
+    implements _$$SetCurrentPageInDiaryImplCopyWith<$Res> {
+  __$$SetCurrentPageInDiaryImplCopyWithImpl(_$SetCurrentPageInDiaryImpl _value,
+      $Res Function(_$SetCurrentPageInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = freezed,
+  }) {
+    return _then(_$SetCurrentPageInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: freezed == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
+  const _$SetCurrentPageInDiaryImpl(
+      {required this.diaryId, required this.pageId});
+
+  @override
+  final String diaryId;
+  @override
+  final String? pageId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.setCurrentPageInDiary(diaryId: $diaryId, pageId: $pageId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetCurrentPageInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetCurrentPageInDiaryImplCopyWith<_$SetCurrentPageInDiaryImpl>
+      get copyWith => __$$SetCurrentPageInDiaryImplCopyWithImpl<
+          _$SetCurrentPageInDiaryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return setCurrentPageInDiary(diaryId, pageId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return setCurrentPageInDiary?.call(diaryId, pageId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (setCurrentPageInDiary != null) {
+      return setCurrentPageInDiary(diaryId, pageId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return setCurrentPageInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return setCurrentPageInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (setCurrentPageInDiary != null) {
+      return setCurrentPageInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetCurrentPageInDiary implements BulletJournalEvent {
+  const factory _SetCurrentPageInDiary(
+      {required final String diaryId,
+      required final String? pageId}) = _$SetCurrentPageInDiaryImpl;
+
+  String get diaryId;
+  String? get pageId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SetCurrentPageInDiaryImplCopyWith<_$SetCurrentPageInDiaryImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TogglePageFavoriteInDiaryImplCopyWith<$Res> {
+  factory _$$TogglePageFavoriteInDiaryImplCopyWith(
+          _$TogglePageFavoriteInDiaryImpl value,
+          $Res Function(_$TogglePageFavoriteInDiaryImpl) then) =
+      __$$TogglePageFavoriteInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId});
+}
+
+/// @nodoc
+class __$$TogglePageFavoriteInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res,
+        _$TogglePageFavoriteInDiaryImpl>
+    implements _$$TogglePageFavoriteInDiaryImplCopyWith<$Res> {
+  __$$TogglePageFavoriteInDiaryImplCopyWithImpl(
+      _$TogglePageFavoriteInDiaryImpl _value,
+      $Res Function(_$TogglePageFavoriteInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+  }) {
+    return _then(_$TogglePageFavoriteInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
+  const _$TogglePageFavoriteInDiaryImpl(
+      {required this.diaryId, required this.pageId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.togglePageFavoriteInDiary(diaryId: $diaryId, pageId: $pageId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TogglePageFavoriteInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TogglePageFavoriteInDiaryImplCopyWith<_$TogglePageFavoriteInDiaryImpl>
+      get copyWith => __$$TogglePageFavoriteInDiaryImplCopyWithImpl<
+          _$TogglePageFavoriteInDiaryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return togglePageFavoriteInDiary(diaryId, pageId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return togglePageFavoriteInDiary?.call(diaryId, pageId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (togglePageFavoriteInDiary != null) {
+      return togglePageFavoriteInDiary(diaryId, pageId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return togglePageFavoriteInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return togglePageFavoriteInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (togglePageFavoriteInDiary != null) {
+      return togglePageFavoriteInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TogglePageFavoriteInDiary implements BulletJournalEvent {
+  const factory _TogglePageFavoriteInDiary(
+      {required final String diaryId,
+      required final String pageId}) = _$TogglePageFavoriteInDiaryImpl;
+
+  String get diaryId;
+  String get pageId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TogglePageFavoriteInDiaryImplCopyWith<_$TogglePageFavoriteInDiaryImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReorderPagesInDiaryImplCopyWith<$Res> {
+  factory _$$ReorderPagesInDiaryImplCopyWith(_$ReorderPagesInDiaryImpl value,
+          $Res Function(_$ReorderPagesInDiaryImpl) then) =
+      __$$ReorderPagesInDiaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, List<DiaryPage> reorderedPages});
+}
+
+/// @nodoc
+class __$$ReorderPagesInDiaryImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$ReorderPagesInDiaryImpl>
+    implements _$$ReorderPagesInDiaryImplCopyWith<$Res> {
+  __$$ReorderPagesInDiaryImplCopyWithImpl(_$ReorderPagesInDiaryImpl _value,
+      $Res Function(_$ReorderPagesInDiaryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? reorderedPages = null,
+  }) {
+    return _then(_$ReorderPagesInDiaryImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      reorderedPages: null == reorderedPages
+          ? _value._reorderedPages
+          : reorderedPages // ignore: cast_nullable_to_non_nullable
+              as List<DiaryPage>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
+  const _$ReorderPagesInDiaryImpl(
+      {required this.diaryId, required final List<DiaryPage> reorderedPages})
+      : _reorderedPages = reorderedPages;
+
+  @override
+  final String diaryId;
+  final List<DiaryPage> _reorderedPages;
+  @override
+  List<DiaryPage> get reorderedPages {
+    if (_reorderedPages is EqualUnmodifiableListView) return _reorderedPages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reorderedPages);
+  }
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.reorderPagesInDiary(diaryId: $diaryId, reorderedPages: $reorderedPages)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReorderPagesInDiaryImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            const DeepCollectionEquality()
+                .equals(other._reorderedPages, _reorderedPages));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId,
+      const DeepCollectionEquality().hash(_reorderedPages));
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReorderPagesInDiaryImplCopyWith<_$ReorderPagesInDiaryImpl> get copyWith =>
+      __$$ReorderPagesInDiaryImplCopyWithImpl<_$ReorderPagesInDiaryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return reorderPagesInDiary(diaryId, reorderedPages);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return reorderPagesInDiary?.call(diaryId, reorderedPages);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderPagesInDiary != null) {
+      return reorderPagesInDiary(diaryId, reorderedPages);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return reorderPagesInDiary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return reorderPagesInDiary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderPagesInDiary != null) {
+      return reorderPagesInDiary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReorderPagesInDiary implements BulletJournalEvent {
+  const factory _ReorderPagesInDiary(
+          {required final String diaryId,
+          required final List<DiaryPage> reorderedPages}) =
+      _$ReorderPagesInDiaryImpl;
+
+  String get diaryId;
+  List<DiaryPage> get reorderedPages;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReorderPagesInDiaryImplCopyWith<_$ReorderPagesInDiaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddEntryToPageImplCopyWith<$Res> {
+  factory _$$AddEntryToPageImplCopyWith(_$AddEntryToPageImpl value,
+          $Res Function(_$AddEntryToPageImpl) then) =
+      __$$AddEntryToPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId, BulletEntry entry});
+
+  $BulletEntryCopyWith<$Res> get entry;
+}
+
+/// @nodoc
+class __$$AddEntryToPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AddEntryToPageImpl>
+    implements _$$AddEntryToPageImplCopyWith<$Res> {
+  __$$AddEntryToPageImplCopyWithImpl(
+      _$AddEntryToPageImpl _value, $Res Function(_$AddEntryToPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? entry = null,
+  }) {
+    return _then(_$AddEntryToPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entry: null == entry
+          ? _value.entry
+          : entry // ignore: cast_nullable_to_non_nullable
+              as BulletEntry,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BulletEntryCopyWith<$Res> get entry {
+    return $BulletEntryCopyWith<$Res>(_value.entry, (value) {
+      return _then(_value.copyWith(entry: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddEntryToPageImpl implements _AddEntryToPage {
+  const _$AddEntryToPageImpl(
+      {required this.diaryId, required this.pageId, required this.entry});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final BulletEntry entry;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addEntryToPage(diaryId: $diaryId, pageId: $pageId, entry: $entry)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddEntryToPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.entry, entry) || other.entry == entry));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId, entry);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddEntryToPageImplCopyWith<_$AddEntryToPageImpl> get copyWith =>
+      __$$AddEntryToPageImplCopyWithImpl<_$AddEntryToPageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return addEntryToPage(diaryId, pageId, entry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return addEntryToPage?.call(diaryId, pageId, entry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addEntryToPage != null) {
+      return addEntryToPage(diaryId, pageId, entry);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return addEntryToPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return addEntryToPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addEntryToPage != null) {
+      return addEntryToPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddEntryToPage implements BulletJournalEvent {
+  const factory _AddEntryToPage(
+      {required final String diaryId,
+      required final String pageId,
+      required final BulletEntry entry}) = _$AddEntryToPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  BulletEntry get entry;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddEntryToPageImplCopyWith<_$AddEntryToPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateEntryInPageImplCopyWith<$Res> {
+  factory _$$UpdateEntryInPageImplCopyWith(_$UpdateEntryInPageImpl value,
+          $Res Function(_$UpdateEntryInPageImpl) then) =
+      __$$UpdateEntryInPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId,
+      String pageId,
+      String entryId,
+      BulletEntry updatedEntry});
+
+  $BulletEntryCopyWith<$Res> get updatedEntry;
+}
+
+/// @nodoc
+class __$$UpdateEntryInPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdateEntryInPageImpl>
+    implements _$$UpdateEntryInPageImplCopyWith<$Res> {
+  __$$UpdateEntryInPageImplCopyWithImpl(_$UpdateEntryInPageImpl _value,
+      $Res Function(_$UpdateEntryInPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? entryId = null,
+    Object? updatedEntry = null,
+  }) {
+    return _then(_$UpdateEntryInPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedEntry: null == updatedEntry
+          ? _value.updatedEntry
+          : updatedEntry // ignore: cast_nullable_to_non_nullable
+              as BulletEntry,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BulletEntryCopyWith<$Res> get updatedEntry {
+    return $BulletEntryCopyWith<$Res>(_value.updatedEntry, (value) {
+      return _then(_value.copyWith(updatedEntry: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
+  const _$UpdateEntryInPageImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.entryId,
+      required this.updatedEntry});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String entryId;
+  @override
+  final BulletEntry updatedEntry;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateEntryInPage(diaryId: $diaryId, pageId: $pageId, entryId: $entryId, updatedEntry: $updatedEntry)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateEntryInPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.updatedEntry, updatedEntry) ||
+                other.updatedEntry == updatedEntry));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, diaryId, pageId, entryId, updatedEntry);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateEntryInPageImplCopyWith<_$UpdateEntryInPageImpl> get copyWith =>
+      __$$UpdateEntryInPageImplCopyWithImpl<_$UpdateEntryInPageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updateEntryInPage(diaryId, pageId, entryId, updatedEntry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updateEntryInPage?.call(diaryId, pageId, entryId, updatedEntry);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateEntryInPage != null) {
+      return updateEntryInPage(diaryId, pageId, entryId, updatedEntry);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updateEntryInPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updateEntryInPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateEntryInPage != null) {
+      return updateEntryInPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateEntryInPage implements BulletJournalEvent {
+  const factory _UpdateEntryInPage(
+      {required final String diaryId,
+      required final String pageId,
+      required final String entryId,
+      required final BulletEntry updatedEntry}) = _$UpdateEntryInPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get entryId;
+  BulletEntry get updatedEntry;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateEntryInPageImplCopyWith<_$UpdateEntryInPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReorderEntriesInPageImplCopyWith<$Res> {
+  factory _$$ReorderEntriesInPageImplCopyWith(_$ReorderEntriesInPageImpl value,
+          $Res Function(_$ReorderEntriesInPageImpl) then) =
+      __$$ReorderEntriesInPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId, String pageId, List<BulletEntry> reorderedEntries});
+}
+
+/// @nodoc
+class __$$ReorderEntriesInPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$ReorderEntriesInPageImpl>
+    implements _$$ReorderEntriesInPageImplCopyWith<$Res> {
+  __$$ReorderEntriesInPageImplCopyWithImpl(_$ReorderEntriesInPageImpl _value,
+      $Res Function(_$ReorderEntriesInPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? reorderedEntries = null,
+  }) {
+    return _then(_$ReorderEntriesInPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      reorderedEntries: null == reorderedEntries
+          ? _value._reorderedEntries
+          : reorderedEntries // ignore: cast_nullable_to_non_nullable
+              as List<BulletEntry>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
+  const _$ReorderEntriesInPageImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required final List<BulletEntry> reorderedEntries})
+      : _reorderedEntries = reorderedEntries;
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  final List<BulletEntry> _reorderedEntries;
+  @override
+  List<BulletEntry> get reorderedEntries {
+    if (_reorderedEntries is EqualUnmodifiableListView)
+      return _reorderedEntries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reorderedEntries);
+  }
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.reorderEntriesInPage(diaryId: $diaryId, pageId: $pageId, reorderedEntries: $reorderedEntries)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReorderEntriesInPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            const DeepCollectionEquality()
+                .equals(other._reorderedEntries, _reorderedEntries));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId,
+      const DeepCollectionEquality().hash(_reorderedEntries));
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReorderEntriesInPageImplCopyWith<_$ReorderEntriesInPageImpl>
+      get copyWith =>
+          __$$ReorderEntriesInPageImplCopyWithImpl<_$ReorderEntriesInPageImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return reorderEntriesInPage(diaryId, pageId, reorderedEntries);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return reorderEntriesInPage?.call(diaryId, pageId, reorderedEntries);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderEntriesInPage != null) {
+      return reorderEntriesInPage(diaryId, pageId, reorderedEntries);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return reorderEntriesInPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return reorderEntriesInPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderEntriesInPage != null) {
+      return reorderEntriesInPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReorderEntriesInPage implements BulletJournalEvent {
+  const factory _ReorderEntriesInPage(
+          {required final String diaryId,
+          required final String pageId,
+          required final List<BulletEntry> reorderedEntries}) =
+      _$ReorderEntriesInPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  List<BulletEntry> get reorderedEntries;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReorderEntriesInPageImplCopyWith<_$ReorderEntriesInPageImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleTaskInPageImplCopyWith<$Res> {
+  factory _$$ToggleTaskInPageImplCopyWith(_$ToggleTaskInPageImpl value,
+          $Res Function(_$ToggleTaskInPageImpl) then) =
+      __$$ToggleTaskInPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId, String entryId, String taskId});
+}
+
+/// @nodoc
+class __$$ToggleTaskInPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$ToggleTaskInPageImpl>
+    implements _$$ToggleTaskInPageImplCopyWith<$Res> {
+  __$$ToggleTaskInPageImplCopyWithImpl(_$ToggleTaskInPageImpl _value,
+      $Res Function(_$ToggleTaskInPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? entryId = null,
+    Object? taskId = null,
+  }) {
+    return _then(_$ToggleTaskInPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      taskId: null == taskId
+          ? _value.taskId
+          : taskId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
+  const _$ToggleTaskInPageImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.entryId,
+      required this.taskId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String entryId;
+  @override
+  final String taskId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.toggleTaskInPage(diaryId: $diaryId, pageId: $pageId, entryId: $entryId, taskId: $taskId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleTaskInPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.taskId, taskId) || other.taskId == taskId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, diaryId, pageId, entryId, taskId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleTaskInPageImplCopyWith<_$ToggleTaskInPageImpl> get copyWith =>
+      __$$ToggleTaskInPageImplCopyWithImpl<_$ToggleTaskInPageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return toggleTaskInPage(diaryId, pageId, entryId, taskId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return toggleTaskInPage?.call(diaryId, pageId, entryId, taskId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (toggleTaskInPage != null) {
+      return toggleTaskInPage(diaryId, pageId, entryId, taskId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return toggleTaskInPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return toggleTaskInPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (toggleTaskInPage != null) {
+      return toggleTaskInPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleTaskInPage implements BulletJournalEvent {
+  const factory _ToggleTaskInPage(
+      {required final String diaryId,
+      required final String pageId,
+      required final String entryId,
+      required final String taskId}) = _$ToggleTaskInPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get entryId;
+  String get taskId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleTaskInPageImplCopyWith<_$ToggleTaskInPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SnoozeTaskInPageImplCopyWith<$Res> {
+  factory _$$SnoozeTaskInPageImplCopyWith(_$SnoozeTaskInPageImpl value,
+          $Res Function(_$SnoozeTaskInPageImpl) then) =
+      __$$SnoozeTaskInPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId,
+      String pageId,
+      String entryId,
+      String taskId,
+      Duration postpone});
+}
+
+/// @nodoc
+class __$$SnoozeTaskInPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$SnoozeTaskInPageImpl>
+    implements _$$SnoozeTaskInPageImplCopyWith<$Res> {
+  __$$SnoozeTaskInPageImplCopyWithImpl(_$SnoozeTaskInPageImpl _value,
+      $Res Function(_$SnoozeTaskInPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? entryId = null,
+    Object? taskId = null,
+    Object? postpone = null,
+  }) {
+    return _then(_$SnoozeTaskInPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      taskId: null == taskId
+          ? _value.taskId
+          : taskId // ignore: cast_nullable_to_non_nullable
+              as String,
+      postpone: null == postpone
+          ? _value.postpone
+          : postpone // ignore: cast_nullable_to_non_nullable
+              as Duration,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
+  const _$SnoozeTaskInPageImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.entryId,
+      required this.taskId,
+      required this.postpone});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String entryId;
+  @override
+  final String taskId;
+  @override
+  final Duration postpone;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.snoozeTaskInPage(diaryId: $diaryId, pageId: $pageId, entryId: $entryId, taskId: $taskId, postpone: $postpone)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SnoozeTaskInPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.taskId, taskId) || other.taskId == taskId) &&
+            (identical(other.postpone, postpone) ||
+                other.postpone == postpone));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, diaryId, pageId, entryId, taskId, postpone);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SnoozeTaskInPageImplCopyWith<_$SnoozeTaskInPageImpl> get copyWith =>
+      __$$SnoozeTaskInPageImplCopyWithImpl<_$SnoozeTaskInPageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return snoozeTaskInPage(diaryId, pageId, entryId, taskId, postpone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return snoozeTaskInPage?.call(diaryId, pageId, entryId, taskId, postpone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (snoozeTaskInPage != null) {
+      return snoozeTaskInPage(diaryId, pageId, entryId, taskId, postpone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return snoozeTaskInPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return snoozeTaskInPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (snoozeTaskInPage != null) {
+      return snoozeTaskInPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SnoozeTaskInPage implements BulletJournalEvent {
+  const factory _SnoozeTaskInPage(
+      {required final String diaryId,
+      required final String pageId,
+      required final String entryId,
+      required final String taskId,
+      required final Duration postpone}) = _$SnoozeTaskInPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get entryId;
+  String get taskId;
+  Duration get postpone;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SnoozeTaskInPageImplCopyWith<_$SnoozeTaskInPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddSectionToPageImplCopyWith<$Res> {
+  factory _$$AddSectionToPageImplCopyWith(_$AddSectionToPageImpl value,
+          $Res Function(_$AddSectionToPageImpl) then) =
+      __$$AddSectionToPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId, DiarySection section});
+
+  $DiarySectionCopyWith<$Res> get section;
+}
+
+/// @nodoc
+class __$$AddSectionToPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AddSectionToPageImpl>
+    implements _$$AddSectionToPageImplCopyWith<$Res> {
+  __$$AddSectionToPageImplCopyWithImpl(_$AddSectionToPageImpl _value,
+      $Res Function(_$AddSectionToPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? section = null,
+  }) {
+    return _then(_$AddSectionToPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      section: null == section
+          ? _value.section
+          : section // ignore: cast_nullable_to_non_nullable
+              as DiarySection,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DiarySectionCopyWith<$Res> get section {
+    return $DiarySectionCopyWith<$Res>(_value.section, (value) {
+      return _then(_value.copyWith(section: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AddSectionToPageImpl implements _AddSectionToPage {
+  const _$AddSectionToPageImpl(
+      {required this.diaryId, required this.pageId, required this.section});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final DiarySection section;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addSectionToPage(diaryId: $diaryId, pageId: $pageId, section: $section)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddSectionToPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.section, section) || other.section == section));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId, section);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddSectionToPageImplCopyWith<_$AddSectionToPageImpl> get copyWith =>
+      __$$AddSectionToPageImplCopyWithImpl<_$AddSectionToPageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return addSectionToPage(diaryId, pageId, section);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return addSectionToPage?.call(diaryId, pageId, section);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addSectionToPage != null) {
+      return addSectionToPage(diaryId, pageId, section);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return addSectionToPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return addSectionToPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (addSectionToPage != null) {
+      return addSectionToPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddSectionToPage implements BulletJournalEvent {
+  const factory _AddSectionToPage(
+      {required final String diaryId,
+      required final String pageId,
+      required final DiarySection section}) = _$AddSectionToPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  DiarySection get section;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddSectionToPageImplCopyWith<_$AddSectionToPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteSectionFromPageImplCopyWith<$Res> {
+  factory _$$DeleteSectionFromPageImplCopyWith(
+          _$DeleteSectionFromPageImpl value,
+          $Res Function(_$DeleteSectionFromPageImpl) then) =
+      __$$DeleteSectionFromPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId, String sectionId});
+}
+
+/// @nodoc
+class __$$DeleteSectionFromPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$DeleteSectionFromPageImpl>
+    implements _$$DeleteSectionFromPageImplCopyWith<$Res> {
+  __$$DeleteSectionFromPageImplCopyWithImpl(_$DeleteSectionFromPageImpl _value,
+      $Res Function(_$DeleteSectionFromPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? sectionId = null,
+  }) {
+    return _then(_$DeleteSectionFromPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sectionId: null == sectionId
+          ? _value.sectionId
+          : sectionId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
+  const _$DeleteSectionFromPageImpl(
+      {required this.diaryId, required this.pageId, required this.sectionId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String sectionId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.deleteSectionFromPage(diaryId: $diaryId, pageId: $pageId, sectionId: $sectionId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteSectionFromPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.sectionId, sectionId) ||
+                other.sectionId == sectionId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId, sectionId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteSectionFromPageImplCopyWith<_$DeleteSectionFromPageImpl>
+      get copyWith => __$$DeleteSectionFromPageImplCopyWithImpl<
+          _$DeleteSectionFromPageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return deleteSectionFromPage(diaryId, pageId, sectionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return deleteSectionFromPage?.call(diaryId, pageId, sectionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteSectionFromPage != null) {
+      return deleteSectionFromPage(diaryId, pageId, sectionId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return deleteSectionFromPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return deleteSectionFromPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (deleteSectionFromPage != null) {
+      return deleteSectionFromPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteSectionFromPage implements BulletJournalEvent {
+  const factory _DeleteSectionFromPage(
+      {required final String diaryId,
+      required final String pageId,
+      required final String sectionId}) = _$DeleteSectionFromPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get sectionId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteSectionFromPageImplCopyWith<_$DeleteSectionFromPageImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateSectionInPageImplCopyWith<$Res> {
+  factory _$$UpdateSectionInPageImplCopyWith(_$UpdateSectionInPageImpl value,
+          $Res Function(_$UpdateSectionInPageImpl) then) =
+      __$$UpdateSectionInPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId,
+      String pageId,
+      String sectionId,
+      DiarySection updatedSection});
+
+  $DiarySectionCopyWith<$Res> get updatedSection;
+}
+
+/// @nodoc
+class __$$UpdateSectionInPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$UpdateSectionInPageImpl>
+    implements _$$UpdateSectionInPageImplCopyWith<$Res> {
+  __$$UpdateSectionInPageImplCopyWithImpl(_$UpdateSectionInPageImpl _value,
+      $Res Function(_$UpdateSectionInPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? sectionId = null,
+    Object? updatedSection = null,
+  }) {
+    return _then(_$UpdateSectionInPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sectionId: null == sectionId
+          ? _value.sectionId
+          : sectionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      updatedSection: null == updatedSection
+          ? _value.updatedSection
+          : updatedSection // ignore: cast_nullable_to_non_nullable
+              as DiarySection,
+    ));
+  }
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DiarySectionCopyWith<$Res> get updatedSection {
+    return $DiarySectionCopyWith<$Res>(_value.updatedSection, (value) {
+      return _then(_value.copyWith(updatedSection: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
+  const _$UpdateSectionInPageImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.sectionId,
+      required this.updatedSection});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String sectionId;
+  @override
+  final DiarySection updatedSection;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateSectionInPage(diaryId: $diaryId, pageId: $pageId, sectionId: $sectionId, updatedSection: $updatedSection)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateSectionInPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.sectionId, sectionId) ||
+                other.sectionId == sectionId) &&
+            (identical(other.updatedSection, updatedSection) ||
+                other.updatedSection == updatedSection));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, diaryId, pageId, sectionId, updatedSection);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateSectionInPageImplCopyWith<_$UpdateSectionInPageImpl> get copyWith =>
+      __$$UpdateSectionInPageImplCopyWithImpl<_$UpdateSectionInPageImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return updateSectionInPage(diaryId, pageId, sectionId, updatedSection);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return updateSectionInPage?.call(
+        diaryId, pageId, sectionId, updatedSection);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateSectionInPage != null) {
+      return updateSectionInPage(diaryId, pageId, sectionId, updatedSection);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return updateSectionInPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return updateSectionInPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (updateSectionInPage != null) {
+      return updateSectionInPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSectionInPage implements BulletJournalEvent {
+  const factory _UpdateSectionInPage(
+      {required final String diaryId,
+      required final String pageId,
+      required final String sectionId,
+      required final DiarySection updatedSection}) = _$UpdateSectionInPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get sectionId;
+  DiarySection get updatedSection;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateSectionInPageImplCopyWith<_$UpdateSectionInPageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReorderSectionsInPageImplCopyWith<$Res> {
+  factory _$$ReorderSectionsInPageImplCopyWith(
+          _$ReorderSectionsInPageImpl value,
+          $Res Function(_$ReorderSectionsInPageImpl) then) =
+      __$$ReorderSectionsInPageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId, String pageId, List<DiarySection> reorderedSections});
+}
+
+/// @nodoc
+class __$$ReorderSectionsInPageImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$ReorderSectionsInPageImpl>
+    implements _$$ReorderSectionsInPageImplCopyWith<$Res> {
+  __$$ReorderSectionsInPageImplCopyWithImpl(_$ReorderSectionsInPageImpl _value,
+      $Res Function(_$ReorderSectionsInPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? reorderedSections = null,
+  }) {
+    return _then(_$ReorderSectionsInPageImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      reorderedSections: null == reorderedSections
+          ? _value._reorderedSections
+          : reorderedSections // ignore: cast_nullable_to_non_nullable
+              as List<DiarySection>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
+  const _$ReorderSectionsInPageImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required final List<DiarySection> reorderedSections})
+      : _reorderedSections = reorderedSections;
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  final List<DiarySection> _reorderedSections;
+  @override
+  List<DiarySection> get reorderedSections {
+    if (_reorderedSections is EqualUnmodifiableListView)
+      return _reorderedSections;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reorderedSections);
+  }
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.reorderSectionsInPage(diaryId: $diaryId, pageId: $pageId, reorderedSections: $reorderedSections)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReorderSectionsInPageImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            const DeepCollectionEquality()
+                .equals(other._reorderedSections, _reorderedSections));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId,
+      const DeepCollectionEquality().hash(_reorderedSections));
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReorderSectionsInPageImplCopyWith<_$ReorderSectionsInPageImpl>
+      get copyWith => __$$ReorderSectionsInPageImplCopyWithImpl<
+          _$ReorderSectionsInPageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return reorderSectionsInPage(diaryId, pageId, reorderedSections);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return reorderSectionsInPage?.call(diaryId, pageId, reorderedSections);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderSectionsInPage != null) {
+      return reorderSectionsInPage(diaryId, pageId, reorderedSections);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return reorderSectionsInPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return reorderSectionsInPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (reorderSectionsInPage != null) {
+      return reorderSectionsInPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReorderSectionsInPage implements BulletJournalEvent {
+  const factory _ReorderSectionsInPage(
+          {required final String diaryId,
+          required final String pageId,
+          required final List<DiarySection> reorderedSections}) =
+      _$ReorderSectionsInPageImpl;
+
+  String get diaryId;
+  String get pageId;
+  List<DiarySection> get reorderedSections;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReorderSectionsInPageImplCopyWith<_$ReorderSectionsInPageImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AssignEntryToSectionImplCopyWith<$Res> {
+  factory _$$AssignEntryToSectionImplCopyWith(_$AssignEntryToSectionImpl value,
+          $Res Function(_$AssignEntryToSectionImpl) then) =
+      __$$AssignEntryToSectionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String diaryId, String pageId, String entryId, String? sectionId});
+}
+
+/// @nodoc
+class __$$AssignEntryToSectionImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res, _$AssignEntryToSectionImpl>
+    implements _$$AssignEntryToSectionImplCopyWith<$Res> {
+  __$$AssignEntryToSectionImplCopyWithImpl(_$AssignEntryToSectionImpl _value,
+      $Res Function(_$AssignEntryToSectionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? entryId = null,
+    Object? sectionId = freezed,
+  }) {
+    return _then(_$AssignEntryToSectionImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sectionId: freezed == sectionId
+          ? _value.sectionId
+          : sectionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
+  const _$AssignEntryToSectionImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.entryId,
+      required this.sectionId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String entryId;
+  @override
+  final String? sectionId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.assignEntryToSection(diaryId: $diaryId, pageId: $pageId, entryId: $entryId, sectionId: $sectionId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AssignEntryToSectionImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId) &&
+            (identical(other.sectionId, sectionId) ||
+                other.sectionId == sectionId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, diaryId, pageId, entryId, sectionId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AssignEntryToSectionImplCopyWith<_$AssignEntryToSectionImpl>
+      get copyWith =>
+          __$$AssignEntryToSectionImplCopyWithImpl<_$AssignEntryToSectionImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+  }) {
+    return assignEntryToSection(diaryId, pageId, entryId, sectionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+  }) {
+    return assignEntryToSection?.call(diaryId, pageId, entryId, sectionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (assignEntryToSection != null) {
+      return assignEntryToSection(diaryId, pageId, entryId, sectionId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+  }) {
+    return assignEntryToSection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+  }) {
+    return assignEntryToSection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    required TResult orElse(),
+  }) {
+    if (assignEntryToSection != null) {
+      return assignEntryToSection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AssignEntryToSection implements BulletJournalEvent {
+  const factory _AssignEntryToSection(
+      {required final String diaryId,
+      required final String pageId,
+      required final String entryId,
+      required final String? sectionId}) = _$AssignEntryToSectionImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get entryId;
+  String? get sectionId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AssignEntryToSectionImplCopyWith<_$AssignEntryToSectionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$BulletJournalState {
+  List<BulletEntry> get entries => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  List<KeyDefinition> get customKeys => throw _privateConstructorUsedError;
+  List<TaskStatus> get taskStatuses => throw _privateConstructorUsedError;
+  Map<String, String> get statusKeyMapping =>
+      throw _privateConstructorUsedError;
+  List<Diary> get diaries => throw _privateConstructorUsedError;
+
+  /// Create a copy of BulletJournalState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $BulletJournalStateCopyWith<BulletJournalState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BulletJournalStateCopyWith<$Res> {
+  factory $BulletJournalStateCopyWith(
+          BulletJournalState value, $Res Function(BulletJournalState) then) =
+      _$BulletJournalStateCopyWithImpl<$Res, BulletJournalState>;
+  @useResult
+  $Res call(
+      {List<BulletEntry> entries,
+      bool isLoading,
+      List<KeyDefinition> customKeys,
+      List<TaskStatus> taskStatuses,
+      Map<String, String> statusKeyMapping,
+      List<Diary> diaries});
+}
+
+/// @nodoc
+class _$BulletJournalStateCopyWithImpl<$Res, $Val extends BulletJournalState>
+    implements $BulletJournalStateCopyWith<$Res> {
+  _$BulletJournalStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of BulletJournalState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? entries = null,
+    Object? isLoading = null,
+    Object? customKeys = null,
+    Object? taskStatuses = null,
+    Object? statusKeyMapping = null,
+    Object? diaries = null,
+  }) {
+    return _then(_value.copyWith(
+      entries: null == entries
+          ? _value.entries
+          : entries // ignore: cast_nullable_to_non_nullable
+              as List<BulletEntry>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      customKeys: null == customKeys
+          ? _value.customKeys
+          : customKeys // ignore: cast_nullable_to_non_nullable
+              as List<KeyDefinition>,
+      taskStatuses: null == taskStatuses
+          ? _value.taskStatuses
+          : taskStatuses // ignore: cast_nullable_to_non_nullable
+              as List<TaskStatus>,
+      statusKeyMapping: null == statusKeyMapping
+          ? _value.statusKeyMapping
+          : statusKeyMapping // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      diaries: null == diaries
+          ? _value.diaries
+          : diaries // ignore: cast_nullable_to_non_nullable
+              as List<Diary>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$BulletJournalStateImplCopyWith<$Res>
+    implements $BulletJournalStateCopyWith<$Res> {
+  factory _$$BulletJournalStateImplCopyWith(_$BulletJournalStateImpl value,
+          $Res Function(_$BulletJournalStateImpl) then) =
+      __$$BulletJournalStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<BulletEntry> entries,
+      bool isLoading,
+      List<KeyDefinition> customKeys,
+      List<TaskStatus> taskStatuses,
+      Map<String, String> statusKeyMapping,
+      List<Diary> diaries});
+}
+
+/// @nodoc
+class __$$BulletJournalStateImplCopyWithImpl<$Res>
+    extends _$BulletJournalStateCopyWithImpl<$Res, _$BulletJournalStateImpl>
+    implements _$$BulletJournalStateImplCopyWith<$Res> {
+  __$$BulletJournalStateImplCopyWithImpl(_$BulletJournalStateImpl _value,
+      $Res Function(_$BulletJournalStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? entries = null,
+    Object? isLoading = null,
+    Object? customKeys = null,
+    Object? taskStatuses = null,
+    Object? statusKeyMapping = null,
+    Object? diaries = null,
+  }) {
+    return _then(_$BulletJournalStateImpl(
+      entries: null == entries
+          ? _value._entries
+          : entries // ignore: cast_nullable_to_non_nullable
+              as List<BulletEntry>,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      customKeys: null == customKeys
+          ? _value._customKeys
+          : customKeys // ignore: cast_nullable_to_non_nullable
+              as List<KeyDefinition>,
+      taskStatuses: null == taskStatuses
+          ? _value._taskStatuses
+          : taskStatuses // ignore: cast_nullable_to_non_nullable
+              as List<TaskStatus>,
+      statusKeyMapping: null == statusKeyMapping
+          ? _value._statusKeyMapping
+          : statusKeyMapping // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      diaries: null == diaries
+          ? _value._diaries
+          : diaries // ignore: cast_nullable_to_non_nullable
+              as List<Diary>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$BulletJournalStateImpl implements _BulletJournalState {
+  const _$BulletJournalStateImpl(
+      {final List<BulletEntry> entries = const <BulletEntry>[],
+      this.isLoading = true,
+      final List<KeyDefinition> customKeys = const <KeyDefinition>[],
+      final List<TaskStatus> taskStatuses = TaskStatus.defaultStatuses,
+      final Map<String, String> statusKeyMapping = const {},
+      final List<Diary> diaries = const <Diary>[]})
+      : _entries = entries,
+        _customKeys = customKeys,
+        _taskStatuses = taskStatuses,
+        _statusKeyMapping = statusKeyMapping,
+        _diaries = diaries;
+
+  final List<BulletEntry> _entries;
+  @override
+  @JsonKey()
+  List<BulletEntry> get entries {
+    if (_entries is EqualUnmodifiableListView) return _entries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_entries);
+  }
+
+  @override
+  @JsonKey()
+  final bool isLoading;
+  final List<KeyDefinition> _customKeys;
+  @override
+  @JsonKey()
+  List<KeyDefinition> get customKeys {
+    if (_customKeys is EqualUnmodifiableListView) return _customKeys;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_customKeys);
+  }
+
+  final List<TaskStatus> _taskStatuses;
+  @override
+  @JsonKey()
+  List<TaskStatus> get taskStatuses {
+    if (_taskStatuses is EqualUnmodifiableListView) return _taskStatuses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_taskStatuses);
+  }
+
+  final Map<String, String> _statusKeyMapping;
+  @override
+  @JsonKey()
+  Map<String, String> get statusKeyMapping {
+    if (_statusKeyMapping is EqualUnmodifiableMapView) return _statusKeyMapping;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_statusKeyMapping);
+  }
+
+  final List<Diary> _diaries;
+  @override
+  @JsonKey()
+  List<Diary> get diaries {
+    if (_diaries is EqualUnmodifiableListView) return _diaries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_diaries);
+  }
+
+  @override
+  String toString() {
+    return 'BulletJournalState(entries: $entries, isLoading: $isLoading, customKeys: $customKeys, taskStatuses: $taskStatuses, statusKeyMapping: $statusKeyMapping, diaries: $diaries)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BulletJournalStateImpl &&
+            const DeepCollectionEquality().equals(other._entries, _entries) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other._customKeys, _customKeys) &&
+            const DeepCollectionEquality()
+                .equals(other._taskStatuses, _taskStatuses) &&
+            const DeepCollectionEquality()
+                .equals(other._statusKeyMapping, _statusKeyMapping) &&
+            const DeepCollectionEquality().equals(other._diaries, _diaries));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_entries),
+      isLoading,
+      const DeepCollectionEquality().hash(_customKeys),
+      const DeepCollectionEquality().hash(_taskStatuses),
+      const DeepCollectionEquality().hash(_statusKeyMapping),
+      const DeepCollectionEquality().hash(_diaries));
+
+  /// Create a copy of BulletJournalState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BulletJournalStateImplCopyWith<_$BulletJournalStateImpl> get copyWith =>
+      __$$BulletJournalStateImplCopyWithImpl<_$BulletJournalStateImpl>(
+          this, _$identity);
+}
+
+abstract class _BulletJournalState implements BulletJournalState {
+  const factory _BulletJournalState(
+      {final List<BulletEntry> entries,
+      final bool isLoading,
+      final List<KeyDefinition> customKeys,
+      final List<TaskStatus> taskStatuses,
+      final Map<String, String> statusKeyMapping,
+      final List<Diary> diaries}) = _$BulletJournalStateImpl;
+
+  @override
+  List<BulletEntry> get entries;
+  @override
+  bool get isLoading;
+  @override
+  List<KeyDefinition> get customKeys;
+  @override
+  List<TaskStatus> get taskStatuses;
+  @override
+  Map<String, String> get statusKeyMapping;
+  @override
+  List<Diary> get diaries;
+
+  /// Create a copy of BulletJournalState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BulletJournalStateImplCopyWith<_$BulletJournalStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

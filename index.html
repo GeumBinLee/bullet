@@ -1,0 +1,543 @@
+<html>
+
+<script>
+    const REGEX = {
+        kanjiBlock: /[\u4E00-\u9FAF々]/,
+        kanjiGroup: /([\u4E00-\u9FAF々]+)/g,
+
+        rubyFull: /<ruby><rb>([\u4E00-\u9FAF々]+)<\/rb><rt>([^<]+)<\/rt><\/ruby>/g,
+
+        kanjiReading: /([\u4E00-\u9FAF々]+)\[([^\]]+)\]/g,
+        bracketHighlight: /\[([^\[\]()]+)\]/g
+    };
+</script>
+
+
+{{FrontSide}}
+
+<div class="card-wrapper">
+    <hr>
+    <div class="sound-button">{{#mp3}}{{mp3}}{{/mp3}}</div>
+
+    <div id="example">{{furigana:Reading}}</div>
+
+    <br>
+
+    {{#어휘}}
+    <div class="note">
+        <p class="sub blue toggle-btn"><span class="arrow">📂 </span><b>
+                < 어휘>
+            </b></p>
+        <div class="sub-content toggle-box open bullet-container">{{어휘}}</div>
+    </div>
+    <br>
+    {{/어휘}}
+
+    {{#문형}}
+    <div class="note">
+        <p class="sub red toggle-btn"><span class="arrow">📂 </span><b>
+                < 문형>
+            </b></p>
+        <div class="sub-content toggle-box open bullet-container">{{문형}}</div>
+    </div>
+    <br>
+    {{/문형}}
+
+    <!-- ▼▼▼ 한자 팝업 HTML ▼▼▼ -->
+    <div class="kanji-popup-overlay" id="kanji-popup-overlay">
+        <div class="kanji-details-and-drawing-box" id="kanji-details-and-drawing-box">
+            <button class="close-button" id="close-popup-button">X</button>
+
+            <div id="popup-content-wrapper">
+                <div id="kanji-info-main"></div>
+                <div id="moyou-info" class="kanji-sub-header"></div>
+                <div id="moyou-images" class="image-container"></div>
+                <div id="kanji-header-wrapper" style="display: none;">
+                    <div id="kanji-header-repeat" class="kanji-sub-header"></div>
+                </div>
+                <div id="kanji-image" class="image-container"></div>
+            </div>
+
+            <div id="kanji-container">
+                <canvas id="drawing-canvas"></canvas>
+                <div id="kanji-svg-wrapper"></div>
+            </div>
+
+            <div id="controls-box">
+                <div id="controls-wrapper">
+                    <label for="line-width">선 굵기:</label>
+                    <input type="range" id="line-width" min="1" max="10" value="4">
+                    <span id="line-width-value">4</span>
+                    <button id="clear-button">Clear</button>
+                </div>
+            </div>
+
+            <div id="svg-animation-controls">
+                <div id="info-top">
+                    <button id="play-button" class="icon-btn">▶</button>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="number-toggle">
+                        <span class="slider"></span> <span class="toggle-label-text">획순</span>
+                    </label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="auto-play-toggle">
+                        <span class="slider"></span> <span class="toggle-label-text">자동재생</span>
+                    </label>
+                </div>
+                <div id="info-bottom">
+                    <span>속도:</span>
+                    <input type="range" id="speed-slider" min="1" max="10" value="5">
+                    <span id="speed-value">5단계</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ▼▼▼ 한자 팝업 스크립트 ▼▼▼ -->
+    <!-- [1] 메인 로직: 한자 클릭 이벤트 및 팝업 제어 -->
+    <script>
+        (function () {
+            const example = document.getElementById('example');
+            const kanjiPopupOverlay = document.getElementById('kanji-popup-overlay');
+            const closePopupButton = document.getElementById('close-popup-button');
+            let lastSelectedKanji = null;
+            const lastClickTimes = {};
+            const CLICK_DELAY = 300;
+            let kanjiData = null;
+
+            function isKanji(c) {
+                return REGEX.kanjiBlock.test(c);
+            }
+
+            function openKanjiPopup() { kanjiPopupOverlay.classList.add('active'); }
+            function closeKanjiPopup() {
+                kanjiPopupOverlay.classList.remove('active');
+                if (example) example.querySelectorAll('.kanji').forEach(k => k.classList.remove('clicked'));
+                lastSelectedKanji = null;
+            }
+
+            function processExample() {
+                if (!example) return;
+
+                let html = example.innerHTML;
+
+                // ruby → 개별 kanji span 변환
+                html = html.replace(REGEX.rubyFull, (_, kanji, reading) =>
+                    `<ruby>${[...kanji].map(ch => `<span class="kanji">${ch}</span>`).join('')
+                    }<rt>${reading}</rt></ruby>`
+                );
+
+                // 漢字[読み] 처리
+                html = html.replace(REGEX.kanjiReading, (_, chars, reading) =>
+                    `<ruby>${[...chars].map(ch => `<span class="kanji highlighted">${ch}</span>`).join('')
+                    }<rt>${reading}</rt></ruby>`
+                );
+
+                // 일반적인 [강조] 처리
+                html = html.replace(REGEX.bracketHighlight, '<span class="highlighted">$1</span>');
+
+                example.innerHTML = html;
+            }
+
+
+            function attachKanjiEvents() {
+                if (!example) return;
+                example.querySelectorAll('.kanji').forEach(kanji => {
+                    const clickHandler = async (e) => {
+                        e.stopPropagation();
+                        const ch = kanji.textContent;
+                        if (!isKanji(ch)) return;
+
+                        const now = Date.now();
+                        if (lastSelectedKanji === ch && now - (lastClickTimes[ch] || 0) < CLICK_DELAY) return;
+                        lastClickTimes[ch] = now;
+
+                        if (kanji.classList.contains('clicked')) {
+                            kanji.classList.remove('clicked');
+                            closeKanjiPopup();
+                            return;
+                        }
+
+                        example.querySelectorAll('.kanji').forEach(k => k.classList.remove('clicked'));
+                        kanji.classList.add('clicked');
+
+                        try {
+                            const d = kanjiData.find(x => x.한자 === ch);
+                            if (!d) {
+                                console.warn(`Kanji data for "${ch}" not found.`);
+                                closeKanjiPopup();
+                                return;
+                            }
+
+                            // ⭐ 수정: 드로잉 관련 UI를 매번 클릭 시마다 보이도록 초기화
+                            document.getElementById('kanji-container').style.display = 'block';
+                            document.getElementById('controls-box').style.display = 'flex';
+                            document.getElementById('svg-animation-controls').style.display = 'flex';
+
+                            const kanjiInfoMain = document.getElementById('kanji-info-main');
+                            const moyouInfo = document.getElementById('moyou-info');
+                            const moyouImages = document.getElementById('moyou-images');
+                            const kanjiHeaderWrapper = document.getElementById('kanji-header-wrapper');
+                            const kanjiHeaderRepeat = document.getElementById('kanji-header-repeat');
+                            const kanjiImage = document.getElementById('kanji-image');
+
+                            kanjiInfoMain.innerHTML = '';
+                            moyouInfo.innerHTML = '';
+                            moyouImages.innerHTML = '';
+                            kanjiHeaderRepeat.innerHTML = '';
+                            kanjiImage.innerHTML = '';
+                            moyouImages.style.display = 'none';
+                            kanjiHeaderWrapper.style.display = 'none';
+                            kanjiImage.style.display = 'none';
+
+                            // 1. 한자정보
+                            let infoHtml = `<p class="kanji-main-header">${ch} - ${d.일상무따 || ''} / ${d.훈음 || ''}</p>`;
+                            if (d.部首 || d.画数) {
+                                infoHtml += `<div><strong>부수:</strong> ${d.部首 || '-'} <strong>획수:</strong> ${d.画数 || '-'}</div>`;
+                            }
+                            if (d.音読み) infoHtml += `<div><strong>음독:</strong> ${d.音読み}</div>`;
+                            if (d.訓読み) infoHtml += `<div><strong>훈독:</strong> ${d.訓読み}</div>`;
+                            kanjiInfoMain.innerHTML = infoHtml;
+
+                            // 2. 모양자 정보
+                            moyouInfo.innerHTML = `모양자: ${d.모양자 || '-'}`;
+
+                            // 3. 모양자에 포함된 한자 이미지 표시
+                            const moyangjaStr = d.모양자;
+                            if (moyangjaStr) {
+                                const componentChars = moyangjaStr.match(/[\u4E00-\u9FAF々]/g);
+                                if (componentChars) {
+                                    let hasImage = false;
+                                    componentChars.forEach(char => {
+                                        const componentData = kanjiData.find(item => item.한자 === char);
+                                        if (componentData && componentData.image && componentData.image[0]) {
+                                            const img = document.createElement('img');
+                                            img.src = componentData.image[0];
+                                            img.alt = char;
+                                            moyouImages.appendChild(img);
+                                            hasImage = true;
+                                        }
+                                    });
+                                    if (hasImage) {
+                                        moyouImages.style.display = 'flex';
+                                    }
+                                }
+                            }
+
+                            // 4. "한자 - 한자 이름" 헤더
+                            kanjiHeaderRepeat.innerHTML = `${d.한자} - ${d.일상무따 || ''} / ${d.훈음 || ''}`;
+                            kanjiHeaderWrapper.style.display = 'block';
+
+                            // 5. 메인 한자 사진
+                            if (d.image && d.image[0]) {
+                                let hasMainImage = false;
+                                (Array.isArray(d.image) ? d.image : [d.image]).forEach(src => {
+                                    if (src) {
+                                        const img = document.createElement('img');
+                                        img.src = src;
+                                        img.alt = ch;
+                                        kanjiImage.appendChild(img);
+                                        hasMainImage = true;
+                                    }
+                                });
+                                if (hasMainImage) {
+                                    kanjiImage.style.display = 'flex';
+                                }
+                            }
+
+                            openKanjiPopup();
+                            await new Promise(r => setTimeout(r, 50));
+
+                            createCanvasHandlers({
+                                canvas: document.getElementById('drawing-canvas'),
+                                ctx: document.getElementById('drawing-canvas').getContext('2d'),
+                                lineWidthInput: document.getElementById('line-width'),
+                                lineWidthValue: document.getElementById('line-width-value'),
+                                clearButton: document.getElementById('clear-button'),
+                                localStorageKey: 'drawing_' + ch,
+                                autoClear: false
+                            });
+
+                            await setupStrokeAnimation(ch);
+                            lastSelectedKanji = ch;
+
+                        } catch (error) {
+                            console.error("Error during kanji popup process:", error);
+                            closeKanjiPopup();
+                        }
+                    };
+                    kanji.addEventListener('click', clickHandler);
+                    kanji.addEventListener('touchstart', (e) => {
+                        e.preventDefault();
+                        clickHandler(e);
+                    }, { passive: false });
+                });
+            }
+
+            closePopupButton.addEventListener('click', closeKanjiPopup);
+            kanjiPopupOverlay.addEventListener('click', (e) => {
+                if (e.target === kanjiPopupOverlay) closeKanjiPopup();
+            });
+
+            async function initialize() {
+                processExample();
+                try {
+                    const response = await fetch('_kanjilist.json');
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    kanjiData = await response.json();
+                    attachKanjiEvents();
+                } catch (error) {
+                    console.error("Failed to load kanji data.", error);
+                }
+            }
+            initialize();
+        })();
+    </script>
+
+    <!-- [2] 드로잉 캔버스 핸들러 스크립트 -->
+    <script>
+        function createCanvasHandlers(config) {
+            const { canvas, ctx, lineWidthInput, lineWidthValue, clearButton, localStorageKey, autoClear } = config;
+            let isDrawing = false, lastX = 0, lastY = 0;
+            let scaleFactor = 1, lineWidth = 4;
+            const isNightMode = document.body.classList.contains('nightMode');
+            const lineColor = '#FFFFFF';
+
+            if (autoClear) localStorage.removeItem(localStorageKey);
+
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                scaleFactor = window.devicePixelRatio || 1;
+                canvas.width = rect.width * scaleFactor;
+                canvas.height = rect.height * scaleFactor;
+                ctx.scale(scaleFactor, scaleFactor);
+                loadDrawing();
+            }
+
+            function loadDrawing() {
+                const dataUrl = localStorage.getItem(localStorageKey);
+                if (!dataUrl) return;
+                const img = new Image();
+                img.src = dataUrl;
+                img.onload = () => {
+                    ctx.drawImage(img, 0, 0, canvas.width / scaleFactor, canvas.height / scaleFactor);
+                };
+            }
+
+            function saveDrawing() {
+                localStorage.setItem(localStorageKey, canvas.toDataURL('image/png'));
+            }
+
+            function getCoords(e, rect) {
+                const event = e.touches ? e.touches[0] : e;
+                return [event.clientX - rect.left, event.clientY - rect.top];
+            }
+
+            function startDrawing(e) {
+                e.preventDefault();
+                isDrawing = true;
+                [lastX, lastY] = getCoords(e, canvas.getBoundingClientRect());
+            }
+
+            function draw(e) {
+                if (!isDrawing) return;
+                e.preventDefault();
+                const [x, y] = getCoords(e, canvas.getBoundingClientRect());
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(x, y);
+                ctx.lineWidth = lineWidth;
+                ctx.strokeStyle = lineColor;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+                [lastX, lastY] = [x, y];
+            }
+
+            function stopDrawing() {
+                if (!isDrawing) return;
+                isDrawing = false;
+                saveDrawing();
+            }
+
+            clearButton.onclick = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                localStorage.removeItem(localStorageKey);
+            };
+
+            lineWidthInput.oninput = () => {
+                lineWidth = parseInt(lineWidthInput.value, 10);
+                lineWidthValue.textContent = lineWidth;
+                localStorage.setItem('lineWidthSetting', lineWidth);
+            };
+
+            const savedWidth = localStorage.getItem('lineWidthSetting');
+            if (savedWidth) {
+                lineWidth = parseInt(savedWidth, 10);
+                lineWidthInput.value = savedWidth;
+                lineWidthValue.textContent = savedWidth;
+            }
+
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseleave', stopDrawing);
+            canvas.addEventListener('touchstart', startDrawing, { passive: false });
+            canvas.addEventListener('touchmove', draw, { passive: false });
+            canvas.addEventListener('touchend', stopDrawing);
+
+            resizeCanvas();
+        }
+    </script>
+
+    <!-- [3] SVG 획순 애니메이션 컨트롤 스크립트 -->
+    <script>
+        // [3] SVG 획순 애니메이션 컨트롤 스크립트에서 이 함수를 찾아서 교체하세요.
+
+        function setupStrokeAnimation(kanjiChar) {
+            return new Promise((resolve, reject) => {
+                const playBtn = document.getElementById("play-button");
+                const numberToggle = document.getElementById("number-toggle");
+                const autoPlayToggle = document.getElementById("auto-play-toggle");
+                const speedSlider = document.getElementById("speed-slider");
+                const speedValue = document.getElementById("speed-value");
+                const kanjiSvgWrapper = document.getElementById("kanji-svg-wrapper");
+
+                // ⭐ 숨겨야 할 모든 관련 컨테이너를 가져옴
+                const kanjiContainer = document.getElementById("kanji-container");
+                const controlsBox = document.getElementById("controls-box");
+                const svgAnimationControlsBox = document.getElementById("svg-animation-controls");
+
+                let strokes = [], numbers = [], timerId = null;
+                let currentStroke = -1, animationRunning = false, isPaused = false, svgLoaded = false;
+                const STORAGE_PREFIX = 'stroke_';
+
+                const settings = {
+                    numberVisible: JSON.parse(localStorage.getItem(STORAGE_PREFIX + 'numberVisible')) ?? false,
+                    autoPlay: JSON.parse(localStorage.getItem(STORAGE_PREFIX + 'autoPlayActive')) ?? false,
+                    speed: parseInt(localStorage.getItem(STORAGE_PREFIX + 'stageSpeed') || "5", 10)
+                };
+
+                // --- 내부 함수들은 기존과 동일 (수정 필요 없음) ---
+                function applySettings() { if (!svgLoaded) return; numberToggle.checked = settings.numberVisible; autoPlayToggle.checked = settings.autoPlay; speedSlider.value = settings.speed; speedValue.textContent = `${settings.speed}단계`; numbers.forEach((n, i) => { if (!settings.numberVisible) n.style.display = "none"; else if (!animationRunning && !isPaused) n.style.display = ""; else n.style.display = (i <= currentStroke) ? "" : "none"; }); }
+                function resetStrokes() { if (!svgLoaded) return; strokes.forEach(s => { const L = s.getTotalLength(); s.style.strokeDasharray = L; s.style.strokeDashoffset = L; s.style.transition = "none"; }); numbers.forEach(n => n.style.display = "none"); }
+                function animateStrokes() { if (!svgLoaded) return; if (currentStroke >= strokes.length - 1) { animationRunning = false; playBtn.textContent = "▶"; if (settings.numberVisible) numbers.forEach(n => n.style.display = ""); if (settings.autoPlay) timerId = setTimeout(() => { resetStrokes(); currentStroke = -1; startAnimation(); }, 500); return; } if (isPaused) return; currentStroke++; const s = strokes[currentStroke]; const n = numbers[currentStroke]; const duration = 0.6 - settings.speed * 0.05; s.style.transition = `stroke-dashoffset ${duration}s ease`; s.style.strokeDashoffset = "0"; if (settings.numberVisible && n) n.style.display = ""; timerId = setTimeout(animateStrokes, 600 - settings.speed * 50); }
+                function startAnimation() { if (!svgLoaded || animationRunning || isPaused) return; resetStrokes(); currentStroke = -1; animationRunning = true; isPaused = false; playBtn.textContent = "❚❚"; animateStrokes(); }
+
+                playBtn.onclick = (e) => { e.stopPropagation(); if (!svgLoaded) return; if (!animationRunning && !isPaused) startAnimation(); else if (animationRunning && !isPaused) { isPaused = true; animationRunning = false; playBtn.textContent = "▶"; clearTimeout(timerId); } else if (isPaused) { animationRunning = true; isPaused = false; playBtn.textContent = "❚❚"; animateStrokes(); } };
+                numberToggle.onchange = () => { settings.numberVisible = numberToggle.checked; localStorage.setItem(STORAGE_PREFIX + "numberVisible", settings.numberVisible); applySettings(); };
+                autoPlayToggle.onchange = () => { settings.autoPlay = autoPlayToggle.checked; localStorage.setItem(STORAGE_PREFIX + "autoPlayActive", settings.autoPlay); if (settings.autoPlay && !animationRunning && !isPaused) startAnimation(); };
+                speedSlider.oninput = () => { settings.speed = parseInt(speedSlider.value, 10); speedValue.textContent = `${settings.speed}단계`; localStorage.setItem(STORAGE_PREFIX + "stageSpeed", settings.speed); };
+
+                const code = kanjiChar.codePointAt(0).toString(16).padStart(5, '0');
+                fetch('_' + code + '.svg')
+                    .then(res => {
+                        if (!res.ok) throw new Error("svg not found");
+                        return res.text();
+                    })
+                    .then(data => {
+                        svgLoaded = true;
+                        const doc = new DOMParser().parseFromString(data, "image/svg+xml");
+                        const svg = doc.querySelector("svg");
+                        if (!svg) throw new Error("Invalid SVG data.");
+
+                        svg.setAttribute("viewBox", "0 0 109 109");
+                        svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+                        svg.style.width = "100%";
+                        svg.style.height = "100%";
+                        kanjiSvgWrapper.innerHTML = '';
+                        kanjiSvgWrapper.appendChild(svg);
+
+                        strokes = svg.querySelectorAll("path");
+                        numbers = svg.querySelectorAll("text");
+                        strokes.forEach(p => {
+                            p.setAttribute("stroke", "gray");
+                            p.setAttribute("fill", "none");
+                        });
+                        applySettings();
+                        if (settings.autoPlay && strokes.length > 0) startAnimation();
+                        resolve();
+                    })
+                    .catch(error => { // ⭐ 수정: SVG 로드 실패 시 처리
+                        console.error(`Error loading SVG for ${kanjiChar}:`, error);
+
+                        // 드로잉 관련 모든 UI를 숨김
+                        if (kanjiContainer) kanjiContainer.style.display = "none";
+                        if (controlsBox) controlsBox.style.display = "none";
+                        if (svgAnimationControlsBox) svgAnimationControlsBox.style.display = "none";
+
+                        // reject() 대신 resolve()를 호출하여 팝업이 닫히지 않도록 함
+                        resolve();
+                    });
+            });
+        }
+    </script>
+</div>
+
+
+
+
+
+<script>
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+        const box = btn.nextElementSibling;
+        const arrow = btn.querySelector('.arrow');
+        if (!box || !arrow) return;
+
+        // 페이지 로드 시 open이면 펼쳐진 높이로 설정
+        if (box.classList.contains('open')) {
+            box.style.maxHeight = box.scrollHeight + 'px';
+            arrow.textContent = '📂 ';
+        } else {
+            box.style.maxHeight = '0';
+            arrow.textContent = '📁 ';
+        }
+
+        // 클릭 시 토글
+        btn.addEventListener('click', () => {
+            if (box.classList.contains('open')) {
+                box.style.maxHeight = '0';
+                box.classList.remove('open');
+                arrow.textContent = '📁 ';
+            } else {
+                box.style.maxHeight = box.scrollHeight + 'px';
+                box.classList.add('open');
+                arrow.textContent = '📂 ';
+            }
+        });
+    });
+</script>
+
+
+<style>
+    /* 버튼에 .toggle-btn + arrow 추가*/
+    /* 내용물 div에 .toggle-box open */
+    /* 접힌 상태로 시작하고 싶으면 open 클래스 제거 */
+    .toggle-box {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .toggle-box.open {
+        /* 초기 max-height는 JS에서 설정 */
+    }
+</style>
+
+
+<script>
+    document.querySelectorAll('.bullet-container').forEach(container => {
+        let content = container.innerHTML.trim().toLowerCase();
+
+        // <ul>이나 <ol>이 존재하면 스킵
+        if (!content.includes('<ul') && !content.includes('<ol')) {
+            const lines = container.innerHTML
+                .split(/<br\s*\/?>|\n/)
+                .map(line => line.trim())
+                .filter(line => line.length > 0);
+
+            container.innerHTML = '<ul>' + lines.map(line => '<li>' + line + '</li>').join('') + '</ul>';
+        }
+    });
+</script>
+
+</html>
