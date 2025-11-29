@@ -20,7 +20,7 @@ mixin _$BulletJournalState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<KeyDefinition> get customKeys => throw _privateConstructorUsedError;
   List<TaskStatus> get taskStatuses => throw _privateConstructorUsedError;
-  Map<String, String> get statusKeyMapping =>
+  Map<String, List<String>> get statusKeyMapping =>
       throw _privateConstructorUsedError;
   List<Diary> get diaries => throw _privateConstructorUsedError;
 
@@ -42,7 +42,7 @@ abstract class $BulletJournalStateCopyWith<$Res> {
       bool isLoading,
       List<KeyDefinition> customKeys,
       List<TaskStatus> taskStatuses,
-      Map<String, String> statusKeyMapping,
+      Map<String, List<String>> statusKeyMapping,
       List<Diary> diaries});
 }
 
@@ -88,7 +88,7 @@ class _$BulletJournalStateCopyWithImpl<$Res, $Val extends BulletJournalState>
       statusKeyMapping: null == statusKeyMapping
           ? _value.statusKeyMapping
           : statusKeyMapping // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, List<String>>,
       diaries: null == diaries
           ? _value.diaries
           : diaries // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$BulletJournalStateImplCopyWith<$Res>
       bool isLoading,
       List<KeyDefinition> customKeys,
       List<TaskStatus> taskStatuses,
-      Map<String, String> statusKeyMapping,
+      Map<String, List<String>> statusKeyMapping,
       List<Diary> diaries});
 }
 
@@ -154,7 +154,7 @@ class __$$BulletJournalStateImplCopyWithImpl<$Res>
       statusKeyMapping: null == statusKeyMapping
           ? _value._statusKeyMapping
           : statusKeyMapping // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, List<String>>,
       diaries: null == diaries
           ? _value._diaries
           : diaries // ignore: cast_nullable_to_non_nullable
@@ -171,7 +171,7 @@ class _$BulletJournalStateImpl implements _BulletJournalState {
       this.isLoading = true,
       final List<KeyDefinition> customKeys = const <KeyDefinition>[],
       final List<TaskStatus> taskStatuses = TaskStatus.defaultStatuses,
-      final Map<String, String> statusKeyMapping = const {},
+      final Map<String, List<String>> statusKeyMapping = const {},
       final List<Diary> diaries = const <Diary>[]})
       : _entries = entries,
         _customKeys = customKeys,
@@ -209,10 +209,10 @@ class _$BulletJournalStateImpl implements _BulletJournalState {
     return EqualUnmodifiableListView(_taskStatuses);
   }
 
-  final Map<String, String> _statusKeyMapping;
+  final Map<String, List<String>> _statusKeyMapping;
   @override
   @JsonKey()
-  Map<String, String> get statusKeyMapping {
+  Map<String, List<String>> get statusKeyMapping {
     if (_statusKeyMapping is EqualUnmodifiableMapView) return _statusKeyMapping;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_statusKeyMapping);
@@ -275,7 +275,7 @@ abstract class _BulletJournalState implements BulletJournalState {
       final bool isLoading,
       final List<KeyDefinition> customKeys,
       final List<TaskStatus> taskStatuses,
-      final Map<String, String> statusKeyMapping,
+      final Map<String, List<String>> statusKeyMapping,
       final List<Diary> diaries}) = _$BulletJournalStateImpl;
 
   @override
@@ -287,7 +287,7 @@ abstract class _BulletJournalState implements BulletJournalState {
   @override
   List<TaskStatus> get taskStatuses;
   @override
-  Map<String, String> get statusKeyMapping;
+  Map<String, List<String>> get statusKeyMapping;
   @override
   List<Diary> get diaries;
 

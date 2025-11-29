@@ -17,11 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DiaryPage {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError; // 페이지 이름 (선택적)
   List<BulletEntry> get entries => throw _privateConstructorUsedError;
   List<DiarySection> get sections => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
+  bool get isIndexPage => throw _privateConstructorUsedError; // 인덱스 페이지 여부
   int? get order => throw _privateConstructorUsedError;
 
   /// Create a copy of DiaryPage
@@ -38,11 +39,12 @@ abstract class $DiaryPageCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String name,
+      String? name,
       List<BulletEntry> entries,
       List<DiarySection> sections,
       DateTime createdAt,
       bool isFavorite,
+      bool isIndexPage,
       int? order});
 }
 
@@ -62,11 +64,12 @@ class _$DiaryPageCopyWithImpl<$Res, $Val extends DiaryPage>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? entries = null,
     Object? sections = null,
     Object? createdAt = null,
     Object? isFavorite = null,
+    Object? isIndexPage = null,
     Object? order = freezed,
   }) {
     return _then(_value.copyWith(
@@ -74,10 +77,10 @@ class _$DiaryPageCopyWithImpl<$Res, $Val extends DiaryPage>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       entries: null == entries
           ? _value.entries
           : entries // ignore: cast_nullable_to_non_nullable
@@ -93,6 +96,10 @@ class _$DiaryPageCopyWithImpl<$Res, $Val extends DiaryPage>
       isFavorite: null == isFavorite
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isIndexPage: null == isIndexPage
+          ? _value.isIndexPage
+          : isIndexPage // ignore: cast_nullable_to_non_nullable
               as bool,
       order: freezed == order
           ? _value.order
@@ -112,11 +119,12 @@ abstract class _$$DiaryPageImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String name,
+      String? name,
       List<BulletEntry> entries,
       List<DiarySection> sections,
       DateTime createdAt,
       bool isFavorite,
+      bool isIndexPage,
       int? order});
 }
 
@@ -134,11 +142,12 @@ class __$$DiaryPageImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = null,
+    Object? name = freezed,
     Object? entries = null,
     Object? sections = null,
     Object? createdAt = null,
     Object? isFavorite = null,
+    Object? isIndexPage = null,
     Object? order = freezed,
   }) {
     return _then(_$DiaryPageImpl(
@@ -146,10 +155,10 @@ class __$$DiaryPageImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       entries: null == entries
           ? _value._entries
           : entries // ignore: cast_nullable_to_non_nullable
@@ -166,6 +175,10 @@ class __$$DiaryPageImplCopyWithImpl<$Res>
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool,
+      isIndexPage: null == isIndexPage
+          ? _value.isIndexPage
+          : isIndexPage // ignore: cast_nullable_to_non_nullable
+              as bool,
       order: freezed == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -179,11 +192,12 @@ class __$$DiaryPageImplCopyWithImpl<$Res>
 class _$DiaryPageImpl implements _DiaryPage {
   const _$DiaryPageImpl(
       {required this.id,
-      required this.name,
+      this.name,
       final List<BulletEntry> entries = const <BulletEntry>[],
       final List<DiarySection> sections = const <DiarySection>[],
       required this.createdAt,
       this.isFavorite = false,
+      this.isIndexPage = false,
       this.order})
       : _entries = entries,
         _sections = sections;
@@ -191,8 +205,10 @@ class _$DiaryPageImpl implements _DiaryPage {
   @override
   final String id;
   @override
-  final String name;
+  final String? name;
+// 페이지 이름 (선택적)
   final List<BulletEntry> _entries;
+// 페이지 이름 (선택적)
   @override
   @JsonKey()
   List<BulletEntry> get entries {
@@ -216,11 +232,15 @@ class _$DiaryPageImpl implements _DiaryPage {
   @JsonKey()
   final bool isFavorite;
   @override
+  @JsonKey()
+  final bool isIndexPage;
+// 인덱스 페이지 여부
+  @override
   final int? order;
 
   @override
   String toString() {
-    return 'DiaryPage(id: $id, name: $name, entries: $entries, sections: $sections, createdAt: $createdAt, isFavorite: $isFavorite, order: $order)';
+    return 'DiaryPage(id: $id, name: $name, entries: $entries, sections: $sections, createdAt: $createdAt, isFavorite: $isFavorite, isIndexPage: $isIndexPage, order: $order)';
   }
 
   @override
@@ -236,6 +256,8 @@ class _$DiaryPageImpl implements _DiaryPage {
                 other.createdAt == createdAt) &&
             (identical(other.isFavorite, isFavorite) ||
                 other.isFavorite == isFavorite) &&
+            (identical(other.isIndexPage, isIndexPage) ||
+                other.isIndexPage == isIndexPage) &&
             (identical(other.order, order) || other.order == order));
   }
 
@@ -248,6 +270,7 @@ class _$DiaryPageImpl implements _DiaryPage {
       const DeepCollectionEquality().hash(_sections),
       createdAt,
       isFavorite,
+      isIndexPage,
       order);
 
   /// Create a copy of DiaryPage
@@ -262,17 +285,18 @@ class _$DiaryPageImpl implements _DiaryPage {
 abstract class _DiaryPage implements DiaryPage {
   const factory _DiaryPage(
       {required final String id,
-      required final String name,
+      final String? name,
       final List<BulletEntry> entries,
       final List<DiarySection> sections,
       required final DateTime createdAt,
       final bool isFavorite,
+      final bool isIndexPage,
       final int? order}) = _$DiaryPageImpl;
 
   @override
   String get id;
   @override
-  String get name;
+  String? get name; // 페이지 이름 (선택적)
   @override
   List<BulletEntry> get entries;
   @override
@@ -281,6 +305,8 @@ abstract class _DiaryPage implements DiaryPage {
   DateTime get createdAt;
   @override
   bool get isFavorite;
+  @override
+  bool get isIndexPage; // 인덱스 페이지 여부
   @override
   int? get order;
 

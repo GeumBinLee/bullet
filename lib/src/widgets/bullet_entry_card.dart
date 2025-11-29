@@ -187,9 +187,9 @@ class BulletEntryCard extends StatelessWidget {
   KeyDefinition _keyDefinitionForEntry(BulletEntry entry) {
     try {
       final status = entry.keyStatus;
-      final keyId = state.statusKeyMapping[status.id] ??
-          _defaultStatusKeyMapping[status.id] ??
-          defaultKeyDefinitions.first.id;
+      final keyIds = state.statusKeyMapping[status.id] ??
+          [_defaultStatusKeyMapping[status.id] ?? defaultKeyDefinitions.first.id];
+      final keyId = keyIds.isNotEmpty ? keyIds.first : defaultKeyDefinitions.first.id;
       final allDefinitions = [...defaultKeyDefinitions, ...state.customKeys];
       return allDefinitions.firstWhere(
         (definition) => definition.id == keyId,
@@ -203,11 +203,11 @@ class BulletEntryCard extends StatelessWidget {
 
   KeyDefinition _definitionFor(BulletTask task) {
     final isSnoozed = task.snoozes.isNotEmpty;
-    final keyId = isSnoozed
-        ? 'key-snoozed'
+    final keyIds = isSnoozed
+        ? ['key-snoozed']
         : state.statusKeyMapping[task.status.id] ??
-            _defaultStatusKeyMapping[task.status.id] ??
-            defaultKeyDefinitions.first.id;
+            [_defaultStatusKeyMapping[task.status.id] ?? defaultKeyDefinitions.first.id];
+    final keyId = keyIds.isNotEmpty ? keyIds.first : defaultKeyDefinitions.first.id;
     final allDefinitions = [...defaultKeyDefinitions, ...state.customKeys];
     return allDefinitions.firstWhere(
       (definition) => definition.id == keyId,

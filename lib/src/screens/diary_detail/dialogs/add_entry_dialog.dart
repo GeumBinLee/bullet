@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../blocs/bullet_journal_bloc.dart';
 import '../../../models/diary_page.dart';
 import '../../../models/bullet_entry.dart';
-import '../../../data/key_definitions.dart';
+import '../../../models/key_definition.dart';
+import '../../../utils/key_definition_utils.dart';
 import '../../../widgets/key_bullet_icon.dart';
 
 class AddEntryDialog extends StatefulWidget {
@@ -29,22 +30,29 @@ class AddEntryDialog extends StatefulWidget {
 class _AddEntryDialogState extends State<AddEntryDialog> {
   final _focusController = TextEditingController();
   final _noteController = TextEditingController();
-  TaskStatus? _selectedStatus;
+  KeyDefinition? _selectedKey;
   DateTime _selectedDate = DateTime.now();
-  bool _hasInitializedStatus = false;
+  bool _hasInitializedKey = false;
   String? _selectedSectionId;
 
   @override
   void initState() {
     super.initState();
-    // 기본값으로 '계획 중' 상태 선택
+    // 기본값으로 '계획 중' 상태에 매핑된 첫 번째 키 선택
     final state = widget.bloc.state;
     if (state.taskStatuses.isNotEmpty) {
-      _selectedStatus = state.taskStatuses.firstWhere(
+      final plannedStatus = state.taskStatuses.firstWhere(
         (s) => s.id == TaskStatus.planned.id,
         orElse: () => state.taskStatuses.first,
       );
-      _hasInitializedStatus = true;
+      final keys = KeyDefinitionUtils.getAllKeyDefinitionsForStatus(
+        plannedStatus,
+        state,
+      );
+      if (keys.isNotEmpty) {
+        _selectedKey = keys.first;
+        _hasInitializedKey = true;
+      }
     }
   }
 
@@ -74,15 +82,6 @@ class _AddEntryDialogState extends State<AddEntryDialog> {
     return '${date.year}.${date.month.toString().padLeft(2, '0')}.${date.day.toString().padLeft(2, '0')}';
   }
 
-  String _getDefaultKeyId(String statusId) {
-    const defaultMapping = {
-      'planned': 'key-incomplete',
-      'inProgress': 'key-progress',
-      'completed': 'key-completed',
-    };
-    return defaultMapping[statusId] ?? defaultKeyDefinitions.first.id;
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
@@ -90,17 +89,23 @@ class _AddEntryDialogState extends State<AddEntryDialog> {
       child: BlocBuilder<BulletJournalBloc, BulletJournalState>(
         builder: (context, state) {
           // initState에서 초기화하지 못한 경우 다시 시도
-          if (!_hasInitializedStatus && state.taskStatuses.isNotEmpty) {
+          if (!_hasInitializedKey && state.taskStatuses.isNotEmpty) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (mounted) {
                 final plannedStatus = state.taskStatuses.firstWhere(
                   (s) => s.id == TaskStatus.planned.id,
                   orElse: () => state.taskStatuses.first,
                 );
-                setState(() {
-                  _selectedStatus = plannedStatus;
-                  _hasInitializedStatus = true;
-                });
+                final keys = KeyDefinitionUtils.getAllKeyDefinitionsForStatus(
+                  plannedStatus,
+                  state,
+                );
+                if (keys.isNotEmpty) {
+                  setState(() {
+                    _selectedKey = keys.first;
+                    _hasInitializedKey = true;
+                  });
+                }
               }
             });
           }
@@ -171,40 +176,40 @@ class _AddEntryDialogState extends State<AddEntryDialog> {
                   ],
                   const Text('키 선택:'),
                   const SizedBox(height: 8),
-                  DropdownButtonFormField<TaskStatus>(
-                    value: _selectedStatus,
+                  DropdownButtonFormField<KeyDefinition>(
+                    value: _selectedKey,
                     decoration: const InputDecoration(
-                      labelText: '작업 상태',
+                      labelText: '키',
                       border: OutlineInputBorder(),
-                      hintText: '엔트리의 기본 키를 선택하세요',
+                      hintText: '키를 선택하세요',
                     ),
-                    items: state.taskStatuses.map((status) {
-                      // 상태에 매핑된 키 찾기
-                      final keyId = state.statusKeyMapping[status.id] ??
-                          _getDefaultKeyId(status.id);
-                      final allDefinitions = [
-                        ...defaultKeyDefinitions,
-                        ...state.customKeys,
-                      ];
-                      final keyDefinition = allDefinitions.firstWhere(
-                        (def) => def.id == keyId,
-                        orElse: () => defaultKeyDefinitions.first,
-                      );
-
+                    items: KeyDefinitionUtils.getAllAvailableKeys(state)
+                        .where((keyDef) => keyDef.id != 'key-snoozed') // key-snoozed는 태스크 전용
+                        .map((keyDef) {
+                      // 키에 매핑된 작업 상태 찾기
+                      final status = KeyDefinitionUtils.getStatusForKey(keyDef, state);
                       return DropdownMenuItem(
-                        value: status,
+                        value: keyDef,
                         child: Row(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            KeyBulletIcon(definition: keyDefinition),
+                            KeyBulletIcon(definition: keyDef),
                             const SizedBox(width: 12),
-                            Text(status.label),
+                            Flexible(
+                              child: Text(
+                                status != null
+                                    ? '${keyDef.label} (${status.label})'
+                                    : keyDef.label,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
                           ],
                         ),
                       );
                     }).toList(),
                     onChanged: (value) {
                       setState(() {
-                        _selectedStatus = value;
+                        _selectedKey = value;
                       });
                     },
                   ),
@@ -225,9 +230,21 @@ class _AddEntryDialogState extends State<AddEntryDialog> {
                     return;
                   }
 
-                  if (_selectedStatus == null) {
+                  if (_selectedKey == null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('키를 선택해주세요')),
+                    );
+                    return;
+                  }
+
+                  // 키에서 작업 상태 자동 결정
+                  final status = KeyDefinitionUtils.getStatusForKey(
+                    _selectedKey!,
+                    state,
+                  );
+                  if (status == null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('키에 매핑된 작업 상태를 찾을 수 없습니다')),
                     );
                     return;
                   }
@@ -240,7 +257,7 @@ class _AddEntryDialogState extends State<AddEntryDialog> {
                     date: _selectedDate,
                     focus: _focusController.text,
                     note: _noteController.text,
-                    keyStatus: _selectedStatus!,
+                    keyStatus: status,
                     tasks: [],
                     sectionId: widget.page.sections.isNotEmpty
                         ? _selectedSectionId

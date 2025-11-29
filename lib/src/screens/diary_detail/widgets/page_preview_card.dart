@@ -239,18 +239,31 @@ class PagePreviewCard extends StatelessWidget {
                     ),
                   if (page.isFavorite) const SizedBox(width: 4),
                   Expanded(
-                    child: Text(
-                      page.name,
-                      style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500,
-                        color: isCurrent
-                            ? Theme.of(context).colorScheme.onPrimaryContainer
-                            : Colors.grey.shade800,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    child: page.isIndexPage
+                        ? Text(
+                            '인덱스',
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: isCurrent
+                                  ? Theme.of(context).colorScheme.onPrimaryContainer
+                                  : Colors.grey.shade800,
+                            ),
+                          )
+                        : page.name != null
+                            ? Text(
+                                page.name!,
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  color: isCurrent
+                                      ? Theme.of(context).colorScheme.onPrimaryContainer
+                                      : Colors.grey.shade800,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              )
+                            : const SizedBox.shrink(),
                   ),
                   IconButton(
                     icon: const Icon(Icons.more_vert, size: 14),

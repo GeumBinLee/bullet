@@ -9,11 +9,12 @@ part 'diary_page.freezed.dart';
 class DiaryPage with _$DiaryPage {
   const factory DiaryPage({
     required String id,
-    required String name,
+    String? name, // 페이지 이름 (선택적)
     @Default(<BulletEntry>[]) List<BulletEntry> entries,
     @Default(<DiarySection>[]) List<DiarySection> sections,
     required DateTime createdAt,
     @Default(false) bool isFavorite,
+    @Default(false) bool isIndexPage, // 인덱스 페이지 여부
     int? order, // 페이지 순서 (선택적)
   }) = _DiaryPage;
 }

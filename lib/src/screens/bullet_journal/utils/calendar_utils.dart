@@ -25,9 +25,7 @@ class CalendarUtils {
       return (name: '기본', id: null);
     }
     for (final diary in state.diaries) {
-      if (diary.entries.any((e) => e.id == entry.id)) {
-        return (name: diary.name, id: diary.id);
-      }
+      // 페이지의 엔트리만 확인 (diary.entries는 사용하지 않음)
       for (final page in diary.pages) {
         if (page.entries.any((e) => e.id == entry.id)) {
           return (name: diary.name, id: diary.id);

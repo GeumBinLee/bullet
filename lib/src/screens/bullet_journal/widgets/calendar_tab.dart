@@ -41,7 +41,10 @@ class _CalendarTabState extends State<CalendarTab>
         // 데이터 처리 로직
         final allEntries = <BulletEntry>[...state.entries];
         for (final diary in state.diaries) {
-          allEntries.addAll(diary.entries);
+          // 다이어리의 모든 페이지에서 엔트리 수집
+          for (final page in diary.pages) {
+            allEntries.addAll(page.entries);
+          }
         }
 
         final entriesByDay = <String, List<BulletEntry>>{};

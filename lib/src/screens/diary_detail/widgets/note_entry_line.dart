@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,26 +38,31 @@ class NoteEntryLine extends StatelessWidget {
   KeyDefinition _keyDefinitionForEntry() {
     try {
       final status = entry.keyStatus;
-      final keyId = state.statusKeyMapping[status.id] ??
-          _defaultStatusKeyMapping[status.id] ??
-          defaultKeyDefinitions.first.id;
+      debugPrint('[NoteEntryLine] 키 정의 가져오기 - Entry ID: ${entry.id}, Status ID: ${status.id}, Status Label: ${status.label}');
+      final keyIds = state.statusKeyMapping[status.id] ??
+          [_defaultStatusKeyMapping[status.id] ?? defaultKeyDefinitions.first.id];
+      final keyId = keyIds.isNotEmpty ? keyIds.first : defaultKeyDefinitions.first.id;
+      debugPrint('[NoteEntryLine] 매핑된 키 ID: $keyId');
       final allDefinitions = [...defaultKeyDefinitions, ...state.customKeys];
-      return allDefinitions.firstWhere(
+      final keyDef = allDefinitions.firstWhere(
         (definition) => definition.id == keyId,
         orElse: () => defaultKeyDefinitions.first,
       );
+      debugPrint('[NoteEntryLine] 최종 키 정의 - Key ID: ${keyDef.id}, Key Label: ${keyDef.label}');
+      return keyDef;
     } catch (e) {
+      debugPrint('[NoteEntryLine] 오류 발생: $e');
       return defaultKeyDefinitions.first;
     }
   }
 
   KeyDefinition _definitionFor(BulletTask task) {
     final isSnoozed = task.snoozes.isNotEmpty;
-    final keyId = isSnoozed
-        ? 'key-snoozed'
+    final keyIds = isSnoozed
+        ? ['key-snoozed']
         : state.statusKeyMapping[task.status.id] ??
-            _defaultStatusKeyMapping[task.status.id] ??
-            defaultKeyDefinitions.first.id;
+            [_defaultStatusKeyMapping[task.status.id] ?? defaultKeyDefinitions.first.id];
+    final keyId = keyIds.isNotEmpty ? keyIds.first : defaultKeyDefinitions.first.id;
     final allDefinitions = [...defaultKeyDefinitions, ...state.customKeys];
     return allDefinitions.firstWhere(
       (definition) => definition.id == keyId,

@@ -29,23 +29,26 @@ class KeySettingsScreen extends StatelessWidget {
                 ),
               ),
               ...defaultKeyDefinitions.map((definition) {
-                final isMapped = state.statusKeyMapping.values.contains(
-                  definition.id,
-                );
-                final mappedStatusId = state.statusKeyMapping.entries
-                    .where((e) => e.value == definition.id)
+                // 여러 상태에 매핑될 수 있으므로 리스트로 찾기
+                final mappedStatusIds = state.statusKeyMapping.entries
+                    .where((e) => e.value.contains(definition.id))
                     .map((e) => e.key)
-                    .firstOrNull;
+                    .toList();
                 return ListTile(
                   leading: KeyBulletIcon(definition: definition),
                   title: Text(definition.label),
                   subtitle: Text(definition.description),
-                  trailing: isMapped
-                      ? Chip(
-                          label: Text(
-                            _statusLabelForChip(mappedStatusId!, state),
-                          ),
-                          backgroundColor: Colors.teal.shade100,
+                  trailing: mappedStatusIds.isNotEmpty
+                      ? Wrap(
+                          spacing: 4,
+                          children: mappedStatusIds.map((statusId) {
+                            return Chip(
+                              label: Text(
+                                _statusLabelForChip(statusId, state),
+                              ),
+                              backgroundColor: Colors.teal.shade100,
+                            );
+                          }).toList(),
                         )
                       : null,
                 );
@@ -68,13 +71,11 @@ class KeySettingsScreen extends StatelessWidget {
                 )
               else
                 ...state.customKeys.map((definition) {
-                  final isMapped = state.statusKeyMapping.values.contains(
-                    definition.id,
-                  );
-                  final mappedStatusId = state.statusKeyMapping.entries
-                      .where((e) => e.value == definition.id)
+                  // 여러 상태에 매핑될 수 있으므로 리스트로 찾기
+                  final mappedStatusIds = state.statusKeyMapping.entries
+                      .where((e) => e.value.contains(definition.id))
                       .map((e) => e.key)
-                      .firstOrNull;
+                      .toList();
                   return ListTile(
                     leading: KeyBulletIcon(definition: definition),
                     title: Text(definition.label),
@@ -82,21 +83,32 @@ class KeySettingsScreen extends StatelessWidget {
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (isMapped)
-                          Chip(
-                            label: Text(
-                              _statusLabelForChip(mappedStatusId!, state),
-                            ),
-                            backgroundColor: Colors.teal.shade100,
+                        if (mappedStatusIds.isNotEmpty)
+                          Wrap(
+                            spacing: 4,
+                            children: mappedStatusIds.map((statusId) {
+                              return Chip(
+                                label: Text(
+                                  _statusLabelForChip(statusId, state),
+                                ),
+                                backgroundColor: Colors.teal.shade100,
+                              );
+                            }).toList(),
                           ),
                         const SizedBox(width: 8),
                         PopupMenuButton<String>(
                           icon: const Icon(Icons.more_vert),
                           itemBuilder: (context) => [
                             ...state.taskStatuses.map((status) {
+                              final isAlreadyAssigned = mappedStatusIds.contains(status.id);
                               return PopupMenuItem(
                                 value: 'assign_${status.id}',
-                                child: Text('${status.label}에 사용'),
+                                enabled: !isAlreadyAssigned,
+                                child: Text(
+                                  isAlreadyAssigned 
+                                      ? '${status.label}에 사용됨' 
+                                      : '${status.label}에 사용',
+                                ),
                               );
                             }),
                             const PopupMenuDivider(),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../models/bullet_entry.dart';
+import '../../../models/key_definition.dart';
 import '../../../blocs/bullet_journal_bloc.dart';
 import '../../../widgets/key_bullet_icon.dart';
 import '../../../utils/entry_formatter.dart';
 import '../../../utils/key_definition_utils.dart';
-import '../../../data/key_definitions.dart';
 
 /// Widget for displaying entry details in a responsive layout
 class EntryDetailLayout extends StatelessWidget {
@@ -16,9 +16,9 @@ class EntryDetailLayout extends StatelessWidget {
     required this.isEditing,
     required this.focusController,
     required this.noteController,
-    required this.selectedStatus,
-    required this.onStatusChanged,
     required this.useTwoColumn,
+    this.selectedKey,
+    this.onKeyChanged,
   });
 
   final BulletEntry entry;
@@ -26,50 +26,57 @@ class EntryDetailLayout extends StatelessWidget {
   final bool isEditing;
   final TextEditingController focusController;
   final TextEditingController noteController;
-  final TaskStatus? selectedStatus;
-  final ValueChanged<TaskStatus?> onStatusChanged;
   final bool useTwoColumn;
+  final KeyDefinition? selectedKey;
+  final ValueChanged<KeyDefinition?>? onKeyChanged;
 
-  Widget _buildStatusDropdown() {
-    return DropdownButtonFormField<TaskStatus>(
-      value: selectedStatus,
+  Widget _buildKeyDropdown() {
+    final allKeys = KeyDefinitionUtils.getAllAvailableKeys(state);
+    
+    // key-snoozed는 태스크 전용 키이므로 엔트리 레벨에서는 제외
+    final entryKeys = allKeys.where((keyDef) => keyDef.id != 'key-snoozed').toList();
+    
+    if (entryKeys.isEmpty) return const SizedBox.shrink();
+    
+    return DropdownButtonFormField<KeyDefinition>(
+      value: selectedKey,
       decoration: const InputDecoration(
-        labelText: '작업 상태',
+        labelText: '키',
         border: OutlineInputBorder(),
+        hintText: '키를 선택하세요',
       ),
-      items: state.taskStatuses.map((status) {
-        final keyId = state.statusKeyMapping[status.id] ??
-            KeyDefinitionUtils.getDefaultKeyId(status.id);
-        final allDefinitions = [
-          ...defaultKeyDefinitions,
-          ...state.customKeys,
-        ];
-        final keyDefinition = allDefinitions.firstWhere(
-          (def) => def.id == keyId,
-          orElse: () => defaultKeyDefinitions.first,
-        );
+      items: entryKeys.map((keyDef) {
+        // 키에 매핑된 작업 상태 찾기
+        final status = KeyDefinitionUtils.getStatusForKey(keyDef, state);
         return DropdownMenuItem(
-          value: status,
+          value: keyDef,
           child: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              KeyBulletIcon(definition: keyDefinition),
+              KeyBulletIcon(definition: keyDef),
               const SizedBox(width: 12),
-              Text(status.label),
+              Flexible(
+                child: Text(
+                  status != null
+                      ? '${keyDef.label} (${status.label})'
+                      : keyDef.label,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ],
           ),
         );
       }).toList(),
-      onChanged: onStatusChanged,
+      onChanged: onKeyChanged,
     );
   }
 
   Widget _buildStatusDisplay(BuildContext context) {
-    final status = selectedStatus ?? entry.keyStatus;
+    final status = entry.keyStatus;
+    final keyDef = selectedKey ?? KeyDefinitionUtils.getKeyDefinitionForStatus(status, state);
     return Row(
       children: [
-        KeyBulletIcon(
-          definition: KeyDefinitionUtils.getKeyDefinitionForStatus(status, state),
-        ),
+        KeyBulletIcon(definition: keyDef),
         const SizedBox(width: 8),
         Text(
           status.label,
@@ -120,7 +127,7 @@ class EntryDetailLayout extends StatelessWidget {
           const SizedBox(height: 16),
           const Text('키 선택:'),
           const SizedBox(height: 8),
-          _buildStatusDropdown(),
+          _buildKeyDropdown(),
         ] else ...[
           const SizedBox(height: 8),
           _buildStatusDisplay(context),

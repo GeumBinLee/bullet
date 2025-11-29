@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../models/diary.dart';
 import '../../../blocs/bullet_journal_bloc.dart';
 import '../../../utils/device_type.dart';
+import '../../../utils/page_sort_utils.dart';
 import '../widgets/page_preview_card.dart';
 import 'page_dialogs.dart';
 
@@ -111,6 +112,9 @@ void showPageBottomSheet(
                   crossAxisCount = 3; // 중간 화면: 최소 3열
                 }
 
+                // 페이지 정렬 (인덱스 페이지가 맨 앞)
+                final sortedPages = PageSortUtils.sortPages(diary.pages);
+                
                 return GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: crossAxisCount,
@@ -118,7 +122,7 @@ void showPageBottomSheet(
                     mainAxisSpacing: 12,
                     childAspectRatio: 0.75, // 카드 비율 (세로가 약간 더 김)
                   ),
-                  itemCount: diary.pages.length + 1, // +1 for Add button
+                  itemCount: sortedPages.length + 1, // +1 for Add button
                   itemBuilder: (context, index) {
                     if (index == 0) {
                       // Add button
@@ -162,7 +166,7 @@ void showPageBottomSheet(
                     }
 
                     final pageIndex = index - 1;
-                    final page = diary.pages[pageIndex];
+                    final page = sortedPages[pageIndex];
                     final isCurrent = page.id == diary.currentPageId;
 
                     return PagePreviewCard(
