@@ -19,8 +19,33 @@ import 'diary_detail/dialogs/sort_dialog.dart';
 import 'diary_detail/dialogs/page_bottom_sheet.dart';
 import 'diary_detail/dialogs/page_dialogs.dart';
 import 'diary_detail/dialogs/section_dialogs.dart';
+import 'diary_detail/dialogs/add_timetable_dialog.dart';
 import '../utils/key_definition_utils.dart';
 import '../widgets/key_bullet_icon.dart';
+import '../widgets/time_table_widget.dart';
+import '../models/page_component.dart';
+import '../constants/layout_order.dart';
+
+/// 엔트리와 컴포넌트를 통합한 아이템 타입
+class _UnifiedItem {
+  final BulletEntry? entry;
+  final PageComponent? component;
+  final int order;
+
+  _UnifiedItem.entry(this.entry, this.order) : component = null;
+  _UnifiedItem.component(this.component, this.order) : entry = null;
+
+  T when<T>({
+    required T Function(BulletEntry entry, int order) entry,
+    required T Function(PageComponent component, int order) component,
+  }) {
+    if (this.entry != null) {
+      return entry(this.entry!, this.order);
+    } else {
+      return component(this.component!, this.order);
+    }
+  }
+}
 
 class DiaryDetailScreen extends StatefulWidget {
   const DiaryDetailScreen({super.key, required this.diaryId});
@@ -34,18 +59,31 @@ class DiaryDetailScreen extends StatefulWidget {
 // 커스텀 PageScrollPhysics로 마지막 페이지에서 다음 페이지로 넘어가려고 할 때 감지
 class _CustomPageScrollPhysics extends ClampingScrollPhysics {
   final VoidCallback onReachEnd;
+  final VoidCallback? onReachStart;
 
-  const _CustomPageScrollPhysics({required this.onReachEnd});
+  const _CustomPageScrollPhysics({
+    required this.onReachEnd,
+    this.onReachStart,
+  });
 
   @override
   _CustomPageScrollPhysics applyTo(ScrollPhysics? ancestor) {
     return _CustomPageScrollPhysics(
       onReachEnd: onReachEnd,
+      onReachStart: onReachStart,
     );
   }
 
   @override
   double applyBoundaryConditions(ScrollMetrics position, double value) {
+    // 첫 번째 페이지에서 왼쪽으로 스와이프하려고 할 때 감지
+    if (value < position.minScrollExtent && onReachStart != null) {
+      if (value < position.minScrollExtent - 50) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          onReachStart?.call();
+        });
+      }
+    }
     // 마지막 페이지에서 오른쪽으로 스와이프하려고 할 때 감지
     if (value > position.maxScrollExtent) {
       // 약간의 임계값을 두어 실제로 스와이프했을 때만 트리거
@@ -66,6 +104,22 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
   PageController? _pageController; // PageView 컨트롤러
   int _currentPageIndex = 0; // 현재 페이지 인덱스 (PageView 내부용)
   bool _isShowingAddPageDialog = false; // 새 페이지 생성 다이얼로그 표시 중인지 여부
+
+  List<String> _getPageLayoutOrder(DiaryPage page) {
+    try {
+      return List<String>.from(page.layoutOrder);
+    } catch (_) {
+      return <String>[];
+    }
+  }
+
+  String _getComponentId(PageComponent component) {
+    return component.map(
+      section: (section) => section.id,
+      timeTable: (timeTable) => timeTable.id,
+    );
+  }
+
 
   @override
   void initState() {
@@ -102,6 +156,27 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
 
         // 페이지 정렬 (인덱스 페이지가 맨 앞)
         final sortedPages = PageSortUtils.sortPages(diary.pages);
+        
+        // 인덱스 페이지가 없으면 생성 (페이지가 하나만 있어도)
+        final hasIndexPage = sortedPages.any((p) => p.isIndexPage);
+        if (!hasIndexPage && sortedPages.isNotEmpty) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            final indexPage = DiaryPage(
+              id: 'index-page-${DateTime.now().millisecondsSinceEpoch}',
+              name: null,
+              entries: [],
+              sections: [],
+              createdAt: DateTime.now(),
+              isIndexPage: true,
+            );
+            context.read<BulletJournalBloc>().add(
+                  BulletJournalEvent.addPageToDiary(
+                    diaryId: widget.diaryId,
+                    page: indexPage,
+                  ),
+                );
+          });
+        }
 
         // 페이지가 없으면 기본 페이지 생성
         if (diary.pages.isEmpty) {
@@ -334,6 +409,16 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                     ),
                   ),
                   const PopupMenuItem(
+                    value: 'add_timetable',
+                    child: Row(
+                      children: [
+                        Icon(Icons.calendar_view_week, size: 20),
+                        SizedBox(width: 12),
+                        Text('타임테이블 추가'),
+                      ],
+                    ),
+                  ),
+                  const PopupMenuItem(
                     value: 'add_page',
                     child: Row(
                       children: [
@@ -400,6 +485,12 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                             context, widget.diaryId, currentPage.id, state);
                       }
                       break;
+                    case 'add_timetable':
+                      if (currentPage != null) {
+                        showAddTimeTableDialog(
+                            context, widget.diaryId, currentPage.id);
+                      }
+                      break;
                     case 'add_page':
                       showAddPageDialog(context, widget.diaryId);
                       break;
@@ -445,6 +536,339 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                 ),
         );
       },
+    );
+  }
+
+  /// 엔트리와 컴포넌트를 통합한 리스트 빌드
+  Widget _buildUnifiedEntriesAndComponentsList(
+    BuildContext context,
+    List<BulletEntry> entries,
+    List<PageComponent> components,
+    DiaryPage page,
+    BulletJournalState state,
+  ) {
+    final entryMap = {for (final entry in entries) entry.id: entry};
+    final componentMap = {
+      for (final component in components) _getComponentId(component): component
+    };
+    final sortedComponents = [...components]..sort(
+        (a, b) {
+          final orderA =
+              a.map(section: (s) => s.order, timeTable: (t) => t.order);
+          final orderB =
+              b.map(section: (s) => s.order, timeTable: (t) => t.order);
+          return orderA.compareTo(orderB);
+        },
+      );
+
+    List<String> layoutOrder = _getPageLayoutOrder(page);
+    bool layoutOrderUpdated = false;
+
+    if (layoutOrder.isEmpty) {
+      layoutOrder = [
+        ...entries.map((e) => layoutEntryToken(e.id)),
+        ...sortedComponents
+            .map((c) => layoutComponentToken(_getComponentId(c))),
+      ];
+      layoutOrderUpdated = true;
+    }
+
+    final unifiedItems = <_UnifiedItem>[];
+    final usedEntryIds = <String>{};
+    final usedComponentIds = <String>{};
+    final effectiveLayoutOrder = <String>[];
+
+    void addEntryToList(BulletEntry entry) {
+      unifiedItems.add(_UnifiedItem.entry(entry, unifiedItems.length));
+      effectiveLayoutOrder.add(layoutEntryToken(entry.id));
+      usedEntryIds.add(entry.id);
+    }
+
+    void addComponentToList(PageComponent component) {
+      unifiedItems.add(_UnifiedItem.component(component, unifiedItems.length));
+      effectiveLayoutOrder
+          .add(layoutComponentToken(_getComponentId(component)));
+      usedComponentIds.add(_getComponentId(component));
+    }
+
+    for (final token in layoutOrder) {
+      if (token.startsWith(layoutEntryPrefix)) {
+        final entryId = token.substring(layoutEntryPrefix.length);
+        final entry = entryMap[entryId];
+        if (entry != null) {
+          if (!usedEntryIds.contains(entryId)) {
+            addEntryToList(entry);
+          }
+        } else {
+          layoutOrderUpdated = true;
+        }
+      } else if (token.startsWith(layoutComponentPrefix)) {
+        final componentId = token.substring(layoutComponentPrefix.length);
+        final component = componentMap[componentId];
+        if (component != null) {
+          if (!usedComponentIds.contains(componentId)) {
+            addComponentToList(component);
+          }
+        } else {
+          layoutOrderUpdated = true;
+        }
+      }
+    }
+
+    // 레이아웃 순서에 포함되지 않은 나머지 엔트리/컴포넌트 추가
+    for (final entry in entries) {
+      if (!usedEntryIds.contains(entry.id)) {
+        addEntryToList(entry);
+        layoutOrderUpdated = true;
+      }
+    }
+
+    for (final component in sortedComponents) {
+      final id = _getComponentId(component);
+      if (!usedComponentIds.contains(id)) {
+        addComponentToList(component);
+        layoutOrderUpdated = true;
+      }
+    }
+
+    if (layoutOrderUpdated && effectiveLayoutOrder.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        context.read<BulletJournalBloc>().add(
+              BulletJournalEvent.updateLayoutOrderInPage(
+                diaryId: widget.diaryId,
+                pageId: page.id,
+                layoutOrder: effectiveLayoutOrder,
+              ),
+            );
+      });
+    }
+
+    return ReorderableListView.builder(
+      physics: const ClampingScrollPhysics(),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      itemCount: unifiedItems.length,
+      onReorder: (oldIndex, newIndex) {
+        if (oldIndex < newIndex) {
+          newIndex -= 1;
+        }
+
+        // 현재 unifiedItems를 복사하여 수정
+        final updatedItems = <_UnifiedItem>[...unifiedItems];
+        final movedItem = updatedItems.removeAt(oldIndex);
+        updatedItems.insert(newIndex, movedItem);
+
+        // 순서 업데이트: 새로운 순서에 따라 엔트리와 컴포넌트 분리
+        final reorderedEntries = <BulletEntry>[];
+        final reorderedComponents = <PageComponent>[];
+        final newLayoutOrder = <String>[];
+
+        for (int i = 0; i < updatedItems.length; i++) {
+          updatedItems[i].when(
+            entry: (entry, _) {
+              reorderedEntries.add(entry);
+              newLayoutOrder.add(layoutEntryToken(entry.id));
+            },
+            component: (component, _) {
+              // 새로운 위치를 order로 업데이트
+              final updatedComponent = component.map(
+                section: (s) => s.copyWith(order: i),
+                timeTable: (t) => t.copyWith(order: i),
+              );
+              reorderedComponents.add(updatedComponent);
+              newLayoutOrder.add(
+                layoutComponentToken(_getComponentId(component)),
+              );
+            },
+          );
+        }
+
+        // 상태 업데이트
+        setState(() {
+          _manualOrder = reorderedEntries;
+          _sortType = EntrySortType.manual;
+        });
+
+        // 엔트리 순서 업데이트
+        if (reorderedEntries.isNotEmpty) {
+          context.read<BulletJournalBloc>().add(
+                BulletJournalEvent.reorderEntriesInPage(
+                  diaryId: widget.diaryId,
+                  pageId: page.id,
+                  reorderedEntries: reorderedEntries,
+                ),
+              );
+        }
+
+        // 컴포넌트 순서 업데이트
+        if (reorderedComponents.isNotEmpty) {
+          context.read<BulletJournalBloc>().add(
+                BulletJournalEvent.reorderComponentsInPage(
+                  diaryId: widget.diaryId,
+                  pageId: page.id,
+                  reorderedComponents: reorderedComponents,
+                ),
+              );
+        }
+
+        if (newLayoutOrder.isNotEmpty) {
+          context.read<BulletJournalBloc>().add(
+                BulletJournalEvent.updateLayoutOrderInPage(
+                  diaryId: widget.diaryId,
+                  pageId: page.id,
+                  layoutOrder: newLayoutOrder,
+                ),
+              );
+        }
+      },
+      itemBuilder: (context, index) {
+        final item = unifiedItems[index];
+        return item.when(
+          entry: (entry, _) {
+            return Container(
+              key: ValueKey('entry-${entry.id}'),
+              child: NoteEntryLine(
+                key: ValueKey('entry-${entry.id}-content'),
+                entry: entry,
+                state: state,
+                diaryId: widget.diaryId,
+                pageId: page.id,
+                onToggleTask: (taskId) {
+                  context.read<BulletJournalBloc>().add(
+                        BulletJournalEvent.toggleTaskInPage(
+                          diaryId: widget.diaryId,
+                          pageId: page.id,
+                          entryId: entry.id,
+                          taskId: taskId,
+                        ),
+                      );
+                },
+                onSnooze: (taskId, duration) {
+                  context.read<BulletJournalBloc>().add(
+                        BulletJournalEvent.snoozeTaskInPage(
+                          diaryId: widget.diaryId,
+                          pageId: page.id,
+                          entryId: entry.id,
+                          taskId: taskId,
+                          postpone: duration,
+                        ),
+                      );
+                },
+                onDragEnd: null,
+              ),
+            );
+          },
+          component: (component, _) {
+            return component.map(
+              section: (section) => const SizedBox.shrink(),
+              timeTable: (timeTable) => Container(
+                key: ValueKey('component-${timeTable.id}'),
+                child: TimeTableWidget(
+                  key: ValueKey('component-${timeTable.id}-content'),
+                  diaryId: widget.diaryId,
+                  pageId: page.id,
+                  component: timeTable,
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildComponentsList(
+    BuildContext context,
+    DiaryPage currentPage,
+  ) {
+    // components 필드 마이그레이션 (기존 데이터 호환성)
+    List<PageComponent> components = [];
+    try {
+      final componentsValue = currentPage.components;
+      components = List<PageComponent>.from(componentsValue);
+    } catch (e) {
+      components = <PageComponent>[];
+    }
+    
+    final layoutOrder = _getPageLayoutOrder(currentPage);
+    final componentMap = {
+      for (final component in components) _getComponentId(component): component
+    };
+
+    final orderedComponents = <PageComponent>[];
+    final usedIds = <String>{};
+
+    for (final token in layoutOrder) {
+      if (token.startsWith(layoutComponentPrefix)) {
+        final componentId = token.substring(layoutComponentPrefix.length);
+        final component = componentMap[componentId];
+        if (component != null && !usedIds.contains(componentId)) {
+          orderedComponents.add(component);
+          usedIds.add(componentId);
+        }
+      }
+    }
+
+    final fallbackSorted =
+        [...components]..sort((a, b) {
+            final orderA =
+                a.map(section: (s) => s.order, timeTable: (t) => t.order);
+            final orderB =
+                b.map(section: (s) => s.order, timeTable: (t) => t.order);
+            return orderA.compareTo(orderB);
+          });
+
+    for (final component in fallbackSorted) {
+      final id = _getComponentId(component);
+      if (!usedIds.contains(id)) {
+        orderedComponents.add(component);
+        usedIds.add(id);
+      }
+    }
+
+    return Column(
+      children: orderedComponents.map((component) {
+        return component.map(
+          section: (section) => const SizedBox.shrink(), // 섹션은 별도 처리
+          timeTable: (timeTable) => LongPressDraggable<PageComponent>(
+            key: ValueKey('component-${timeTable.id}'),
+            data: component,
+            delay: const Duration(milliseconds: 500),
+            feedback: Material(
+              elevation: 8,
+              child: Container(
+                width: 300,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.teal, width: 2),
+                ),
+                child: Text(
+                  timeTable.name,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            childWhenDragging: Opacity(
+              opacity: 0.3,
+              child: TimeTableWidget(
+                diaryId: widget.diaryId,
+                pageId: currentPage.id,
+                component: timeTable,
+              ),
+            ),
+            child: TimeTableWidget(
+              diaryId: widget.diaryId,
+              pageId: currentPage.id,
+              component: timeTable,
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 
@@ -1566,6 +1990,18 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
         }
       },
       physics: _CustomPageScrollPhysics(
+        onReachStart: () {
+          // 첫 번째 일반 페이지(인덱스 1)에서 이전으로 가려고 할 때 인덱스 페이지로 이동
+          if (_currentPageIndex == 1 && allPages.isNotEmpty && allPages[0].isIndexPage) {
+            if (_pageController != null && _pageController!.hasClients) {
+              _pageController!.animateToPage(
+                0,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            }
+          }
+        },
         onReachEnd: () {
           // 마지막 페이지에서 다음 페이지로 넘어가려고 할 때 새 페이지 생성
           if (allPages.isNotEmpty &&
@@ -1660,21 +2096,83 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
               theme: latestDiary.backgroundTheme,
               child: Builder(
                 builder: (context) {
+                  // components 필드 마이그레이션 (기존 데이터 호환성)
+                  List<PageComponent> pageComponents = [];
+                  try {
+                    final componentsValue = page.components;
+                    pageComponents = List<PageComponent>.from(componentsValue);
+                  } catch (e) {
+                    // 기존 데이터에 components 필드가 없는 경우 빈 리스트 사용
+                    pageComponents = <PageComponent>[];
+                    // 마이그레이션: components 필드가 없는 경우 업데이트
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      final migratedPage = page.copyWith(components: <PageComponent>[]);
+                      context.read<BulletJournalBloc>().add(
+                            BulletJournalEvent.updatePageInDiary(
+                              diaryId: widget.diaryId,
+                              pageId: page.id,
+                              updatedPage: migratedPage,
+                            ),
+                          );
+                    });
+                  }
+                  
+                  final hasComponents = pageComponents.isNotEmpty;
+
+                  List<String> pageLayoutOrder = _getPageLayoutOrder(page);
+                  if (pageLayoutOrder.isEmpty &&
+                      (pageSortedEntries.isNotEmpty || hasComponents)) {
+                    final defaultLayoutOrder = [
+                      ...pageSortedEntries.map((entry) => layoutEntryToken(entry.id)),
+                      ...pageComponents
+                          .map((component) => layoutComponentToken(_getComponentId(component))),
+                    ];
+                    if (defaultLayoutOrder.isNotEmpty) {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        context.read<BulletJournalBloc>().add(
+                              BulletJournalEvent.updateLayoutOrderInPage(
+                                diaryId: widget.diaryId,
+                                pageId: page.id,
+                                layoutOrder: defaultLayoutOrder,
+                              ),
+                            );
+                      });
+                      pageLayoutOrder = defaultLayoutOrder;
+                    }
+                  }
+
+                  // 컴포넌트와 엔트리를 모두 표시
+                  final componentsWidget = hasComponents
+                      ? _buildComponentsList(context, page.copyWith(components: pageComponents))
+                      : const SizedBox.shrink();
+
                   // 섹션이 있는 경우 섹션별 그룹화 표시
                   if (pageHasSections) {
-                    return _buildSectionedEntriesList(
-                      context,
-                      pageSections,
-                      pageEntriesBySection,
-                      pageUnassignedEntries,
-                      page,
-                      latestState,
-                      isKanbanView,
+                    return Column(
+                      children: [
+                        if (hasComponents)
+                          Flexible(
+                            child: SingleChildScrollView(
+                              child: componentsWidget,
+                            ),
+                          ),
+                        Expanded(
+                          child: _buildSectionedEntriesList(
+                            context,
+                            pageSections,
+                            pageEntriesBySection,
+                            pageUnassignedEntries,
+                            page,
+                            latestState,
+                            isKanbanView,
+                          ),
+                        ),
+                      ],
                     );
                   }
 
                   // 섹션이 없고 엔트리도 없는 경우
-                  if (pageSortedEntries.isEmpty) {
+                  if (pageSortedEntries.isEmpty && !hasComponents) {
                     return Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -1694,76 +2192,42 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                     );
                   }
 
+                  // 컴포넌트만 있고 엔트리가 없는 경우
+                  if (pageSortedEntries.isEmpty) {
+                    return SingleChildScrollView(
+                      child: componentsWidget,
+                    );
+                  }
+
                   // 섹션이 없는 경우
                   if (isKanbanView) {
                     // 칸반보드 모드: 작업 상태별로 칼럼 생성
-                    return _buildKanbanViewWithoutSections(
-                      context,
-                      pageSortedEntries,
-                      page,
-                      latestState,
+                    return Column(
+                      children: [
+                        if (hasComponents)
+                          Flexible(
+                            child: SingleChildScrollView(
+                              child: componentsWidget,
+                            ),
+                          ),
+                        Expanded(
+                          child: _buildKanbanViewWithoutSections(
+                            context,
+                            pageSortedEntries,
+                            page,
+                            latestState,
+                          ),
+                        ),
+                      ],
                     );
                   } else {
-                    // 리스트 보기: 세로 나열
-                    return ReorderableListView.builder(
-                      physics: const ClampingScrollPhysics(),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
-                      itemCount: pageSortedEntries.length,
-                      onReorder: (oldIndex, newIndex) {
-                        if (oldIndex < newIndex) {
-                          newIndex -= 1;
-                        }
-                        final reorderedEntries = [...pageSortedEntries];
-                        final movedEntry = reorderedEntries.removeAt(oldIndex);
-                        reorderedEntries.insert(newIndex, movedEntry);
-
-                        setState(() {
-                          _manualOrder = reorderedEntries;
-                          _sortType = EntrySortType.manual;
-                        });
-
-                        context.read<BulletJournalBloc>().add(
-                              BulletJournalEvent.reorderEntriesInPage(
-                                diaryId: widget.diaryId,
-                                pageId: page.id,
-                                reorderedEntries: reorderedEntries,
-                              ),
-                            );
-                      },
-                      itemBuilder: (context, entryIndex) {
-                        final entry = pageSortedEntries[entryIndex];
-                        return NoteEntryLine(
-                          key: ValueKey(entry.id),
-                          entry: entry,
-                          state: latestState,
-                          diaryId: widget.diaryId,
-                          pageId: page.id,
-                          onToggleTask: (taskId) {
-                            context.read<BulletJournalBloc>().add(
-                                  BulletJournalEvent.toggleTaskInPage(
-                                    diaryId: widget.diaryId,
-                                    pageId: page.id,
-                                    entryId: entry.id,
-                                    taskId: taskId,
-                                  ),
-                                );
-                          },
-                          onSnooze: (taskId, duration) {
-                            context.read<BulletJournalBloc>().add(
-                                  BulletJournalEvent.snoozeTaskInPage(
-                                    diaryId: widget.diaryId,
-                                    pageId: page.id,
-                                    entryId: entry.id,
-                                    taskId: taskId,
-                                    postpone: duration,
-                                  ),
-                                );
-                          },
-                        );
-                      },
+                    // 리스트 보기: 엔트리와 타임테이블 통합 표시
+                    return _buildUnifiedEntriesAndComponentsList(
+                      context,
+                      pageSortedEntries,
+                      pageComponents,
+                      page,
+                      latestState,
                     );
                   }
                 },

@@ -15,6 +15,7 @@ class PagePreviewCard extends StatelessWidget {
     required this.diary,
     required this.state,
     required this.isCurrent,
+    required this.pageNumber, // 페이지 번호 (인덱스 페이지 제외한 순서)
     required this.onTap,
     required this.onLongPress,
     required this.onMorePress,
@@ -24,6 +25,7 @@ class PagePreviewCard extends StatelessWidget {
   final Diary diary;
   final BulletJournalState state;
   final bool isCurrent;
+  final int pageNumber; // 페이지 번호 (전체 순서 기준, 인덱스 페이지 포함)
   final VoidCallback onTap;
   final VoidCallback onLongPress;
   final VoidCallback onMorePress;
@@ -238,6 +240,17 @@ class PagePreviewCard extends StatelessWidget {
                       color: Colors.amber.shade700,
                     ),
                   if (page.isFavorite) const SizedBox(width: 4),
+                  // 페이지 번호 표시 (모든 페이지에 표시)
+                  Text(
+                    '$pageNumber ',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: isCurrent
+                          ? Theme.of(context).colorScheme.onPrimaryContainer
+                          : Colors.grey.shade600,
+                    ),
+                  ),
                   Expanded(
                     child: page.isIndexPage
                         ? Text(
@@ -246,7 +259,9 @@ class PagePreviewCard extends StatelessWidget {
                               fontSize: 10,
                               fontWeight: FontWeight.w500,
                               color: isCurrent
-                                  ? Theme.of(context).colorScheme.onPrimaryContainer
+                                  ? Theme.of(context)
+                                      .colorScheme
+                                      .onPrimaryContainer
                                   : Colors.grey.shade800,
                             ),
                           )
@@ -257,7 +272,9 @@ class PagePreviewCard extends StatelessWidget {
                                   fontSize: 10,
                                   fontWeight: FontWeight.w500,
                                   color: isCurrent
-                                      ? Theme.of(context).colorScheme.onPrimaryContainer
+                                      ? Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer
                                       : Colors.grey.shade800,
                                 ),
                                 maxLines: 1,
@@ -283,4 +300,3 @@ class PagePreviewCard extends StatelessWidget {
     );
   }
 }
-

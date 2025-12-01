@@ -5,6 +5,7 @@ import '../models/key_definition.dart';
 import '../models/diary.dart';
 import '../models/diary_page.dart';
 import '../models/diary_section.dart';
+import '../models/page_component.dart';
 
 part 'bullet_journal_event.freezed.dart';
 
@@ -151,5 +152,42 @@ class BulletJournalEvent with _$BulletJournalEvent {
     required String entryId,
     required String? sectionId,
   }) = _AssignEntryToSection;
-}
 
+  // 컴포넌트 관련 이벤트
+  const factory BulletJournalEvent.addComponentToPage({
+    required String diaryId,
+    required String pageId,
+    required PageComponent component,
+  }) = _AddComponentToPage;
+  const factory BulletJournalEvent.deleteComponentFromPage({
+    required String diaryId,
+    required String pageId,
+    required String componentId,
+  }) = _DeleteComponentFromPage;
+  const factory BulletJournalEvent.updateComponentInPage({
+    required String diaryId,
+    required String pageId,
+    required String componentId,
+    required PageComponent updatedComponent,
+  }) = _UpdateComponentInPage;
+  const factory BulletJournalEvent.reorderComponentsInPage({
+    required String diaryId,
+    required String pageId,
+    required List<PageComponent> reorderedComponents,
+  }) = _ReorderComponentsInPage;
+  const factory BulletJournalEvent.updateLayoutOrderInPage({
+    required String diaryId,
+    required String pageId,
+    required List<String> layoutOrder,
+  }) = _UpdateLayoutOrderInPage;
+
+  // 타임테이블 셀 업데이트
+  const factory BulletJournalEvent.updateTimeTableCell({
+    required String diaryId,
+    required String pageId,
+    required String componentId,
+    required int row,
+    required int column,
+    required String content,
+  }) = _UpdateTimeTableCell;
+}

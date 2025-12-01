@@ -1,12 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 
+import '../constants/layout_order.dart';
 import '../data/sample_entries.dart';
 import '../models/bullet_entry.dart';
 import '../models/diary.dart';
 import '../models/diary_page.dart';
 import '../models/diary_section.dart';
 import '../models/key_definition.dart';
+import '../models/page_component.dart';
 import '../utils/page_sort_utils.dart';
 import 'bullet_journal_event.dart';
 import 'bullet_journal_state.dart';
@@ -86,12 +88,113 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
             _onReorderSectionsInPage(diaryId, pageId, reorderedSections, emit),
         assignEntryToSection: (diaryId, pageId, entryId, sectionId) =>
             _onAssignEntryToSection(diaryId, pageId, entryId, sectionId, emit),
+        addComponentToPage: (diaryId, pageId, component) =>
+            _onAddComponentToPage(diaryId, pageId, component, emit),
+        deleteComponentFromPage: (diaryId, pageId, componentId) =>
+            _onDeleteComponentFromPage(diaryId, pageId, componentId, emit),
+        updateComponentInPage:
+            (diaryId, pageId, componentId, updatedComponent) =>
+                _onUpdateComponentInPage(
+                    diaryId, pageId, componentId, updatedComponent, emit),
+        reorderComponentsInPage: (diaryId, pageId, reorderedComponents) =>
+            _onReorderComponentsInPage(
+                diaryId, pageId, reorderedComponents, emit),
+        updateLayoutOrderInPage: (diaryId, pageId, layoutOrder) =>
+            _onUpdateLayoutOrderInPage(
+                diaryId, pageId, layoutOrder, emit),
+        updateTimeTableCell: (diaryId, pageId, componentId, row, column,
+                content) =>
+            _onUpdateTimeTableCell(
+                diaryId, pageId, componentId, row, column, content, emit),
       );
     });
     add(const BulletJournalEvent.loadEntries());
   }
 
   final List<BulletEntry> _initialEntries;
+
+  List<String> _safeLayoutOrder(DiaryPage page) {
+    try {
+      return List<String>.from(page.layoutOrder);
+    } catch (_) {
+      return <String>[];
+    }
+  }
+
+  String _componentIdFrom(PageComponent component) {
+    return component.map(
+      section: (section) => section.id,
+      timeTable: (timeTable) => timeTable.id,
+    );
+  }
+
+  List<String> _pruneLayoutOrder(
+    List<String> layoutOrder, {
+    Set<String>? validEntryIds,
+    Set<String>? validComponentIds,
+  }) {
+    final pruned = <String>[];
+    for (final token in layoutOrder) {
+      if (token.startsWith(layoutEntryPrefix)) {
+        final entryId = token.substring(layoutEntryPrefix.length);
+        if (validEntryIds == null || validEntryIds.contains(entryId)) {
+          if (!pruned.contains(token)) {
+            pruned.add(token);
+          }
+        }
+      } else if (token.startsWith(layoutComponentPrefix)) {
+        final componentId = token.substring(layoutComponentPrefix.length);
+        if (validComponentIds == null ||
+            validComponentIds.contains(componentId)) {
+          if (!pruned.contains(token)) {
+            pruned.add(token);
+          }
+        }
+      }
+    }
+    return pruned;
+  }
+
+  List<String> _mergeEntryOrderIntoLayoutOrder(
+    List<String> layoutOrder,
+    List<BulletEntry> orderedEntries,
+  ) {
+    final newLayout = <String>[];
+    final entryTokens =
+        orderedEntries.map((e) => layoutEntryToken(e.id)).iterator;
+
+    for (final token in layoutOrder) {
+      if (token.startsWith(layoutEntryPrefix)) {
+        if (entryTokens.moveNext()) {
+          newLayout.add(entryTokens.current);
+        }
+      } else if (token.startsWith(layoutComponentPrefix)) {
+        newLayout.add(token);
+      }
+    }
+
+    while (entryTokens.moveNext()) {
+      newLayout.add(entryTokens.current);
+    }
+
+    if (newLayout.isEmpty) {
+      newLayout.addAll(orderedEntries.map((e) => layoutEntryToken(e.id)));
+    }
+
+    return newLayout;
+  }
+
+  List<DiaryPage> _applySequentialPageOrder(List<DiaryPage> pages) {
+    var orderCounter = 0;
+    return pages.map((page) {
+      if (page.isIndexPage) {
+        return page.order == -1 ? page : page.copyWith(order: -1);
+      }
+      final updatedPage = page.copyWith(order: orderCounter);
+      orderCounter++;
+      return updatedPage;
+    }).toList();
+  }
 
   void _onLoadEntries(
     Emitter<BulletJournalState> emit,
@@ -449,18 +552,13 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     final updatedDiaries = state.diaries.map((diary) {
       if (diary.id != diaryId) return diary;
 
-      // 페이지 추가 전에 인덱스 페이지가 있는지 확인
-      final hasIndexPage = diary.pages.any((p) => p.isIndexPage);
-      final nonIndexPagesCount =
-          diary.pages.where((p) => !p.isIndexPage).length;
+      final existingPages = PageSortUtils.sortPages(diary.pages);
+      final hasIndexPage = existingPages.any((p) => p.isIndexPage);
 
-      // 새 페이지 추가
-      List<DiaryPage> newPages = [...diary.pages, page];
+      List<DiaryPage> newPages = [...existingPages, page];
 
-      // 페이지가 2개 이상이 되고 인덱스 페이지가 없으면 자동 생성
-      // (nonIndexPagesCount >= 1이면 새 페이지를 추가하면 총 2개 이상이 됨)
-      if (!hasIndexPage && nonIndexPagesCount >= 1) {
-        // 인덱스 페이지 생성 (항상 맨 앞에 위치)
+      // 인덱스 페이지가 없고 새로운 페이지가 인덱스 페이지가 아닐 때 자동 생성
+      if (!hasIndexPage && !page.isIndexPage) {
         final indexPage = DiaryPage(
           id: 'index-page-${DateTime.now().millisecondsSinceEpoch}',
           name: null, // 인덱스 페이지는 이름 없음
@@ -472,12 +570,12 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
         newPages = [indexPage, ...newPages];
       }
 
-      // 페이지 정렬 (인덱스 페이지가 맨 앞)
-      newPages = PageSortUtils.sortPages(newPages);
+      final sortedPages = PageSortUtils.sortPages(newPages);
+      final normalizedPages = _applySequentialPageOrder(sortedPages);
 
       final newCurrentPageId = diary.currentPageId ?? page.id;
       return diary.copyWith(
-        pages: newPages,
+        pages: normalizedPages,
         currentPageId: newCurrentPageId,
       );
     }).toList();
@@ -517,8 +615,10 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
         newCurrentPageId = finalPages.isNotEmpty ? finalPages.first.id : null;
       }
 
+      final normalizedPages = _applySequentialPageOrder(finalPages);
+
       return diary.copyWith(
-        pages: finalPages,
+        pages: normalizedPages,
         currentPageId: newCurrentPageId,
       );
     }).toList();
@@ -583,8 +683,8 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
   ) {
     final updatedDiaries = state.diaries.map((diary) {
       if (diary.id != diaryId) return diary;
-      // 인덱스 페이지는 항상 맨 앞에 고정
-      final sortedPages = PageSortUtils.sortPages(reorderedPages);
+      final sequentialPages = _applySequentialPageOrder(reorderedPages);
+      final sortedPages = PageSortUtils.sortPages(sequentialPages);
       return diary.copyWith(pages: sortedPages);
     }).toList();
 
@@ -601,7 +701,23 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
       if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
         if (page.id != pageId) return page;
-        return page.copyWith(entries: [...page.entries, entry]);
+        final updatedEntries = [...page.entries, entry];
+        final layoutOrder = _safeLayoutOrder(page);
+        final validEntryIds = updatedEntries.map((e) => e.id).toSet();
+        final validComponentIds =
+            page.components.map(_componentIdFrom).toSet();
+        final updatedLayoutOrder = [
+          ..._pruneLayoutOrder(
+            layoutOrder,
+            validEntryIds: validEntryIds,
+            validComponentIds: validComponentIds,
+          ),
+          layoutEntryToken(entry.id),
+        ];
+        return page.copyWith(
+          entries: updatedEntries,
+          layoutOrder: updatedLayoutOrder,
+        );
       }).toList();
       return diary.copyWith(pages: updatedPages);
     }).toList();
@@ -616,8 +732,10 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     BulletEntry updatedEntry,
     Emitter<BulletJournalState> emit,
   ) {
-    debugPrint('[BulletJournalBloc] _onUpdateEntryInPage 시작 - Diary: $diaryId, Page: $pageId, Entry: $entryId');
-    debugPrint('[BulletJournalBloc] 업데이트된 엔트리 상태 - Status ID: ${updatedEntry.keyStatus.id}, Status Label: ${updatedEntry.keyStatus.label}');
+    debugPrint(
+        '[BulletJournalBloc] _onUpdateEntryInPage 시작 - Diary: $diaryId, Page: $pageId, Entry: $entryId');
+    debugPrint(
+        '[BulletJournalBloc] 업데이트된 엔트리 상태 - Status ID: ${updatedEntry.keyStatus.id}, Status Label: ${updatedEntry.keyStatus.label}');
 
     final updatedDiaries = state.diaries.map((diary) {
       if (diary.id != diaryId) return diary;
@@ -625,17 +743,21 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
         if (page.id != pageId) return page;
         final updatedEntries = page.entries.map((entry) {
           if (entry.id != entryId) return entry;
-          debugPrint('[BulletJournalBloc] 엔트리 교체 - 기존 Status: ${entry.keyStatus.id}, 새 Status: ${updatedEntry.keyStatus.id}');
+          debugPrint(
+              '[BulletJournalBloc] 엔트리 교체 - 기존 Status: ${entry.keyStatus.id}, 새 Status: ${updatedEntry.keyStatus.id}');
           return updatedEntry;
         }).toList();
-        debugPrint('[BulletJournalBloc] 페이지 업데이트 완료 - Page: $pageId, 엔트리 수: ${updatedEntries.length}');
+        debugPrint(
+            '[BulletJournalBloc] 페이지 업데이트 완료 - Page: $pageId, 엔트리 수: ${updatedEntries.length}');
         return page.copyWith(entries: updatedEntries);
       }).toList();
-      debugPrint('[BulletJournalBloc] 다이어리 업데이트 완료 - Diary: $diaryId, 페이지 수: ${updatedPages.length}');
+      debugPrint(
+          '[BulletJournalBloc] 다이어리 업데이트 완료 - Diary: $diaryId, 페이지 수: ${updatedPages.length}');
       return diary.copyWith(pages: updatedPages);
     }).toList();
 
-    debugPrint('[BulletJournalBloc] 상태 emit 시작 - 다이어리 수: ${updatedDiaries.length}');
+    debugPrint(
+        '[BulletJournalBloc] 상태 emit 시작 - 다이어리 수: ${updatedDiaries.length}');
     emit(state.copyWith(diaries: updatedDiaries));
     debugPrint('[BulletJournalBloc] 상태 emit 완료');
   }
@@ -650,7 +772,12 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
       if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
         if (page.id != pageId) return page;
-        return page.copyWith(entries: reorderedEntries);
+        final updatedLayoutOrder =
+            _mergeEntryOrderIntoLayoutOrder(_safeLayoutOrder(page), reorderedEntries);
+        return page.copyWith(
+          entries: reorderedEntries,
+          layoutOrder: updatedLayoutOrder,
+        );
       }).toList();
       return diary.copyWith(pages: updatedPages);
     }).toList();
@@ -840,6 +967,199 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
           return entry.copyWith(sectionId: sectionId);
         }).toList();
         return page.copyWith(entries: updatedEntries);
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onUpdateLayoutOrderInPage(
+    String diaryId,
+    String pageId,
+    List<String> layoutOrder,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        return page.copyWith(layoutOrder: layoutOrder);
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onAddComponentToPage(
+    String diaryId,
+    String pageId,
+    PageComponent component,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        // 컴포넌트의 order 설정 (현재 컴포넌트 개수)
+        final newComponent = component.map(
+          section: (section) => section.copyWith(order: page.components.length),
+          timeTable: (timeTable) =>
+              timeTable.copyWith(order: page.components.length),
+        );
+        final updatedComponents = [...page.components, newComponent];
+        final layoutOrder = _safeLayoutOrder(page);
+        final validEntryIds = page.entries.map((e) => e.id).toSet();
+        final validComponentIds = updatedComponents.map(_componentIdFrom).toSet();
+        final updatedLayoutOrder = [
+          ..._pruneLayoutOrder(
+            layoutOrder,
+            validEntryIds: validEntryIds,
+            validComponentIds: validComponentIds,
+          ),
+          layoutComponentToken(_componentIdFrom(newComponent)),
+        ];
+        return page.copyWith(
+          components: updatedComponents,
+          layoutOrder: updatedLayoutOrder,
+        );
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onDeleteComponentFromPage(
+    String diaryId,
+    String pageId,
+    String componentId,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        final updatedComponents = page.components
+            .where((component) => component.map(
+                  section: (s) => s.id != componentId,
+                  timeTable: (t) => t.id != componentId,
+                ))
+            .toList();
+        final validEntryIds = page.entries.map((e) => e.id).toSet();
+        final validComponentIds =
+            updatedComponents.map(_componentIdFrom).toSet();
+        final updatedLayoutOrder = _pruneLayoutOrder(
+          _safeLayoutOrder(page),
+          validEntryIds: validEntryIds,
+          validComponentIds: validComponentIds,
+        );
+        return page.copyWith(
+          components: updatedComponents,
+          layoutOrder: updatedLayoutOrder,
+        );
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onUpdateComponentInPage(
+    String diaryId,
+    String pageId,
+    String componentId,
+    PageComponent updatedComponent,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        final updatedComponents = page.components.map((component) {
+          final matches = component.map(
+            section: (s) => s.id == componentId,
+            timeTable: (t) => t.id == componentId,
+          );
+          if (!matches) return component;
+          return updatedComponent;
+        }).toList();
+        return page.copyWith(components: updatedComponents);
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onReorderComponentsInPage(
+    String diaryId,
+    String pageId,
+    List<PageComponent> reorderedComponents,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        // order 업데이트
+        final updatedComponents =
+            reorderedComponents.asMap().entries.map((entry) {
+          return entry.value.map(
+            section: (s) => s.copyWith(order: entry.key),
+            timeTable: (t) => t.copyWith(order: entry.key),
+          );
+        }).toList();
+        return page.copyWith(components: updatedComponents);
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onUpdateTimeTableCell(
+    String diaryId,
+    String pageId,
+    String componentId,
+    int row,
+    int column,
+    String content,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        final updatedComponents = page.components.map((component) {
+          return component.map(
+            section: (s) => s,
+            timeTable: (t) {
+              if (t.id != componentId) return t;
+              // 기존 셀 찾기 또는 새 셀 추가
+              final cells = List<TimeTableCell>.from(t.cells);
+              final cellIndex = cells.indexWhere(
+                (cell) => cell.row == row && cell.column == column,
+              );
+              if (cellIndex >= 0) {
+                cells[cellIndex] = TimeTableCell(
+                  row: row,
+                  column: column,
+                  content: content,
+                );
+              } else {
+                cells.add(TimeTableCell(
+                  row: row,
+                  column: column,
+                  content: content,
+                ));
+              }
+              return t.copyWith(cells: cells);
+            },
+          );
+        }).toList();
+        return page.copyWith(components: updatedComponents);
       }).toList();
       return diary.copyWith(pages: updatedPages);
     }).toList();

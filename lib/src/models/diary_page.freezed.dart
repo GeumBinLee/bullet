@@ -20,6 +20,10 @@ mixin _$DiaryPage {
   String? get name => throw _privateConstructorUsedError; // 페이지 이름 (선택적)
   List<BulletEntry> get entries => throw _privateConstructorUsedError;
   List<DiarySection> get sections => throw _privateConstructorUsedError;
+  List<PageComponent> get components =>
+      throw _privateConstructorUsedError; // 페이지 컴포넌트 (섹션, 타임테이블 등)
+  List<String> get layoutOrder =>
+      throw _privateConstructorUsedError; // 엔트리/컴포넌트 통합 순서
   DateTime get createdAt => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
   bool get isIndexPage => throw _privateConstructorUsedError; // 인덱스 페이지 여부
@@ -42,6 +46,8 @@ abstract class $DiaryPageCopyWith<$Res> {
       String? name,
       List<BulletEntry> entries,
       List<DiarySection> sections,
+      List<PageComponent> components,
+      List<String> layoutOrder,
       DateTime createdAt,
       bool isFavorite,
       bool isIndexPage,
@@ -67,6 +73,8 @@ class _$DiaryPageCopyWithImpl<$Res, $Val extends DiaryPage>
     Object? name = freezed,
     Object? entries = null,
     Object? sections = null,
+    Object? components = null,
+    Object? layoutOrder = null,
     Object? createdAt = null,
     Object? isFavorite = null,
     Object? isIndexPage = null,
@@ -89,6 +97,14 @@ class _$DiaryPageCopyWithImpl<$Res, $Val extends DiaryPage>
           ? _value.sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<DiarySection>,
+      components: null == components
+          ? _value.components
+          : components // ignore: cast_nullable_to_non_nullable
+              as List<PageComponent>,
+      layoutOrder: null == layoutOrder
+          ? _value.layoutOrder
+          : layoutOrder // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -122,6 +138,8 @@ abstract class _$$DiaryPageImplCopyWith<$Res>
       String? name,
       List<BulletEntry> entries,
       List<DiarySection> sections,
+      List<PageComponent> components,
+      List<String> layoutOrder,
       DateTime createdAt,
       bool isFavorite,
       bool isIndexPage,
@@ -145,6 +163,8 @@ class __$$DiaryPageImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? entries = null,
     Object? sections = null,
+    Object? components = null,
+    Object? layoutOrder = null,
     Object? createdAt = null,
     Object? isFavorite = null,
     Object? isIndexPage = null,
@@ -167,6 +187,14 @@ class __$$DiaryPageImplCopyWithImpl<$Res>
           ? _value._sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<DiarySection>,
+      components: null == components
+          ? _value._components
+          : components // ignore: cast_nullable_to_non_nullable
+              as List<PageComponent>,
+      layoutOrder: null == layoutOrder
+          ? _value._layoutOrder
+          : layoutOrder // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -195,12 +223,16 @@ class _$DiaryPageImpl implements _DiaryPage {
       this.name,
       final List<BulletEntry> entries = const <BulletEntry>[],
       final List<DiarySection> sections = const <DiarySection>[],
+      final List<PageComponent> components = const <PageComponent>[],
+      final List<String> layoutOrder = const <String>[],
       required this.createdAt,
       this.isFavorite = false,
       this.isIndexPage = false,
       this.order})
       : _entries = entries,
-        _sections = sections;
+        _sections = sections,
+        _components = components,
+        _layoutOrder = layoutOrder;
 
   @override
   final String id;
@@ -226,6 +258,27 @@ class _$DiaryPageImpl implements _DiaryPage {
     return EqualUnmodifiableListView(_sections);
   }
 
+  final List<PageComponent> _components;
+  @override
+  @JsonKey()
+  List<PageComponent> get components {
+    if (_components is EqualUnmodifiableListView) return _components;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_components);
+  }
+
+// 페이지 컴포넌트 (섹션, 타임테이블 등)
+  final List<String> _layoutOrder;
+// 페이지 컴포넌트 (섹션, 타임테이블 등)
+  @override
+  @JsonKey()
+  List<String> get layoutOrder {
+    if (_layoutOrder is EqualUnmodifiableListView) return _layoutOrder;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_layoutOrder);
+  }
+
+// 엔트리/컴포넌트 통합 순서
   @override
   final DateTime createdAt;
   @override
@@ -240,7 +293,7 @@ class _$DiaryPageImpl implements _DiaryPage {
 
   @override
   String toString() {
-    return 'DiaryPage(id: $id, name: $name, entries: $entries, sections: $sections, createdAt: $createdAt, isFavorite: $isFavorite, isIndexPage: $isIndexPage, order: $order)';
+    return 'DiaryPage(id: $id, name: $name, entries: $entries, sections: $sections, components: $components, layoutOrder: $layoutOrder, createdAt: $createdAt, isFavorite: $isFavorite, isIndexPage: $isIndexPage, order: $order)';
   }
 
   @override
@@ -252,6 +305,10 @@ class _$DiaryPageImpl implements _DiaryPage {
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._entries, _entries) &&
             const DeepCollectionEquality().equals(other._sections, _sections) &&
+            const DeepCollectionEquality()
+                .equals(other._components, _components) &&
+            const DeepCollectionEquality()
+                .equals(other._layoutOrder, _layoutOrder) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.isFavorite, isFavorite) ||
@@ -268,6 +325,8 @@ class _$DiaryPageImpl implements _DiaryPage {
       name,
       const DeepCollectionEquality().hash(_entries),
       const DeepCollectionEquality().hash(_sections),
+      const DeepCollectionEquality().hash(_components),
+      const DeepCollectionEquality().hash(_layoutOrder),
       createdAt,
       isFavorite,
       isIndexPage,
@@ -288,6 +347,8 @@ abstract class _DiaryPage implements DiaryPage {
       final String? name,
       final List<BulletEntry> entries,
       final List<DiarySection> sections,
+      final List<PageComponent> components,
+      final List<String> layoutOrder,
       required final DateTime createdAt,
       final bool isFavorite,
       final bool isIndexPage,
@@ -301,6 +362,10 @@ abstract class _DiaryPage implements DiaryPage {
   List<BulletEntry> get entries;
   @override
   List<DiarySection> get sections;
+  @override
+  List<PageComponent> get components; // 페이지 컴포넌트 (섹션, 타임테이블 등)
+  @override
+  List<String> get layoutOrder; // 엔트리/컴포넌트 통합 순서
   @override
   DateTime get createdAt;
   @override
