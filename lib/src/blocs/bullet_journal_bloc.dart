@@ -88,6 +88,9 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
             _onReorderSectionsInPage(diaryId, pageId, reorderedSections, emit),
         assignEntryToSection: (diaryId, pageId, entryId, sectionId) =>
             _onAssignEntryToSection(diaryId, pageId, entryId, sectionId, emit),
+        assignComponentToSection: (diaryId, pageId, componentId, sectionId) =>
+            _onAssignComponentToSection(
+                diaryId, pageId, componentId, sectionId, emit),
         addComponentToPage: (diaryId, pageId, component) =>
             _onAddComponentToPage(diaryId, pageId, component, emit),
         deleteComponentFromPage: (diaryId, pageId, componentId) =>
@@ -100,12 +103,26 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
             _onReorderComponentsInPage(
                 diaryId, pageId, reorderedComponents, emit),
         updateLayoutOrderInPage: (diaryId, pageId, layoutOrder) =>
-            _onUpdateLayoutOrderInPage(
-                diaryId, pageId, layoutOrder, emit),
+            _onUpdateLayoutOrderInPage(diaryId, pageId, layoutOrder, emit),
         updateTimeTableCell: (diaryId, pageId, componentId, row, column,
-                content) =>
-            _onUpdateTimeTableCell(
-                diaryId, pageId, componentId, row, column, content, emit),
+                content, backgroundColorHex) =>
+            _onUpdateTimeTableCell(diaryId, pageId, componentId, row, column,
+                content, backgroundColorHex, emit),
+        addEntryToTimeTableCell:
+            (diaryId, pageId, componentId, row, column, entryId) =>
+                _onAddEntryToTimeTableCell(
+                    diaryId, pageId, componentId, row, column, entryId, emit),
+        removeEntryFromTimeTableCell:
+            (diaryId, pageId, componentId, row, column, entryId) =>
+                _onRemoveEntryFromTimeTableCell(
+                    diaryId, pageId, componentId, row, column, entryId, emit),
+        updateTimeTableColumnWidths: (diaryId, pageId, componentId,
+                columnWidths) =>
+            _onUpdateTimeTableColumnWidths(
+                diaryId, pageId, componentId, columnWidths, emit),
+        updateTimeTableRowHeights: (diaryId, pageId, componentId, rowHeights) =>
+            _onUpdateTimeTableRowHeights(
+                diaryId, pageId, componentId, rowHeights, emit),
       );
     });
     add(const BulletJournalEvent.loadEntries());
@@ -704,8 +721,7 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
         final updatedEntries = [...page.entries, entry];
         final layoutOrder = _safeLayoutOrder(page);
         final validEntryIds = updatedEntries.map((e) => e.id).toSet();
-        final validComponentIds =
-            page.components.map(_componentIdFrom).toSet();
+        final validComponentIds = page.components.map(_componentIdFrom).toSet();
         final updatedLayoutOrder = [
           ..._pruneLayoutOrder(
             layoutOrder,
@@ -772,8 +788,8 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
       if (diary.id != diaryId) return diary;
       final updatedPages = diary.pages.map((page) {
         if (page.id != pageId) return page;
-        final updatedLayoutOrder =
-            _mergeEntryOrderIntoLayoutOrder(_safeLayoutOrder(page), reorderedEntries);
+        final updatedLayoutOrder = _mergeEntryOrderIntoLayoutOrder(
+            _safeLayoutOrder(page), reorderedEntries);
         return page.copyWith(
           entries: reorderedEntries,
           layoutOrder: updatedLayoutOrder,
@@ -974,6 +990,34 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
+  void _onAssignComponentToSection(
+    String diaryId,
+    String pageId,
+    String componentId,
+    String? sectionId,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        final updatedComponents = page.components.map((component) {
+          return component.map(
+            section: (s) => component,
+            timeTable: (t) {
+              if (t.id != componentId) return t;
+              return t.copyWith(sectionId: sectionId);
+            },
+          );
+        }).toList();
+        return page.copyWith(components: updatedComponents);
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
   void _onUpdateLayoutOrderInPage(
     String diaryId,
     String pageId,
@@ -1011,7 +1055,8 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
         final updatedComponents = [...page.components, newComponent];
         final layoutOrder = _safeLayoutOrder(page);
         final validEntryIds = page.entries.map((e) => e.id).toSet();
-        final validComponentIds = updatedComponents.map(_componentIdFrom).toSet();
+        final validComponentIds =
+            updatedComponents.map(_componentIdFrom).toSet();
         final updatedLayoutOrder = [
           ..._pruneLayoutOrder(
             layoutOrder,
@@ -1126,6 +1171,7 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     int row,
     int column,
     String content,
+    String? backgroundColorHex,
     Emitter<BulletJournalState> emit,
   ) {
     final updatedDiaries = state.diaries.map((diary) {
@@ -1142,20 +1188,110 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
               final cellIndex = cells.indexWhere(
                 (cell) => cell.row == row && cell.column == column,
               );
+
               if (cellIndex >= 0) {
-                cells[cellIndex] = TimeTableCell(
-                  row: row,
-                  column: column,
+                final existing = cells[cellIndex];
+                cells[cellIndex] = existing.copyWith(
                   content: content,
+                  backgroundColorHex:
+                      backgroundColorHex ?? existing.backgroundColorHex,
                 );
               } else {
-                cells.add(TimeTableCell(
-                  row: row,
-                  column: column,
-                  content: content,
-                ));
+                cells.add(
+                  TimeTableCell(
+                    row: row,
+                    column: column,
+                    content: content,
+                    backgroundColorHex: backgroundColorHex,
+                  ),
+                );
               }
+
               return t.copyWith(cells: cells);
+            },
+          );
+        }).toList();
+        return page.copyWith(components: updatedComponents);
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onAddEntryToTimeTableCell(
+    String diaryId,
+    String pageId,
+    String componentId,
+    int row,
+    int column,
+    String entryId,
+    Emitter<BulletJournalState> emit,
+  ) {
+    // TODO: Implement entry addition to time table cell
+    // This requires updating the TimeTableCell model to support entry IDs
+    emit(state);
+  }
+
+  void _onRemoveEntryFromTimeTableCell(
+    String diaryId,
+    String pageId,
+    String componentId,
+    int row,
+    int column,
+    String entryId,
+    Emitter<BulletJournalState> emit,
+  ) {
+    // TODO: Implement entry removal from time table cell
+    // This requires updating the TimeTableCell model to support entry IDs
+    emit(state);
+  }
+
+  void _onUpdateTimeTableColumnWidths(
+    String diaryId,
+    String pageId,
+    String componentId,
+    List<double> columnWidths,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        final updatedComponents = page.components.map((component) {
+          return component.map(
+            section: (s) => s,
+            timeTable: (t) {
+              if (t.id != componentId) return t;
+              return t.copyWith(columnWidths: columnWidths);
+            },
+          );
+        }).toList();
+        return page.copyWith(components: updatedComponents);
+      }).toList();
+      return diary.copyWith(pages: updatedPages);
+    }).toList();
+
+    emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onUpdateTimeTableRowHeights(
+    String diaryId,
+    String pageId,
+    String componentId,
+    List<double> rowHeights,
+    Emitter<BulletJournalState> emit,
+  ) {
+    final updatedDiaries = state.diaries.map((diary) {
+      if (diary.id != diaryId) return diary;
+      final updatedPages = diary.pages.map((page) {
+        if (page.id != pageId) return page;
+        final updatedComponents = page.components.map((component) {
+          return component.map(
+            section: (s) => s,
+            timeTable: (t) {
+              if (t.id != componentId) return t;
+              return t.copyWith(rowHeights: rowHeights);
             },
           );
         }).toList();

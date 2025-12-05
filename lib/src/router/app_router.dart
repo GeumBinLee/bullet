@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../screens/bullet_journal/bullet_journal_screen.dart';
 import '../screens/diary_detail_screen.dart';
 import '../screens/entry_note_detail/entry_note_detail_screen.dart';
+import '../screens/time_table_detail/time_table_detail_screen.dart';
 import '../models/bullet_entry.dart';
 
 final GoRouter appRouter = GoRouter(
@@ -32,6 +33,18 @@ final GoRouter appRouter = GoRouter(
           );
         }
         return EntryNoteDetailScreen(entry: entry);
+      },
+    ),
+    GoRoute(
+      path: '/time-table/:componentId',
+      builder: (context, state) {
+        final args = state.extra as TimeTableDetailArgs?;
+        if (args == null) {
+          return const Scaffold(
+            body: Center(child: Text('타임테이블을 찾을 수 없습니다')),
+          );
+        }
+        return TimeTableDetailScreen(args: args);
       },
     ),
   ],

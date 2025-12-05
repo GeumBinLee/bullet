@@ -20,8 +20,7 @@ import 'diary_detail/dialogs/page_bottom_sheet.dart';
 import 'diary_detail/dialogs/page_dialogs.dart';
 import 'diary_detail/dialogs/section_dialogs.dart';
 import 'diary_detail/dialogs/add_timetable_dialog.dart';
-import '../utils/key_definition_utils.dart';
-import '../widgets/key_bullet_icon.dart';
+import 'time_table_detail/time_table_detail_screen.dart';
 import '../widgets/time_table_widget.dart';
 import '../models/page_component.dart';
 import '../constants/layout_order.dart';
@@ -117,6 +116,18 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
     return component.map(
       section: (section) => section.id,
       timeTable: (timeTable) => timeTable.id,
+    );
+  }
+
+  void _openTimeTableDetail(TimeTableComponent component, String pageId) {
+    if (!mounted) return;
+    context.push(
+      '/time-table/${component.id}',
+      extra: TimeTableDetailArgs(
+        diaryId: widget.diaryId,
+        pageId: pageId,
+        component: component,
+      ),
     );
   }
 
@@ -768,6 +779,10 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                   diaryId: widget.diaryId,
                   pageId: page.id,
                   component: timeTable,
+                  onOpenDetail: () => _openTimeTableDetail(
+                    timeTable,
+                    page.id,
+                  ),
                 ),
               ),
             );
@@ -780,6 +795,7 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
   Widget _buildComponentsList(
     BuildContext context,
     DiaryPage currentPage,
+    bool isKanbanView,
   ) {
     // components 필드 마이그레이션 (기존 데이터 호환성)
     List<PageComponent> components = [];
@@ -859,12 +875,18 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                 diaryId: widget.diaryId,
                 pageId: currentPage.id,
                 component: timeTable,
+                isKanbanView: isKanbanView,
               ),
             ),
             child: TimeTableWidget(
               diaryId: widget.diaryId,
               pageId: currentPage.id,
               component: timeTable,
+              isKanbanView: isKanbanView,
+              onOpenDetail: () => _openTimeTableDetail(
+                timeTable,
+                currentPage.id,
+              ),
             ),
           ),
         );
@@ -877,6 +899,8 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
     List<DiarySection> sections,
     Map<String, List<BulletEntry>> entriesBySection,
     List<BulletEntry> unassignedEntries,
+    Map<String, List<TimeTableComponent>> timeTablesBySection,
+    List<TimeTableComponent> unassignedTimeTables,
     DiaryPage currentPage,
     BulletJournalState state,
     bool isKanbanView,
@@ -907,6 +931,9 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                 final sectionEntries = section != null
                     ? (entriesBySection[section.id] ?? [])
                     : unassignedEntries;
+                final sectionTimeTables = section != null
+                    ? (timeTablesBySection[section.id] ?? [])
+                    : unassignedTimeTables;
 
                 return DragTarget<int>(
                   onAcceptWithDetails: (details) {
@@ -967,9 +994,12 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                       context,
                       section,
                       sectionEntries,
+                      sectionTimeTables,
                       sections,
                       entriesBySection,
                       unassignedEntries,
+                      timeTablesBySection,
+                      unassignedTimeTables,
                       currentPage,
                       state,
                       screenHeight,
@@ -984,79 +1014,69 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
       );
     } else {
       // [수정됨] 리스트 보기: 평탄화된 리스트(Flat List) 접근 방식 사용
-      // 섹션 헤더와 엔트리를 하나의 리스트로 만들어 ReorderableListView에 넣습니다.
-      // 이를 통해 섹션 순서 변경 및 엔트리의 섹션 간 이동이 모두 가능해집니다.
-
-      // 1. 표시할 아이템 리스트 생성 (섹션 헤더 + 엔트리 혼합)
+      // 섹션 헤더와 엔트리/타임테이블을 하나의 리스트로 만들어 ReorderableListView에 넣습니다.
       final List<dynamic> flatItems = [];
+      final layoutOrder = _getPageLayoutOrder(currentPage);
 
-      for (final section in sections) {
-        flatItems.add(section); // 섹션 객체 자체를 헤더 식별자로 사용
-        flatItems.addAll(entriesBySection[section.id] ?? []);
+      List<dynamic> buildItemsForSection(
+        List<BulletEntry> entries,
+        List<TimeTableComponent> timeTables,
+      ) {
+        final items = <dynamic>[];
+        final entryMap = {for (final entry in entries) entry.id: entry};
+        final tableMap = {for (final table in timeTables) table.id: table};
+
+        for (final token in layoutOrder) {
+          if (token.startsWith(layoutEntryPrefix)) {
+            final entryId = token.substring(layoutEntryPrefix.length);
+            final entry = entryMap.remove(entryId);
+            if (entry != null) {
+              items.add(entry);
+            }
+          } else if (token.startsWith(layoutComponentPrefix)) {
+            final componentId = token.substring(layoutComponentPrefix.length);
+            final table = tableMap.remove(componentId);
+            if (table != null) {
+              items.add(table);
+            }
+          }
+        }
+
+        for (final entry in entries) {
+          if (entryMap.remove(entry.id) != null) {
+            items.add(entry);
+          }
+        }
+
+        for (final table in timeTables) {
+          if (tableMap.remove(table.id) != null) {
+            items.add(table);
+          }
+        }
+
+        return items;
       }
 
-      // 섹션 없음 항목 처리
+      for (final section in sections) {
+        flatItems.add(section);
+        flatItems.addAll(
+          buildItemsForSection(
+            entriesBySection[section.id] ?? [],
+            timeTablesBySection[section.id] ?? [],
+          ),
+        );
+      }
+
       const unassignedHeaderId = 'unassigned_header';
-      if (unassignedEntries.isNotEmpty) {
+      final hasUnassignedItems =
+          unassignedEntries.isNotEmpty || unassignedTimeTables.isNotEmpty;
+      if (hasUnassignedItems) {
         flatItems.add(unassignedHeaderId);
-        flatItems.addAll(unassignedEntries);
-      } else if (sections.isEmpty) {
-        // 섹션도 없고 엔트리만 있거나 아예 없는 경우
-        return ReorderableListView.builder(
-          physics: const ClampingScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          itemCount: unassignedEntries.length,
-          onReorder: (oldIndex, newIndex) {
-            if (oldIndex < newIndex) newIndex -= 1;
-            final reorderedEntries = [...unassignedEntries];
-            final movedEntry = reorderedEntries.removeAt(oldIndex);
-            reorderedEntries.insert(newIndex, movedEntry);
-
-            setState(() {
-              _manualOrder = reorderedEntries;
-              _sortType = EntrySortType.manual;
-            });
-
-            context.read<BulletJournalBloc>().add(
-                  BulletJournalEvent.reorderEntriesInPage(
-                    diaryId: widget.diaryId,
-                    pageId: currentPage.id,
-                    reorderedEntries: reorderedEntries,
-                  ),
-                );
-          },
-          itemBuilder: (context, index) {
-            final entry = unassignedEntries[index];
-            return NoteEntryLine(
-              key: ValueKey(entry.id),
-              entry: entry,
-              state: state,
-              diaryId: widget.diaryId,
-              pageId: currentPage.id,
-              onToggleTask: (taskId) {
-                context.read<BulletJournalBloc>().add(
-                      BulletJournalEvent.toggleTaskInPage(
-                        diaryId: widget.diaryId,
-                        pageId: currentPage.id,
-                        entryId: entry.id,
-                        taskId: taskId,
-                      ),
-                    );
-              },
-              onSnooze: (taskId, duration) {
-                context.read<BulletJournalBloc>().add(
-                      BulletJournalEvent.snoozeTaskInPage(
-                        diaryId: widget.diaryId,
-                        pageId: currentPage.id,
-                        entryId: entry.id,
-                        taskId: taskId,
-                        postpone: duration,
-                      ),
-                    );
-              },
-              onDragEnd: null,
-            );
-          },
+        flatItems.addAll(
+          buildItemsForSection(
+            unassignedEntries,
+            unassignedTimeTables,
+          ),
         );
       }
 
@@ -1076,6 +1096,9 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
           // 3. 재배치된 리스트를 기반으로 데이터 모델 업데이트
           String? currentSectionId;
           final List<BulletEntry> allNewOrderedEntries = [];
+          final List<PageComponent> allNewOrderedComponents = [];
+          final Set<String> orderedComponentIds = {};
+          final List<String> newLayoutOrder = [];
           int sectionOrderCounter = 0;
 
           for (final listItem in flatItems) {
@@ -1116,6 +1139,38 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                     );
               }
               allNewOrderedEntries.add(entryToSave);
+              newLayoutOrder.add(layoutEntryToken(entryToSave.id));
+            } else if (listItem is TimeTableComponent) {
+              final shouldReassign = listItem.sectionId != currentSectionId;
+              final updatedComponent = shouldReassign
+                  ? listItem.copyWith(sectionId: currentSectionId)
+                  : listItem;
+              if (shouldReassign) {
+                context.read<BulletJournalBloc>().add(
+                      BulletJournalEvent.assignComponentToSection(
+                        diaryId: widget.diaryId,
+                        pageId: currentPage.id,
+                        componentId: listItem.id,
+                        sectionId: currentSectionId,
+                      ),
+                    );
+              }
+              allNewOrderedComponents.add(updatedComponent);
+              orderedComponentIds.add(listItem.id);
+              newLayoutOrder.add(layoutComponentToken(listItem.id));
+            }
+          }
+
+          for (final component in currentPage.components) {
+            final componentId = _getComponentId(component);
+            final isTimeTable = component.map(
+              section: (_) => false,
+              timeTable: (_) => true,
+            );
+            if (!isTimeTable) continue;
+            if (!orderedComponentIds.contains(componentId)) {
+              allNewOrderedComponents.add(component);
+              newLayoutOrder.add(layoutComponentToken(componentId));
             }
           }
 
@@ -1132,6 +1187,26 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                   reorderedEntries: allNewOrderedEntries,
                 ),
               );
+
+          if (allNewOrderedComponents.isNotEmpty) {
+            context.read<BulletJournalBloc>().add(
+                  BulletJournalEvent.reorderComponentsInPage(
+                    diaryId: widget.diaryId,
+                    pageId: currentPage.id,
+                    reorderedComponents: allNewOrderedComponents,
+                  ),
+                );
+          }
+
+          if (newLayoutOrder.isNotEmpty) {
+            context.read<BulletJournalBloc>().add(
+                  BulletJournalEvent.updateLayoutOrderInPage(
+                    diaryId: widget.diaryId,
+                    pageId: currentPage.id,
+                    layoutOrder: newLayoutOrder,
+                  ),
+                );
+          }
         },
         itemBuilder: (context, index) {
           final item = flatItems[index];
@@ -1230,165 +1305,26 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
             );
           }
 
+          if (item is TimeTableComponent) {
+            return ReorderableDragStartListener(
+              key: ValueKey('timetable-${item.id}'),
+              index: index,
+              child: TimeTableWidget(
+                diaryId: widget.diaryId,
+                pageId: currentPage.id,
+                component: item,
+                onOpenDetail: () => _openTimeTableDetail(
+                  item,
+                  currentPage.id,
+                ),
+              ),
+            );
+          }
+
           return const SizedBox.shrink();
         },
       );
     }
-  }
-
-  Widget _buildKanbanViewWithoutSections(
-    BuildContext context,
-    List<BulletEntry> entries,
-    DiaryPage currentPage,
-    BulletJournalState state,
-  ) {
-    // 작업 상태별로 엔트리 그룹화
-    final entriesByStatus = <TaskStatus, List<BulletEntry>>{};
-    for (final entry in entries) {
-      final status = entry.keyStatus;
-      entriesByStatus.putIfAbsent(status, () => []).add(entry);
-    }
-
-    // 작업 상태 목록 가져오기 (정렬된 순서)
-    final statuses = state.taskStatuses;
-
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final screenHeight = constraints.maxHeight;
-
-        return SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: statuses.map((status) {
-              final statusEntries = entriesByStatus[status] ?? [];
-
-              return Container(
-                width: 300,
-                height: screenHeight - 100,
-                margin: const EdgeInsets.only(right: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // 상태 헤더
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        children: [
-                          KeyBulletIcon(
-                            definition:
-                                KeyDefinitionUtils.getKeyDefinitionForStatus(
-                              status,
-                              state,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              status.label,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            '${statusEntries.length}',
-                            style: TextStyle(
-                              color: Colors.grey.shade600,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    // 엔트리 리스트
-                    Expanded(
-                      child: ReorderableListView.builder(
-                        physics: const ClampingScrollPhysics(),
-                        itemCount: statusEntries.length,
-                        onReorder: (oldIndex, newIndex) {
-                          if (oldIndex < newIndex) {
-                            newIndex -= 1;
-                          }
-                          final reorderedEntries = [...statusEntries];
-                          final movedEntry =
-                              reorderedEntries.removeAt(oldIndex);
-                          reorderedEntries.insert(newIndex, movedEntry);
-
-                          // 전체 엔트리 목록에서도 순서 업데이트
-                          final allReorderedEntries = <BulletEntry>[];
-                          for (final s in statuses) {
-                            if (s.id == status.id) {
-                              allReorderedEntries.addAll(reorderedEntries);
-                            } else {
-                              allReorderedEntries.addAll(
-                                entriesByStatus[s] ?? [],
-                              );
-                            }
-                          }
-
-                          setState(() {
-                            _manualOrder = allReorderedEntries;
-                            _sortType = EntrySortType.manual;
-                          });
-
-                          context.read<BulletJournalBloc>().add(
-                                BulletJournalEvent.reorderEntriesInPage(
-                                  diaryId: widget.diaryId,
-                                  pageId: currentPage.id,
-                                  reorderedEntries: allReorderedEntries,
-                                ),
-                              );
-                        },
-                        itemBuilder: (context, entryIndex) {
-                          final entry = statusEntries[entryIndex];
-                          return NoteEntryLine(
-                            key: ValueKey(entry.id),
-                            entry: entry,
-                            state: state,
-                            diaryId: widget.diaryId,
-                            pageId: currentPage.id,
-                            onToggleTask: (taskId) {
-                              context.read<BulletJournalBloc>().add(
-                                    BulletJournalEvent.toggleTaskInPage(
-                                      diaryId: widget.diaryId,
-                                      pageId: currentPage.id,
-                                      entryId: entry.id,
-                                      taskId: taskId,
-                                    ),
-                                  );
-                            },
-                            onSnooze: (taskId, duration) {
-                              context.read<BulletJournalBloc>().add(
-                                    BulletJournalEvent.snoozeTaskInPage(
-                                      diaryId: widget.diaryId,
-                                      pageId: currentPage.id,
-                                      entryId: entry.id,
-                                      taskId: taskId,
-                                      postpone: duration,
-                                    ),
-                                  );
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            }).toList(),
-          ),
-        );
-      },
-    );
   }
 
   /// 섹션별 엔트리 맵과 섹션 없음 엔트리 리스트에서 특정 ID의 엔트리를 찾는 헬퍼 함수
@@ -1422,9 +1358,12 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
     BuildContext context,
     DiarySection? section,
     List<BulletEntry> sectionEntries,
+    List<TimeTableComponent> sectionTimeTables,
     List<DiarySection> sections,
     Map<String, List<BulletEntry>> entriesBySection,
     List<BulletEntry> unassignedEntries,
+    Map<String, List<TimeTableComponent>> timeTablesBySection,
+    List<TimeTableComponent> unassignedTimeTables,
     DiaryPage currentPage,
     BulletJournalState state,
     double screenHeight,
@@ -1437,56 +1376,80 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 섹션 제목 - 엔트리 드래그 지원
+          // 섹션 제목 - 엔트리/타임테이블 드래그 지원
           // 섹션 드래그는 아이콘을 통해 별도로 처리
-          DragTarget<String>(
-            onWillAccept: (entryId) => true,
+          DragTarget<Object>(
+            onWillAccept: (data) => true,
             onAcceptWithDetails: (details) {
-              final entryId = details.data;
-              final draggedEntry = findEntryById(
-                entryId,
-                sections,
-                entriesBySection,
-                unassignedEntries,
-              );
-              if (draggedEntry == null) return;
+              final data = details.data;
+              if (data is String) {
+                // 엔트리 드래그
+                final entryId = data;
+                final draggedEntry = findEntryById(
+                  entryId,
+                  sections,
+                  entriesBySection,
+                  unassignedEntries,
+                );
+                if (draggedEntry == null) return;
 
-              final isSameSection = draggedEntry.sectionId == section?.id;
-              if (!isSameSection) {
-                // 다른 섹션에서 온 엔트리: 섹션 변경 + 맨 끝에 추가
-                // 현재 페이지의 모든 엔트리를 기반으로 재구성
-                final allPageEntries =
-                    List<BulletEntry>.from(currentPage.entries);
+                final isSameSection = draggedEntry.sectionId == section?.id;
+                if (!isSameSection) {
+                  // 다른 섹션에서 온 엔트리: 섹션 변경 + 맨 끝에 추가
+                  // 현재 페이지의 모든 엔트리를 기반으로 재구성
+                  final allPageEntries =
+                      List<BulletEntry>.from(currentPage.entries);
 
-                // 드래그된 엔트리 제거
-                allPageEntries.removeWhere((e) => e.id == entryId);
+                  // 드래그된 엔트리 제거
+                  allPageEntries.removeWhere((e) => e.id == entryId);
 
-                // 드래그된 엔트리를 새 섹션에 맞게 업데이트하여 맨 끝에 추가
-                final updatedEntry =
-                    draggedEntry.copyWith(sectionId: section?.id);
-                allPageEntries.add(updatedEntry);
+                  // 드래그된 엔트리를 새 섹션에 맞게 업데이트하여 맨 끝에 추가
+                  final updatedEntry =
+                      draggedEntry.copyWith(sectionId: section?.id);
+                  allPageEntries.add(updatedEntry);
 
-                setState(() {
-                  _manualOrder = allPageEntries;
-                  _sortType = EntrySortType.manual;
-                });
+                  setState(() {
+                    _manualOrder = allPageEntries;
+                    _sortType = EntrySortType.manual;
+                  });
 
-                context.read<BulletJournalBloc>().add(
-                      BulletJournalEvent.assignEntryToSection(
-                        diaryId: widget.diaryId,
-                        pageId: currentPage.id,
-                        entryId: entryId,
-                        sectionId: section?.id,
-                      ),
-                    );
+                  context.read<BulletJournalBloc>().add(
+                        BulletJournalEvent.assignEntryToSection(
+                          diaryId: widget.diaryId,
+                          pageId: currentPage.id,
+                          entryId: entryId,
+                          sectionId: section?.id,
+                        ),
+                      );
 
-                context.read<BulletJournalBloc>().add(
-                      BulletJournalEvent.reorderEntriesInPage(
-                        diaryId: widget.diaryId,
-                        pageId: currentPage.id,
-                        reorderedEntries: allPageEntries,
-                      ),
-                    );
+                  context.read<BulletJournalBloc>().add(
+                        BulletJournalEvent.reorderEntriesInPage(
+                          diaryId: widget.diaryId,
+                          pageId: currentPage.id,
+                          reorderedEntries: allPageEntries,
+                        ),
+                      );
+                }
+              } else if (data is PageComponent) {
+                // 타임테이블 드래그
+                final draggedComponent = data;
+                draggedComponent.maybeMap(
+                  timeTable: (timeTable) {
+                    final isSameSection = timeTable.sectionId == section?.id;
+                    if (!isSameSection) {
+                      context.read<BulletJournalBloc>().add(
+                            BulletJournalEvent.assignComponentToSection(
+                              diaryId: widget.diaryId,
+                              pageId: currentPage.id,
+                              componentId: timeTable.id,
+                              sectionId: section?.id,
+                            ),
+                          );
+                    }
+                    return null;
+                  },
+                  orElse: () => null,
+                );
               }
             },
             builder: (context, candidateData, rejectedData) {
@@ -1574,55 +1537,79 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
           ),
           const SizedBox(height: 8),
           Expanded(
-            child: DragTarget<String>(
-              onWillAccept: (entryId) => true,
+            child: DragTarget<Object>(
+              onWillAccept: (data) => true,
               onAcceptWithDetails: (details) {
-                final entryId = details.data;
-                // 다른 섹션에서 온 엔트리를 현재 섹션의 맨 끝에 추가 (빈 공간에 드롭)
-                final draggedEntry = findEntryById(
-                  entryId,
-                  sections,
-                  entriesBySection,
-                  unassignedEntries,
-                );
-                if (draggedEntry == null) return;
+                final data = details.data;
+                if (data is String) {
+                  // 엔트리 드래그
+                  final entryId = data;
+                  // 다른 섹션에서 온 엔트리를 현재 섹션의 맨 끝에 추가 (빈 공간에 드롭)
+                  final draggedEntry = findEntryById(
+                    entryId,
+                    sections,
+                    entriesBySection,
+                    unassignedEntries,
+                  );
+                  if (draggedEntry == null) return;
 
-                final isSameSection = draggedEntry.sectionId == section?.id;
-                if (!isSameSection) {
-                  // 다른 섹션에서 온 엔트리: 섹션 변경 + 맨 끝에 추가
-                  // 현재 페이지의 모든 엔트리를 기반으로 재구성
-                  final allPageEntries =
-                      List<BulletEntry>.from(currentPage.entries);
+                  final isSameSection = draggedEntry.sectionId == section?.id;
+                  if (!isSameSection) {
+                    // 다른 섹션에서 온 엔트리: 섹션 변경 + 맨 끝에 추가
+                    // 현재 페이지의 모든 엔트리를 기반으로 재구성
+                    final allPageEntries =
+                        List<BulletEntry>.from(currentPage.entries);
 
-                  // 드래그된 엔트리 제거
-                  allPageEntries.removeWhere((e) => e.id == entryId);
+                    // 드래그된 엔트리 제거
+                    allPageEntries.removeWhere((e) => e.id == entryId);
 
-                  // 드래그된 엔트리를 새 섹션에 맞게 업데이트하여 맨 끝에 추가
-                  final updatedEntry =
-                      draggedEntry.copyWith(sectionId: section?.id);
-                  allPageEntries.add(updatedEntry);
+                    // 드래그된 엔트리를 새 섹션에 맞게 업데이트하여 맨 끝에 추가
+                    final updatedEntry =
+                        draggedEntry.copyWith(sectionId: section?.id);
+                    allPageEntries.add(updatedEntry);
 
-                  setState(() {
-                    _manualOrder = allPageEntries;
-                    _sortType = EntrySortType.manual;
-                  });
+                    setState(() {
+                      _manualOrder = allPageEntries;
+                      _sortType = EntrySortType.manual;
+                    });
 
-                  context.read<BulletJournalBloc>().add(
-                        BulletJournalEvent.assignEntryToSection(
-                          diaryId: widget.diaryId,
-                          pageId: currentPage.id,
-                          entryId: entryId,
-                          sectionId: section?.id,
-                        ),
-                      );
+                    context.read<BulletJournalBloc>().add(
+                          BulletJournalEvent.assignEntryToSection(
+                            diaryId: widget.diaryId,
+                            pageId: currentPage.id,
+                            entryId: entryId,
+                            sectionId: section?.id,
+                          ),
+                        );
 
-                  context.read<BulletJournalBloc>().add(
-                        BulletJournalEvent.reorderEntriesInPage(
-                          diaryId: widget.diaryId,
-                          pageId: currentPage.id,
-                          reorderedEntries: allPageEntries,
-                        ),
-                      );
+                    context.read<BulletJournalBloc>().add(
+                          BulletJournalEvent.reorderEntriesInPage(
+                            diaryId: widget.diaryId,
+                            pageId: currentPage.id,
+                            reorderedEntries: allPageEntries,
+                          ),
+                        );
+                  }
+                } else if (data is PageComponent) {
+                  // 타임테이블 드래그
+                  final draggedComponent = data;
+                  draggedComponent.maybeMap(
+                    timeTable: (timeTable) {
+                      final isSameSection = timeTable.sectionId == section?.id;
+                      if (!isSameSection) {
+                        context.read<BulletJournalBloc>().add(
+                              BulletJournalEvent.assignComponentToSection(
+                                diaryId: widget.diaryId,
+                                pageId: currentPage.id,
+                                componentId: timeTable.id,
+                                sectionId: section?.id,
+                              ),
+                            );
+                      }
+                      return null;
+                    },
+                    orElse: () => null,
+                  );
                 }
               },
               builder: (context, candidateData, rejectedData) {
@@ -1634,267 +1621,412 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: ListView.builder(
+                  child: SingleChildScrollView(
                     physics: const ClampingScrollPhysics(),
-                    itemCount: sectionEntries.length,
-                    itemBuilder: (context, index) {
-                      final entry = sectionEntries[index];
-                      return DragTarget<String>(
-                        onWillAccept: (draggedEntryId) {
-                          return draggedEntryId != entry.id;
-                        },
-                        onAcceptWithDetails: (details) {
-                          final draggedEntryId = details.data;
-                          if (draggedEntryId == entry.id) return;
+                    child: Column(
+                      children: [
+                        ...sectionEntries.asMap().entries.map((entry) {
+                          final index = entry.key;
+                          final entryItem = entry.value;
+                          return DragTarget<String>(
+                            onWillAccept: (draggedEntryId) {
+                              return draggedEntryId != entryItem.id;
+                            },
+                            onAcceptWithDetails: (details) {
+                              final draggedEntryId = details.data;
+                              if (draggedEntryId == entryItem.id) return;
 
-                          // 드래그된 엔트리 찾기
-                          final draggedEntry = findEntryById(
-                            draggedEntryId,
-                            sections,
-                            entriesBySection,
-                            unassignedEntries,
-                          );
-                          if (draggedEntry == null) return;
+                              // 드래그된 엔트리 찾기
+                              final draggedEntry = findEntryById(
+                                draggedEntryId,
+                                sections,
+                                entriesBySection,
+                                unassignedEntries,
+                              );
+                              if (draggedEntry == null) return;
 
-                          final isSameSection =
-                              draggedEntry.sectionId == section?.id;
+                              final isSameSection =
+                                  draggedEntry.sectionId == section?.id;
 
-                          // 현재 페이지의 모든 엔트리를 기반으로 재구성
-                          final allPageEntries =
-                              List<BulletEntry>.from(currentPage.entries);
+                              // 현재 페이지의 모든 엔트리를 기반으로 재구성
+                              final allPageEntries =
+                                  List<BulletEntry>.from(currentPage.entries);
 
-                          if (isSameSection) {
-                            // 같은 섹션 내에서 순서 변경 (이미 ReorderableListView로 처리되지만,
-                            // LongPressDraggable로 드래그한 경우를 위해 처리)
-                            final draggedIndex = sectionEntries
-                                .indexWhere((e) => e.id == draggedEntryId);
-                            final targetIndex = index;
-                            if (draggedIndex == -1 ||
-                                draggedIndex == targetIndex) return;
+                              if (isSameSection) {
+                                // 같은 섹션 내에서 순서 변경
+                                final draggedIndex = sectionEntries
+                                    .indexWhere((e) => e.id == draggedEntryId);
+                                final targetIndex = index;
+                                if (draggedIndex == -1 ||
+                                    draggedIndex == targetIndex) return;
 
-                            // 전체 페이지 엔트리에서 드래그된 엔트리 찾기 및 제거
-                            final draggedEntryInAll = allPageEntries.firstWhere(
-                              (e) => e.id == draggedEntryId,
-                            );
-                            allPageEntries
-                                .removeWhere((e) => e.id == draggedEntryId);
-
-                            // 현재 섹션의 다른 엔트리들 위치 찾기
-                            final targetEntryInSection =
-                                sectionEntries[targetIndex];
-                            final targetIndexInAll = allPageEntries.indexWhere(
-                              (e) => e.id == targetEntryInSection.id,
-                            );
-
-                            // 목표 위치에 삽입
-                            if (targetIndexInAll >= 0) {
-                              allPageEntries.insert(
-                                  targetIndexInAll, draggedEntryInAll);
-                            } else {
-                              allPageEntries.add(draggedEntryInAll);
-                            }
-
-                            setState(() {
-                              _manualOrder = allPageEntries;
-                              _sortType = EntrySortType.manual;
-                            });
-
-                            context.read<BulletJournalBloc>().add(
-                                  BulletJournalEvent.reorderEntriesInPage(
-                                    diaryId: widget.diaryId,
-                                    pageId: currentPage.id,
-                                    reorderedEntries: allPageEntries,
-                                  ),
+                                // 전체 페이지 엔트리에서 드래그된 엔트리 찾기 및 제거
+                                final draggedEntryInAll = allPageEntries.firstWhere(
+                                  (e) => e.id == draggedEntryId,
                                 );
-                          } else {
-                            // 다른 섹션에서 온 엔트리: 섹션 변경 + 특정 위치에 삽입
-                            // 드래그된 엔트리 제거
-                            final draggedEntryInAll = allPageEntries.firstWhere(
-                              (e) => e.id == draggedEntryId,
-                            );
-                            allPageEntries
-                                .removeWhere((e) => e.id == draggedEntryId);
+                                allPageEntries
+                                    .removeWhere((e) => e.id == draggedEntryId);
 
-                            // 현재 섹션의 목표 엔트리 위치 찾기
-                            final targetEntryInSection = sectionEntries[index];
-                            final targetIndexInAll = allPageEntries.indexWhere(
-                              (e) => e.id == targetEntryInSection.id,
-                            );
-
-                            // 드래그된 엔트리를 새 섹션에 맞게 업데이트
-                            final updatedEntry = draggedEntryInAll.copyWith(
-                              sectionId: section?.id,
-                            );
-
-                            // 목표 위치에 삽입
-                            if (targetIndexInAll >= 0) {
-                              allPageEntries.insert(
-                                  targetIndexInAll, updatedEntry);
-                            } else {
-                              allPageEntries.add(updatedEntry);
-                            }
-
-                            setState(() {
-                              _manualOrder = allPageEntries;
-                              _sortType = EntrySortType.manual;
-                            });
-
-                            context.read<BulletJournalBloc>().add(
-                                  BulletJournalEvent.assignEntryToSection(
-                                    diaryId: widget.diaryId,
-                                    pageId: currentPage.id,
-                                    entryId: draggedEntryId,
-                                    sectionId: section?.id,
-                                  ),
+                                // 현재 섹션의 다른 엔트리들 위치 찾기
+                                final targetEntryInSection =
+                                    sectionEntries[targetIndex];
+                                final targetIndexInAll = allPageEntries.indexWhere(
+                                  (e) => e.id == targetEntryInSection.id,
                                 );
 
-                            context.read<BulletJournalBloc>().add(
-                                  BulletJournalEvent.reorderEntriesInPage(
-                                    diaryId: widget.diaryId,
-                                    pageId: currentPage.id,
-                                    reorderedEntries: allPageEntries,
-                                  ),
+                                // 목표 위치에 삽입
+                                if (targetIndexInAll >= 0) {
+                                  allPageEntries.insert(
+                                      targetIndexInAll, draggedEntryInAll);
+                                } else {
+                                  allPageEntries.add(draggedEntryInAll);
+                                }
+
+                                setState(() {
+                                  _manualOrder = allPageEntries;
+                                  _sortType = EntrySortType.manual;
+                                });
+
+                                context.read<BulletJournalBloc>().add(
+                                      BulletJournalEvent.reorderEntriesInPage(
+                                        diaryId: widget.diaryId,
+                                        pageId: currentPage.id,
+                                        reorderedEntries: allPageEntries,
+                                      ),
+                                    );
+                              } else {
+                                // 다른 섹션에서 온 엔트리: 섹션 변경 + 특정 위치에 삽입
+                                // 드래그된 엔트리 제거
+                                final draggedEntryInAll = allPageEntries.firstWhere(
+                                  (e) => e.id == draggedEntryId,
                                 );
-                          }
-                        },
-                        builder: (context, candidateData, rejectedData) {
-                          final isHighlighted = candidateData.isNotEmpty &&
-                              candidateData.first != entry.id;
-                          return Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              // 드래그 중일 때 위에 빈 공간 추가 (부드러운 애니메이션)
-                              AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                curve: Curves.easeInOut,
-                                height:
-                                    isHighlighted ? 60 : 0, // 엔트리 높이와 비슷한 공간
-                                margin: EdgeInsets.only(
-                                  bottom: isHighlighted ? 4 : 0,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: isHighlighted
-                                      ? Colors.teal.shade50.withOpacity(0.3)
-                                      : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(4),
-                                  border: isHighlighted
-                                      ? Border.all(
-                                          color: Colors.teal.shade300,
-                                          width: 2,
-                                          style: BorderStyle.solid,
-                                        )
-                                      : null,
-                                ),
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: isHighlighted
-                                      ? Colors.teal.shade50.withOpacity(0.5)
-                                      : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: LongPressDraggable<String>(
-                                  key: ValueKey('${entry.id}-cross-section'),
-                                  data: entry.id,
-                                  delay: const Duration(
-                                      milliseconds: 300), // 롱탭으로 드래그 시작
-                                  feedback: Material(
-                                    elevation: 4,
-                                    child: Container(
-                                      width: 280,
-                                      padding: const EdgeInsets.all(8),
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(4),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color:
-                                                Colors.black.withOpacity(0.2),
-                                            blurRadius: 4,
-                                            offset: const Offset(0, 2),
+                                allPageEntries
+                                    .removeWhere((e) => e.id == draggedEntryId);
+
+                                // 현재 섹션의 목표 엔트리 위치 찾기
+                                final targetEntryInSection = sectionEntries[index];
+                                final targetIndexInAll = allPageEntries.indexWhere(
+                                  (e) => e.id == targetEntryInSection.id,
+                                );
+
+                                // 드래그된 엔트리를 새 섹션에 맞게 업데이트
+                                final updatedEntry = draggedEntryInAll.copyWith(
+                                  sectionId: section?.id,
+                                );
+
+                                // 목표 위치에 삽입
+                                if (targetIndexInAll >= 0) {
+                                  allPageEntries.insert(
+                                      targetIndexInAll, updatedEntry);
+                                } else {
+                                  allPageEntries.add(updatedEntry);
+                                }
+
+                                setState(() {
+                                  _manualOrder = allPageEntries;
+                                  _sortType = EntrySortType.manual;
+                                });
+
+                                context.read<BulletJournalBloc>().add(
+                                      BulletJournalEvent.assignEntryToSection(
+                                        diaryId: widget.diaryId,
+                                        pageId: currentPage.id,
+                                        entryId: draggedEntryId,
+                                        sectionId: section?.id,
+                                      ),
+                                    );
+
+                                context.read<BulletJournalBloc>().add(
+                                      BulletJournalEvent.reorderEntriesInPage(
+                                        diaryId: widget.diaryId,
+                                        pageId: currentPage.id,
+                                        reorderedEntries: allPageEntries,
+                                      ),
+                                    );
+                              }
+                            },
+                            builder: (context, candidateData, rejectedData) {
+                              final isHighlighted = candidateData.isNotEmpty &&
+                                  candidateData.first != entryItem.id;
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  // 드래그 중일 때 위에 빈 공간 추가 (부드러운 애니메이션)
+                                  AnimatedContainer(
+                                    duration: const Duration(milliseconds: 200),
+                                    curve: Curves.easeInOut,
+                                    height:
+                                        isHighlighted ? 60 : 0, // 엔트리 높이와 비슷한 공간
+                                    margin: EdgeInsets.only(
+                                      bottom: isHighlighted ? 4 : 0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: isHighlighted
+                                          ? Colors.teal.shade50.withOpacity(0.3)
+                                          : Colors.transparent,
+                                      borderRadius: BorderRadius.circular(4),
+                                      border: isHighlighted
+                                          ? Border.all(
+                                              color: Colors.teal.shade300,
+                                              width: 2,
+                                              style: BorderStyle.solid,
+                                            )
+                                          : null,
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: isHighlighted
+                                          ? Colors.teal.shade50.withOpacity(0.5)
+                                          : Colors.transparent,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: LongPressDraggable<String>(
+                                      key: ValueKey('${entryItem.id}-cross-section'),
+                                      data: entryItem.id,
+                                      delay: const Duration(
+                                          milliseconds: 300), // 롱탭으로 드래그 시작
+                                      feedback: Material(
+                                        elevation: 4,
+                                        child: Container(
+                                          width: 280,
+                                          padding: const EdgeInsets.all(8),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(4),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color:
+                                                    Colors.black.withOpacity(0.2),
+                                                blurRadius: 4,
+                                                offset: const Offset(0, 2),
+                                              ),
+                                            ],
                                           ),
-                                        ],
+                                          child: Text(
+                                            entryItem.focus,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
                                       ),
-                                      child: Text(
-                                        entry.focus,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
+                                      childWhenDragging: Opacity(
+                                        opacity: 0.5,
+                                        child: NoteEntryLine(
+                                          key: ValueKey('${entryItem.id}-placeholder'),
+                                          entry: entryItem,
+                                          state: state,
+                                          diaryId: widget.diaryId,
+                                          pageId: currentPage.id,
+                                          onToggleTask: (taskId) {
+                                            context.read<BulletJournalBloc>().add(
+                                                  BulletJournalEvent
+                                                      .toggleTaskInPage(
+                                                    diaryId: widget.diaryId,
+                                                    pageId: currentPage.id,
+                                                    entryId: entryItem.id,
+                                                    taskId: taskId,
+                                                  ),
+                                                );
+                                          },
+                                          onSnooze: (taskId, duration) {
+                                            context.read<BulletJournalBloc>().add(
+                                                  BulletJournalEvent
+                                                      .snoozeTaskInPage(
+                                                    diaryId: widget.diaryId,
+                                                    pageId: currentPage.id,
+                                                    entryId: entryItem.id,
+                                                    taskId: taskId,
+                                                    postpone: duration,
+                                                  ),
+                                                );
+                                          },
+                                          onDragEnd: null,
+                                        ),
+                                      ),
+                                      onDragEnd: (details) {
+                                        // DragTarget에 드롭되지 않은 경우 아무것도 하지 않음
+                                      },
+                                      child: NoteEntryLine(
+                                        key: ValueKey(entryItem.id),
+                                        entry: entryItem,
+                                        state: state,
+                                        diaryId: widget.diaryId,
+                                        pageId: currentPage.id,
+                                        onToggleTask: (taskId) {
+                                          context.read<BulletJournalBloc>().add(
+                                                BulletJournalEvent.toggleTaskInPage(
+                                                  diaryId: widget.diaryId,
+                                                  pageId: currentPage.id,
+                                                  entryId: entryItem.id,
+                                                  taskId: taskId,
+                                                ),
+                                              );
+                                        },
+                                        onSnooze: (taskId, duration) {
+                                          context.read<BulletJournalBloc>().add(
+                                                BulletJournalEvent.snoozeTaskInPage(
+                                                  diaryId: widget.diaryId,
+                                                  pageId: currentPage.id,
+                                                  entryId: entryItem.id,
+                                                  taskId: taskId,
+                                                  postpone: duration,
+                                                ),
+                                              );
+                                        },
+                                        onDragEnd: null,
                                       ),
                                     ),
                                   ),
-                                  childWhenDragging: Opacity(
-                                    opacity: 0.5,
-                                    child: NoteEntryLine(
-                                      key: ValueKey('${entry.id}-placeholder'),
-                                      entry: entry,
-                                      state: state,
-                                      diaryId: widget.diaryId,
-                                      pageId: currentPage.id,
-                                      onToggleTask: (taskId) {
-                                        context.read<BulletJournalBloc>().add(
-                                              BulletJournalEvent
-                                                  .toggleTaskInPage(
-                                                diaryId: widget.diaryId,
-                                                pageId: currentPage.id,
-                                                entryId: entry.id,
-                                                taskId: taskId,
-                                              ),
-                                            );
-                                      },
-                                      onSnooze: (taskId, duration) {
-                                        context.read<BulletJournalBloc>().add(
-                                              BulletJournalEvent
-                                                  .snoozeTaskInPage(
-                                                diaryId: widget.diaryId,
-                                                pageId: currentPage.id,
-                                                entryId: entry.id,
-                                                taskId: taskId,
-                                                postpone: duration,
-                                              ),
-                                            );
-                                      },
-                                      onDragEnd: null,
+                                ],
+                              );
+                            },
+                          );
+                        }),
+                        ...sectionTimeTables.map((timeTable) {
+                          return DragTarget<PageComponent>(
+                            onWillAccept: (data) {
+                              if (data == null) return false;
+                              return data.maybeMap(
+                                timeTable: (t) => t.id != timeTable.id,
+                                orElse: () => false,
+                              );
+                            },
+                            onAcceptWithDetails: (details) {
+                              final draggedComponent = details.data;
+                              draggedComponent.maybeMap(
+                                timeTable: (draggedTable) {
+                                  if (draggedTable.id == timeTable.id) return;
+                                  final isSameSection =
+                                      draggedTable.sectionId == section?.id;
+                                  if (!isSameSection) {
+                                    // 다른 섹션에서 온 타임테이블: 섹션 변경
+                                    context.read<BulletJournalBloc>().add(
+                                          BulletJournalEvent
+                                              .assignComponentToSection(
+                                            diaryId: widget.diaryId,
+                                            pageId: currentPage.id,
+                                            componentId: draggedTable.id,
+                                            sectionId: section?.id,
+                                          ),
+                                        );
+                                  }
+                                  // 타임테이블 순서 변경
+                                  final allComponents =
+                                      List<PageComponent>.from(
+                                          currentPage.components);
+                                  final draggedIndex = allComponents.indexWhere(
+                                    (c) => c.maybeMap(
+                                      timeTable: (t) => t.id == draggedTable.id,
+                                      orElse: () => false,
                                     ),
-                                  ),
-                                  onDragEnd: (details) {
-                                    // DragTarget에 드롭되지 않은 경우 아무것도 하지 않음
-                                  },
-                                  child: NoteEntryLine(
-                                    key: ValueKey(entry.id),
-                                    entry: entry,
-                                    state: state,
-                                    diaryId: widget.diaryId,
-                                    pageId: currentPage.id,
-                                    onToggleTask: (taskId) {
-                                      context.read<BulletJournalBloc>().add(
-                                            BulletJournalEvent.toggleTaskInPage(
-                                              diaryId: widget.diaryId,
-                                              pageId: currentPage.id,
-                                              entryId: entry.id,
-                                              taskId: taskId,
-                                            ),
-                                          );
-                                    },
-                                    onSnooze: (taskId, duration) {
-                                      context.read<BulletJournalBloc>().add(
-                                            BulletJournalEvent.snoozeTaskInPage(
-                                              diaryId: widget.diaryId,
-                                              pageId: currentPage.id,
-                                              entryId: entry.id,
-                                              taskId: taskId,
-                                              postpone: duration,
-                                            ),
-                                          );
-                                    },
-                                    onDragEnd: null,
+                                  );
+                                  final targetIndex = allComponents.indexWhere(
+                                    (c) => c.maybeMap(
+                                      timeTable: (t) => t.id == timeTable.id,
+                                      orElse: () => false,
+                                    ),
+                                  );
+                                  if (draggedIndex >= 0 && targetIndex >= 0 && draggedIndex != targetIndex) {
+                                    final dragged = allComponents.removeAt(
+                                        draggedIndex);
+                                    final insertIndex = draggedIndex < targetIndex
+                                        ? targetIndex - 1
+                                        : targetIndex;
+                                    allComponents.insert(insertIndex, dragged);
+                                    context.read<BulletJournalBloc>().add(
+                                          BulletJournalEvent
+                                              .reorderComponentsInPage(
+                                            diaryId: widget.diaryId,
+                                            pageId: currentPage.id,
+                                            reorderedComponents: allComponents,
+                                          ),
+                                        );
+                                  }
+                                  return null;
+                                },
+                                orElse: () => null,
+                              );
+                            },
+                            builder: (context, candidateData, rejectedData) {
+                              final isHighlighted = candidateData.isNotEmpty;
+                              return LongPressDraggable<PageComponent>(
+                                key: ValueKey(
+                                    'timetable-draggable-${timeTable.id}'),
+                                data: PageComponent.timeTable(
+                                  id: timeTable.id,
+                                  name: timeTable.name,
+                                  createdAt: timeTable.createdAt,
+                                  sectionId: timeTable.sectionId,
+                                  order: timeTable.order,
+                                  hourCount: timeTable.hourCount,
+                                  dayCount: timeTable.dayCount,
+                                  cells: timeTable.cells,
+                                  rowHeaders: timeTable.rowHeaders,
+                                  columnHeaders: timeTable.columnHeaders,
+                                  expansionState: timeTable.expansionState,
+                                ),
+                                delay: const Duration(milliseconds: 300),
+                                feedback: Material(
+                                  elevation: 8,
+                                  child: Container(
+                                    width: 280,
+                                    padding: const EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(
+                                          color: Colors.teal, width: 2),
+                                    ),
+                                    child: Text(
+                                      timeTable.name,
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                childWhenDragging: Opacity(
+                                  opacity: 0.3,
+                                  child: TimeTableWidget(
+                                    diaryId: widget.diaryId,
+                                    pageId: currentPage.id,
+                                    component: timeTable,
+                                    isKanbanView: true,
+                                    onOpenDetail: () => _openTimeTableDetail(
+                                      timeTable,
+                                      currentPage.id,
+                                    ),
+                                  ),
+                                ),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: isHighlighted
+                                        ? Border.all(
+                                            color: Colors.teal.shade300,
+                                            width: 2,
+                                          )
+                                        : null,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: TimeTableWidget(
+                                    diaryId: widget.diaryId,
+                                    pageId: currentPage.id,
+                                    component: timeTable,
+                                    isKanbanView: true,
+                                    onOpenDetail: () => _openTimeTableDetail(
+                                      timeTable,
+                                      currentPage.id,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
                           );
-                        },
-                      );
-                    },
+                        }),
+                      ],
+                    ),
                   ),
                 );
               },
@@ -2117,11 +2249,46 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                     });
                   }
                   
-                  final hasComponents = pageComponents.isNotEmpty;
+                  final hasAnyComponents = pageComponents.isNotEmpty;
+                  final timeTablesBySection = <String, List<TimeTableComponent>>{};
+                  final unassignedTimeTables = <TimeTableComponent>[];
+
+                  for (final component in pageComponents) {
+                    component.maybeMap(
+                      timeTable: (timeTable) {
+                        final sectionId = timeTable.sectionId;
+                        if (sectionId != null &&
+                            pageSections.any((section) => section.id == sectionId)) {
+                          timeTablesBySection
+                              .putIfAbsent(sectionId, () => [])
+                              .add(timeTable);
+                        } else if (sectionId == null) {
+                          unassignedTimeTables.add(timeTable);
+                        } else {
+                          unassignedTimeTables.add(timeTable);
+                        }
+                        return null;
+                      },
+                      orElse: () => null,
+                    );
+                  }
+
+                  final headerComponents = pageComponents.where((component) {
+                    return component.maybeMap(
+                      timeTable: (timeTable) {
+                        // 칸반 모드에서는 맨 위에 타임테이블을 표시하지 않음
+                        if (isKanbanView) return false;
+                        if (!pageHasSections) return true;
+                        return timeTable.sectionId == null;
+                      },
+                      orElse: () => false,
+                    );
+                  }).toList();
+                  final hasVisibleComponents = headerComponents.isNotEmpty;
 
                   List<String> pageLayoutOrder = _getPageLayoutOrder(page);
                   if (pageLayoutOrder.isEmpty &&
-                      (pageSortedEntries.isNotEmpty || hasComponents)) {
+                      (pageSortedEntries.isNotEmpty || hasAnyComponents)) {
                     final defaultLayoutOrder = [
                       ...pageSortedEntries.map((entry) => layoutEntryToken(entry.id)),
                       ...pageComponents
@@ -2142,15 +2309,19 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                   }
 
                   // 컴포넌트와 엔트리를 모두 표시
-                  final componentsWidget = hasComponents
-                      ? _buildComponentsList(context, page.copyWith(components: pageComponents))
+                  final componentsWidget = hasVisibleComponents
+                      ? _buildComponentsList(
+                          context,
+                          page.copyWith(components: headerComponents),
+                          isKanbanView,
+                        )
                       : const SizedBox.shrink();
 
                   // 섹션이 있는 경우 섹션별 그룹화 표시
                   if (pageHasSections) {
                     return Column(
                       children: [
-                        if (hasComponents)
+                        if (hasVisibleComponents)
                           Flexible(
                             child: SingleChildScrollView(
                               child: componentsWidget,
@@ -2162,6 +2333,8 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                             pageSections,
                             pageEntriesBySection,
                             pageUnassignedEntries,
+                            timeTablesBySection,
+                            unassignedTimeTables,
                             page,
                             latestState,
                             isKanbanView,
@@ -2172,7 +2345,7 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
                   }
 
                   // 섹션이 없고 엔트리도 없는 경우
-                  if (pageSortedEntries.isEmpty && !hasComponents) {
+                  if (pageSortedEntries.isEmpty && !hasAnyComponents) {
                     return Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -2201,21 +2374,26 @@ class _DiaryDetailScreenState extends State<DiaryDetailScreen> {
 
                   // 섹션이 없는 경우
                   if (isKanbanView) {
-                    // 칸반보드 모드: 작업 상태별로 칼럼 생성
+                    // 칸반보드 모드: 섹션 없음으로 묶어서 표시
                     return Column(
                       children: [
-                        if (hasComponents)
+                        if (hasVisibleComponents)
                           Flexible(
                             child: SingleChildScrollView(
                               child: componentsWidget,
                             ),
                           ),
                         Expanded(
-                          child: _buildKanbanViewWithoutSections(
+                          child: _buildSectionedEntriesList(
                             context,
+                            <DiarySection>[],
+                            <String, List<BulletEntry>>{},
                             pageSortedEntries,
+                            timeTablesBySection,
+                            unassignedTimeTables,
                             page,
                             latestState,
+                            isKanbanView,
                           ),
                         ),
                       ],

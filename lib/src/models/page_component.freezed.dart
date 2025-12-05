@@ -19,6 +19,7 @@ mixin _$TimeTableCell {
   int get row => throw _privateConstructorUsedError;
   int get column => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
+  String? get backgroundColorHex => throw _privateConstructorUsedError;
 
   /// Create a copy of TimeTableCell
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,7 @@ abstract class $TimeTableCellCopyWith<$Res> {
           TimeTableCell value, $Res Function(TimeTableCell) then) =
       _$TimeTableCellCopyWithImpl<$Res, TimeTableCell>;
   @useResult
-  $Res call({int row, int column, String content});
+  $Res call({int row, int column, String content, String? backgroundColorHex});
 }
 
 /// @nodoc
@@ -54,6 +55,7 @@ class _$TimeTableCellCopyWithImpl<$Res, $Val extends TimeTableCell>
     Object? row = null,
     Object? column = null,
     Object? content = null,
+    Object? backgroundColorHex = freezed,
   }) {
     return _then(_value.copyWith(
       row: null == row
@@ -68,6 +70,10 @@ class _$TimeTableCellCopyWithImpl<$Res, $Val extends TimeTableCell>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      backgroundColorHex: freezed == backgroundColorHex
+          ? _value.backgroundColorHex
+          : backgroundColorHex // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -80,7 +86,7 @@ abstract class _$$TimeTableCellImplCopyWith<$Res>
       __$$TimeTableCellImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int row, int column, String content});
+  $Res call({int row, int column, String content, String? backgroundColorHex});
 }
 
 /// @nodoc
@@ -99,6 +105,7 @@ class __$$TimeTableCellImplCopyWithImpl<$Res>
     Object? row = null,
     Object? column = null,
     Object? content = null,
+    Object? backgroundColorHex = freezed,
   }) {
     return _then(_$TimeTableCellImpl(
       row: null == row
@@ -113,6 +120,10 @@ class __$$TimeTableCellImplCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      backgroundColorHex: freezed == backgroundColorHex
+          ? _value.backgroundColorHex
+          : backgroundColorHex // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -121,7 +132,10 @@ class __$$TimeTableCellImplCopyWithImpl<$Res>
 
 class _$TimeTableCellImpl implements _TimeTableCell {
   const _$TimeTableCellImpl(
-      {required this.row, required this.column, this.content = ''});
+      {required this.row,
+      required this.column,
+      this.content = '',
+      this.backgroundColorHex});
 
   @override
   final int row;
@@ -130,10 +144,12 @@ class _$TimeTableCellImpl implements _TimeTableCell {
   @override
   @JsonKey()
   final String content;
+  @override
+  final String? backgroundColorHex;
 
   @override
   String toString() {
-    return 'TimeTableCell(row: $row, column: $column, content: $content)';
+    return 'TimeTableCell(row: $row, column: $column, content: $content, backgroundColorHex: $backgroundColorHex)';
   }
 
   @override
@@ -143,11 +159,14 @@ class _$TimeTableCellImpl implements _TimeTableCell {
             other is _$TimeTableCellImpl &&
             (identical(other.row, row) || other.row == row) &&
             (identical(other.column, column) || other.column == column) &&
-            (identical(other.content, content) || other.content == content));
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.backgroundColorHex, backgroundColorHex) ||
+                other.backgroundColorHex == backgroundColorHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, row, column, content);
+  int get hashCode =>
+      Object.hash(runtimeType, row, column, content, backgroundColorHex);
 
   /// Create a copy of TimeTableCell
   /// with the given fields replaced by the non-null parameter values.
@@ -162,7 +181,8 @@ abstract class _TimeTableCell implements TimeTableCell {
   const factory _TimeTableCell(
       {required final int row,
       required final int column,
-      final String content}) = _$TimeTableCellImpl;
+      final String content,
+      final String? backgroundColorHex}) = _$TimeTableCellImpl;
 
   @override
   int get row;
@@ -170,6 +190,8 @@ abstract class _TimeTableCell implements TimeTableCell {
   int get column;
   @override
   String get content;
+  @override
+  String? get backgroundColorHex;
 
   /// Create a copy of TimeTableCell
   /// with the given fields replaced by the non-null parameter values.
@@ -194,13 +216,16 @@ mixin _$PageComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)
         timeTable,
   }) =>
       throw _privateConstructorUsedError;
@@ -212,13 +237,16 @@ mixin _$PageComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)?
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)?
         timeTable,
   }) =>
       throw _privateConstructorUsedError;
@@ -230,13 +258,16 @@ mixin _$PageComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)?
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)?
         timeTable,
     required TResult orElse(),
   }) =>
@@ -426,13 +457,16 @@ class _$SectionComponentImpl implements SectionComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)
         timeTable,
   }) {
     return section(id, name, createdAt, order);
@@ -447,13 +481,16 @@ class _$SectionComponentImpl implements SectionComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)?
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)?
         timeTable,
   }) {
     return section?.call(id, name, createdAt, order);
@@ -468,13 +505,16 @@ class _$SectionComponentImpl implements SectionComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)?
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)?
         timeTable,
     required TResult orElse(),
   }) {
@@ -552,13 +592,16 @@ abstract class _$$TimeTableComponentImplCopyWith<$Res>
       {String id,
       String name,
       DateTime createdAt,
+      String? sectionId,
       int order,
       int hourCount,
       int dayCount,
       List<TimeTableCell> cells,
       List<String> rowHeaders,
       List<String> columnHeaders,
-      String expansionState});
+      String expansionState,
+      List<double> columnWidths,
+      List<double> rowHeights});
 }
 
 /// @nodoc
@@ -577,6 +620,7 @@ class __$$TimeTableComponentImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? createdAt = null,
+    Object? sectionId = freezed,
     Object? order = null,
     Object? hourCount = null,
     Object? dayCount = null,
@@ -584,6 +628,8 @@ class __$$TimeTableComponentImplCopyWithImpl<$Res>
     Object? rowHeaders = null,
     Object? columnHeaders = null,
     Object? expansionState = null,
+    Object? columnWidths = null,
+    Object? rowHeights = null,
   }) {
     return _then(_$TimeTableComponentImpl(
       id: null == id
@@ -598,6 +644,10 @@ class __$$TimeTableComponentImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      sectionId: freezed == sectionId
+          ? _value.sectionId
+          : sectionId // ignore: cast_nullable_to_non_nullable
+              as String?,
       order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -626,6 +676,14 @@ class __$$TimeTableComponentImplCopyWithImpl<$Res>
           ? _value.expansionState
           : expansionState // ignore: cast_nullable_to_non_nullable
               as String,
+      columnWidths: null == columnWidths
+          ? _value._columnWidths
+          : columnWidths // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+      rowHeights: null == rowHeights
+          ? _value._rowHeights
+          : rowHeights // ignore: cast_nullable_to_non_nullable
+              as List<double>,
     ));
   }
 }
@@ -637,16 +695,21 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
       {required this.id,
       required this.name,
       required this.createdAt,
+      this.sectionId,
       this.order = 0,
       this.hourCount = 24,
       this.dayCount = 7,
       final List<TimeTableCell> cells = const <TimeTableCell>[],
       final List<String> rowHeaders = const <String>[],
       final List<String> columnHeaders = const <String>[],
-      this.expansionState = 'partial'})
+      this.expansionState = 'partial',
+      final List<double> columnWidths = const <double>[],
+      final List<double> rowHeights = const <double>[]})
       : _cells = cells,
         _rowHeaders = rowHeaders,
-        _columnHeaders = columnHeaders;
+        _columnHeaders = columnHeaders,
+        _columnWidths = columnWidths,
+        _rowHeights = rowHeights;
 
   @override
   final String id;
@@ -654,6 +717,8 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
   final String name;
   @override
   final DateTime createdAt;
+  @override
+  final String? sectionId;
   @override
   @JsonKey()
   final int order;
@@ -699,10 +764,31 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
   @override
   @JsonKey()
   final String expansionState;
+// 'collapsed', 'partial', 'expanded'
+  final List<double> _columnWidths;
+// 'collapsed', 'partial', 'expanded'
+  @override
+  @JsonKey()
+  List<double> get columnWidths {
+    if (_columnWidths is EqualUnmodifiableListView) return _columnWidths;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_columnWidths);
+  }
+
+// 각 열의 너비 (픽셀)
+  final List<double> _rowHeights;
+// 각 열의 너비 (픽셀)
+  @override
+  @JsonKey()
+  List<double> get rowHeights {
+    if (_rowHeights is EqualUnmodifiableListView) return _rowHeights;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_rowHeights);
+  }
 
   @override
   String toString() {
-    return 'PageComponent.timeTable(id: $id, name: $name, createdAt: $createdAt, order: $order, hourCount: $hourCount, dayCount: $dayCount, cells: $cells, rowHeaders: $rowHeaders, columnHeaders: $columnHeaders, expansionState: $expansionState)';
+    return 'PageComponent.timeTable(id: $id, name: $name, createdAt: $createdAt, sectionId: $sectionId, order: $order, hourCount: $hourCount, dayCount: $dayCount, cells: $cells, rowHeaders: $rowHeaders, columnHeaders: $columnHeaders, expansionState: $expansionState, columnWidths: $columnWidths, rowHeights: $rowHeights)';
   }
 
   @override
@@ -714,6 +800,8 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.sectionId, sectionId) ||
+                other.sectionId == sectionId) &&
             (identical(other.order, order) || other.order == order) &&
             (identical(other.hourCount, hourCount) ||
                 other.hourCount == hourCount) &&
@@ -725,7 +813,11 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
             const DeepCollectionEquality()
                 .equals(other._columnHeaders, _columnHeaders) &&
             (identical(other.expansionState, expansionState) ||
-                other.expansionState == expansionState));
+                other.expansionState == expansionState) &&
+            const DeepCollectionEquality()
+                .equals(other._columnWidths, _columnWidths) &&
+            const DeepCollectionEquality()
+                .equals(other._rowHeights, _rowHeights));
   }
 
   @override
@@ -734,13 +826,16 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
       id,
       name,
       createdAt,
+      sectionId,
       order,
       hourCount,
       dayCount,
       const DeepCollectionEquality().hash(_cells),
       const DeepCollectionEquality().hash(_rowHeaders),
       const DeepCollectionEquality().hash(_columnHeaders),
-      expansionState);
+      expansionState,
+      const DeepCollectionEquality().hash(_columnWidths),
+      const DeepCollectionEquality().hash(_rowHeights));
 
   /// Create a copy of PageComponent
   /// with the given fields replaced by the non-null parameter values.
@@ -761,17 +856,32 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)
         timeTable,
   }) {
-    return timeTable(id, name, createdAt, order, hourCount, dayCount, cells,
-        rowHeaders, columnHeaders, expansionState);
+    return timeTable(
+        id,
+        name,
+        createdAt,
+        sectionId,
+        order,
+        hourCount,
+        dayCount,
+        cells,
+        rowHeaders,
+        columnHeaders,
+        expansionState,
+        columnWidths,
+        rowHeights);
   }
 
   @override
@@ -783,17 +893,32 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)?
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)?
         timeTable,
   }) {
-    return timeTable?.call(id, name, createdAt, order, hourCount, dayCount,
-        cells, rowHeaders, columnHeaders, expansionState);
+    return timeTable?.call(
+        id,
+        name,
+        createdAt,
+        sectionId,
+        order,
+        hourCount,
+        dayCount,
+        cells,
+        rowHeaders,
+        columnHeaders,
+        expansionState,
+        columnWidths,
+        rowHeights);
   }
 
   @override
@@ -805,19 +930,34 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
             String id,
             String name,
             DateTime createdAt,
+            String? sectionId,
             int order,
             int hourCount,
             int dayCount,
             List<TimeTableCell> cells,
             List<String> rowHeaders,
             List<String> columnHeaders,
-            String expansionState)?
+            String expansionState,
+            List<double> columnWidths,
+            List<double> rowHeights)?
         timeTable,
     required TResult orElse(),
   }) {
     if (timeTable != null) {
-      return timeTable(id, name, createdAt, order, hourCount, dayCount, cells,
-          rowHeaders, columnHeaders, expansionState);
+      return timeTable(
+          id,
+          name,
+          createdAt,
+          sectionId,
+          order,
+          hourCount,
+          dayCount,
+          cells,
+          rowHeaders,
+          columnHeaders,
+          expansionState,
+          columnWidths,
+          rowHeights);
     }
     return orElse();
   }
@@ -859,13 +999,16 @@ abstract class TimeTableComponent implements PageComponent {
       {required final String id,
       required final String name,
       required final DateTime createdAt,
+      final String? sectionId,
       final int order,
       final int hourCount,
       final int dayCount,
       final List<TimeTableCell> cells,
       final List<String> rowHeaders,
       final List<String> columnHeaders,
-      final String expansionState}) = _$TimeTableComponentImpl;
+      final String expansionState,
+      final List<double> columnWidths,
+      final List<double> rowHeights}) = _$TimeTableComponentImpl;
 
   @override
   String get id;
@@ -873,6 +1016,7 @@ abstract class TimeTableComponent implements PageComponent {
   String get name;
   @override
   DateTime get createdAt;
+  String? get sectionId;
   @override
   int get order;
   int get hourCount; // 시간 수 (기본 24시간)
@@ -880,7 +1024,9 @@ abstract class TimeTableComponent implements PageComponent {
   List<TimeTableCell> get cells;
   List<String> get rowHeaders; // 행 헤더 (시간대)
   List<String> get columnHeaders; // 열 헤더 (요일 등)
-  String get expansionState;
+  String get expansionState; // 'collapsed', 'partial', 'expanded'
+  List<double> get columnWidths; // 각 열의 너비 (픽셀)
+  List<double> get rowHeights;
 
   /// Create a copy of PageComponent
   /// with the given fields replaced by the non-null parameter values.

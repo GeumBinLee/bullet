@@ -87,6 +87,9 @@ mixin _$BulletJournalEvent {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -102,8 +105,20 @@ mixin _$BulletJournalEvent {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -167,6 +182,9 @@ mixin _$BulletJournalEvent {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -180,8 +198,20 @@ mixin _$BulletJournalEvent {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -245,6 +275,9 @@ mixin _$BulletJournalEvent {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -258,8 +291,20 @@ mixin _$BulletJournalEvent {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -305,6 +350,8 @@ mixin _$BulletJournalEvent {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -315,6 +362,14 @@ mixin _$BulletJournalEvent {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -354,12 +409,21 @@ mixin _$BulletJournalEvent {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -399,12 +463,20 @@ mixin _$BulletJournalEvent {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -541,6 +613,9 @@ class _$LoadEntriesImpl implements _LoadEntries {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -556,8 +631,20 @@ class _$LoadEntriesImpl implements _LoadEntries {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return loadEntries();
   }
@@ -624,6 +711,9 @@ class _$LoadEntriesImpl implements _LoadEntries {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -637,8 +727,20 @@ class _$LoadEntriesImpl implements _LoadEntries {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return loadEntries?.call();
   }
@@ -705,6 +807,9 @@ class _$LoadEntriesImpl implements _LoadEntries {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -718,8 +823,20 @@ class _$LoadEntriesImpl implements _LoadEntries {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (loadEntries != null) {
@@ -771,6 +888,8 @@ class _$LoadEntriesImpl implements _LoadEntries {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -781,6 +900,14 @@ class _$LoadEntriesImpl implements _LoadEntries {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return loadEntries(this);
   }
@@ -823,12 +950,21 @@ class _$LoadEntriesImpl implements _LoadEntries {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return loadEntries?.call(this);
   }
@@ -871,12 +1007,20 @@ class _$LoadEntriesImpl implements _LoadEntries {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (loadEntries != null) {
@@ -1035,6 +1179,9 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -1050,8 +1197,20 @@ class _$ToggleTaskImpl implements _ToggleTask {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return toggleTask(entryId, taskId);
   }
@@ -1118,6 +1277,9 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -1131,8 +1293,20 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return toggleTask?.call(entryId, taskId);
   }
@@ -1199,6 +1373,9 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -1212,8 +1389,20 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (toggleTask != null) {
@@ -1265,6 +1454,8 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -1275,6 +1466,14 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return toggleTask(this);
   }
@@ -1317,12 +1516,21 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return toggleTask?.call(this);
   }
@@ -1365,12 +1573,20 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (toggleTask != null) {
@@ -1550,6 +1766,9 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -1565,8 +1784,20 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return snoozeTask(entryId, taskId, postpone);
   }
@@ -1633,6 +1864,9 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -1646,8 +1880,20 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return snoozeTask?.call(entryId, taskId, postpone);
   }
@@ -1714,6 +1960,9 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -1727,8 +1976,20 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (snoozeTask != null) {
@@ -1780,6 +2041,8 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -1790,6 +2053,14 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return snoozeTask(this);
   }
@@ -1832,12 +2103,21 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return snoozeTask?.call(this);
   }
@@ -1880,12 +2160,20 @@ class _$SnoozeTaskImpl implements _SnoozeTask {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (snoozeTask != null) {
@@ -2062,6 +2350,9 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -2077,8 +2368,20 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addCustomKey(definition);
   }
@@ -2145,6 +2448,9 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -2158,8 +2464,20 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addCustomKey?.call(definition);
   }
@@ -2226,6 +2544,9 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -2239,8 +2560,20 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addCustomKey != null) {
@@ -2292,6 +2625,8 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -2302,6 +2637,14 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addCustomKey(this);
   }
@@ -2344,12 +2687,21 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addCustomKey?.call(this);
   }
@@ -2392,12 +2744,20 @@ class _$AddCustomKeyImpl implements _AddCustomKey {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addCustomKey != null) {
@@ -2578,6 +2938,9 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -2593,8 +2956,20 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateStatusKey(status, keyId);
   }
@@ -2661,6 +3036,9 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -2674,8 +3052,20 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateStatusKey?.call(status, keyId);
   }
@@ -2742,6 +3132,9 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -2755,8 +3148,20 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateStatusKey != null) {
@@ -2808,6 +3213,8 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -2818,6 +3225,14 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateStatusKey(this);
   }
@@ -2860,12 +3275,21 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateStatusKey?.call(this);
   }
@@ -2908,12 +3332,20 @@ class _$UpdateStatusKeyImpl implements _UpdateStatusKey {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateStatusKey != null) {
@@ -3076,6 +3508,9 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -3091,8 +3526,20 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return deleteCustomKey(keyId);
   }
@@ -3159,6 +3606,9 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -3172,8 +3622,20 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return deleteCustomKey?.call(keyId);
   }
@@ -3240,6 +3702,9 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -3253,8 +3718,20 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteCustomKey != null) {
@@ -3306,6 +3783,8 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -3316,6 +3795,14 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return deleteCustomKey(this);
   }
@@ -3358,12 +3845,21 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return deleteCustomKey?.call(this);
   }
@@ -3406,12 +3902,20 @@ class _$DeleteCustomKeyImpl implements _DeleteCustomKey {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteCustomKey != null) {
@@ -3582,6 +4086,9 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -3597,8 +4104,20 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addTaskStatus(status);
   }
@@ -3665,6 +4184,9 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -3678,8 +4200,20 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addTaskStatus?.call(status);
   }
@@ -3746,6 +4280,9 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -3759,8 +4296,20 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addTaskStatus != null) {
@@ -3812,6 +4361,8 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -3822,6 +4373,14 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addTaskStatus(this);
   }
@@ -3864,12 +4423,21 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addTaskStatus?.call(this);
   }
@@ -3912,12 +4480,20 @@ class _$AddTaskStatusImpl implements _AddTaskStatus {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addTaskStatus != null) {
@@ -4078,6 +4654,9 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -4093,8 +4672,20 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return deleteTaskStatus(statusId);
   }
@@ -4161,6 +4752,9 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -4174,8 +4768,20 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return deleteTaskStatus?.call(statusId);
   }
@@ -4242,6 +4848,9 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -4255,8 +4864,20 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteTaskStatus != null) {
@@ -4308,6 +4929,8 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -4318,6 +4941,14 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return deleteTaskStatus(this);
   }
@@ -4360,12 +4991,21 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return deleteTaskStatus?.call(this);
   }
@@ -4408,12 +5048,20 @@ class _$DeleteTaskStatusImpl implements _DeleteTaskStatus {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteTaskStatus != null) {
@@ -4586,6 +5234,9 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -4601,8 +5252,20 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateTaskStatusOrder(statusId, newOrder);
   }
@@ -4669,6 +5332,9 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -4682,8 +5348,20 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateTaskStatusOrder?.call(statusId, newOrder);
   }
@@ -4750,6 +5428,9 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -4763,8 +5444,20 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateTaskStatusOrder != null) {
@@ -4816,6 +5509,8 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -4826,6 +5521,14 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateTaskStatusOrder(this);
   }
@@ -4868,12 +5571,21 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateTaskStatusOrder?.call(this);
   }
@@ -4916,12 +5628,20 @@ class _$UpdateTaskStatusOrderImpl implements _UpdateTaskStatusOrder {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateTaskStatusOrder != null) {
@@ -5095,6 +5815,9 @@ class _$AddDiaryImpl implements _AddDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -5110,8 +5833,20 @@ class _$AddDiaryImpl implements _AddDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addDiary(diary);
   }
@@ -5178,6 +5913,9 @@ class _$AddDiaryImpl implements _AddDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -5191,8 +5929,20 @@ class _$AddDiaryImpl implements _AddDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addDiary?.call(diary);
   }
@@ -5259,6 +6009,9 @@ class _$AddDiaryImpl implements _AddDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -5272,8 +6025,20 @@ class _$AddDiaryImpl implements _AddDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addDiary != null) {
@@ -5325,6 +6090,8 @@ class _$AddDiaryImpl implements _AddDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -5335,6 +6102,14 @@ class _$AddDiaryImpl implements _AddDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addDiary(this);
   }
@@ -5377,12 +6152,21 @@ class _$AddDiaryImpl implements _AddDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addDiary?.call(this);
   }
@@ -5425,12 +6209,20 @@ class _$AddDiaryImpl implements _AddDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addDiary != null) {
@@ -5589,6 +6381,9 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -5604,8 +6399,20 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return deleteDiary(diaryId);
   }
@@ -5672,6 +6479,9 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -5685,8 +6495,20 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return deleteDiary?.call(diaryId);
   }
@@ -5753,6 +6575,9 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -5766,8 +6591,20 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteDiary != null) {
@@ -5819,6 +6656,8 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -5829,6 +6668,14 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return deleteDiary(this);
   }
@@ -5871,12 +6718,21 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return deleteDiary?.call(this);
   }
@@ -5919,12 +6775,20 @@ class _$DeleteDiaryImpl implements _DeleteDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteDiary != null) {
@@ -6104,6 +6968,9 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -6119,8 +6986,20 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addEntryToDiary(diaryId, entry);
   }
@@ -6187,6 +7066,9 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -6200,8 +7082,20 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addEntryToDiary?.call(diaryId, entry);
   }
@@ -6268,6 +7162,9 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -6281,8 +7178,20 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addEntryToDiary != null) {
@@ -6334,6 +7243,8 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -6344,6 +7255,14 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addEntryToDiary(this);
   }
@@ -6386,12 +7305,21 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addEntryToDiary?.call(this);
   }
@@ -6434,12 +7362,20 @@ class _$AddEntryToDiaryImpl implements _AddEntryToDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addEntryToDiary != null) {
@@ -6619,6 +7555,9 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -6634,8 +7573,20 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInDiary(diaryId, entryId, taskId);
   }
@@ -6702,6 +7653,9 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -6715,8 +7669,20 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInDiary?.call(diaryId, entryId, taskId);
   }
@@ -6783,6 +7749,9 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -6796,8 +7765,20 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (toggleTaskInDiary != null) {
@@ -6849,6 +7830,8 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -6859,6 +7842,14 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInDiary(this);
   }
@@ -6901,12 +7892,21 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInDiary?.call(this);
   }
@@ -6949,12 +7949,20 @@ class _$ToggleTaskInDiaryImpl implements _ToggleTaskInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (toggleTaskInDiary != null) {
@@ -7149,6 +8157,9 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -7164,8 +8175,20 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInDiary(diaryId, entryId, taskId, postpone);
   }
@@ -7232,6 +8255,9 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -7245,8 +8271,20 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInDiary?.call(diaryId, entryId, taskId, postpone);
   }
@@ -7313,6 +8351,9 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -7326,8 +8367,20 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (snoozeTaskInDiary != null) {
@@ -7379,6 +8432,8 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -7389,6 +8444,14 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInDiary(this);
   }
@@ -7431,12 +8494,21 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInDiary?.call(this);
   }
@@ -7479,12 +8551,20 @@ class _$SnoozeTaskInDiaryImpl implements _SnoozeTaskInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (snoozeTaskInDiary != null) {
@@ -7671,6 +8751,9 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -7686,8 +8769,20 @@ class _$UpdateEntryImpl implements _UpdateEntry {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateEntry(entryId, updatedEntry);
   }
@@ -7754,6 +8849,9 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -7767,8 +8865,20 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateEntry?.call(entryId, updatedEntry);
   }
@@ -7835,6 +8945,9 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -7848,8 +8961,20 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateEntry != null) {
@@ -7901,6 +9026,8 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -7911,6 +9038,14 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateEntry(this);
   }
@@ -7953,12 +9088,21 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateEntry?.call(this);
   }
@@ -8001,12 +9145,20 @@ class _$UpdateEntryImpl implements _UpdateEntry {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateEntry != null) {
@@ -8201,6 +9353,9 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -8216,8 +9371,20 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInDiary(diaryId, entryId, updatedEntry);
   }
@@ -8284,6 +9451,9 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -8297,8 +9467,20 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInDiary?.call(diaryId, entryId, updatedEntry);
   }
@@ -8365,6 +9547,9 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -8378,8 +9563,20 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateEntryInDiary != null) {
@@ -8431,6 +9628,8 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -8441,6 +9640,14 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInDiary(this);
   }
@@ -8483,12 +9690,21 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInDiary?.call(this);
   }
@@ -8531,12 +9747,20 @@ class _$UpdateEntryInDiaryImpl implements _UpdateEntryInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateEntryInDiary != null) {
@@ -8721,6 +9945,9 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -8736,8 +9963,20 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateDiary(diaryId, updatedDiary);
   }
@@ -8804,6 +10043,9 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -8817,8 +10059,20 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateDiary?.call(diaryId, updatedDiary);
   }
@@ -8885,6 +10139,9 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -8898,8 +10155,20 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateDiary != null) {
@@ -8951,6 +10220,8 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -8961,6 +10232,14 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateDiary(this);
   }
@@ -9003,12 +10282,21 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateDiary?.call(this);
   }
@@ -9051,12 +10339,20 @@ class _$UpdateDiaryImpl implements _UpdateDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateDiary != null) {
@@ -9239,6 +10535,9 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -9254,8 +10553,20 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInDiary(diaryId, reorderedEntries);
   }
@@ -9322,6 +10633,9 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -9335,8 +10649,20 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInDiary?.call(diaryId, reorderedEntries);
   }
@@ -9403,6 +10729,9 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -9416,8 +10745,20 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderEntriesInDiary != null) {
@@ -9469,6 +10810,8 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -9479,6 +10822,14 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInDiary(this);
   }
@@ -9521,12 +10872,21 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInDiary?.call(this);
   }
@@ -9569,12 +10929,20 @@ class _$ReorderEntriesInDiaryImpl implements _ReorderEntriesInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderEntriesInDiary != null) {
@@ -9758,6 +11126,9 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -9773,8 +11144,20 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addPageToDiary(diaryId, page);
   }
@@ -9841,6 +11224,9 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -9854,8 +11240,20 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addPageToDiary?.call(diaryId, page);
   }
@@ -9922,6 +11320,9 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -9935,8 +11336,20 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addPageToDiary != null) {
@@ -9988,6 +11401,8 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -9998,6 +11413,14 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addPageToDiary(this);
   }
@@ -10040,12 +11463,21 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addPageToDiary?.call(this);
   }
@@ -10088,12 +11520,20 @@ class _$AddPageToDiaryImpl implements _AddPageToDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addPageToDiary != null) {
@@ -10265,6 +11705,9 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -10280,8 +11723,20 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return deletePageFromDiary(diaryId, pageId);
   }
@@ -10348,6 +11803,9 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -10361,8 +11819,20 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return deletePageFromDiary?.call(diaryId, pageId);
   }
@@ -10429,6 +11899,9 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -10442,8 +11915,20 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deletePageFromDiary != null) {
@@ -10495,6 +11980,8 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -10505,6 +11992,14 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return deletePageFromDiary(this);
   }
@@ -10547,12 +12042,21 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return deletePageFromDiary?.call(this);
   }
@@ -10595,12 +12099,20 @@ class _$DeletePageFromDiaryImpl implements _DeletePageFromDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deletePageFromDiary != null) {
@@ -10793,6 +12305,9 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -10808,8 +12323,20 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updatePageInDiary(diaryId, pageId, updatedPage);
   }
@@ -10876,6 +12403,9 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -10889,8 +12419,20 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updatePageInDiary?.call(diaryId, pageId, updatedPage);
   }
@@ -10957,6 +12499,9 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -10970,8 +12515,20 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updatePageInDiary != null) {
@@ -11023,6 +12580,8 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -11033,6 +12592,14 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updatePageInDiary(this);
   }
@@ -11075,12 +12642,21 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updatePageInDiary?.call(this);
   }
@@ -11123,12 +12699,20 @@ class _$UpdatePageInDiaryImpl implements _UpdatePageInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updatePageInDiary != null) {
@@ -11303,6 +12887,9 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -11318,8 +12905,20 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return setCurrentPageInDiary(diaryId, pageId);
   }
@@ -11386,6 +12985,9 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -11399,8 +13001,20 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return setCurrentPageInDiary?.call(diaryId, pageId);
   }
@@ -11467,6 +13081,9 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -11480,8 +13097,20 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (setCurrentPageInDiary != null) {
@@ -11533,6 +13162,8 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -11543,6 +13174,14 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return setCurrentPageInDiary(this);
   }
@@ -11585,12 +13224,21 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return setCurrentPageInDiary?.call(this);
   }
@@ -11633,12 +13281,20 @@ class _$SetCurrentPageInDiaryImpl implements _SetCurrentPageInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (setCurrentPageInDiary != null) {
@@ -11813,6 +13469,9 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -11828,8 +13487,20 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return togglePageFavoriteInDiary(diaryId, pageId);
   }
@@ -11896,6 +13567,9 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -11909,8 +13583,20 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return togglePageFavoriteInDiary?.call(diaryId, pageId);
   }
@@ -11977,6 +13663,9 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -11990,8 +13679,20 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (togglePageFavoriteInDiary != null) {
@@ -12043,6 +13744,8 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -12053,6 +13756,14 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return togglePageFavoriteInDiary(this);
   }
@@ -12095,12 +13806,21 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return togglePageFavoriteInDiary?.call(this);
   }
@@ -12143,12 +13863,20 @@ class _$TogglePageFavoriteInDiaryImpl implements _TogglePageFavoriteInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (togglePageFavoriteInDiary != null) {
@@ -12328,6 +14056,9 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -12343,8 +14074,20 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return reorderPagesInDiary(diaryId, reorderedPages);
   }
@@ -12411,6 +14154,9 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -12424,8 +14170,20 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return reorderPagesInDiary?.call(diaryId, reorderedPages);
   }
@@ -12492,6 +14250,9 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -12505,8 +14266,20 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderPagesInDiary != null) {
@@ -12558,6 +14331,8 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -12568,6 +14343,14 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return reorderPagesInDiary(this);
   }
@@ -12610,12 +14393,21 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return reorderPagesInDiary?.call(this);
   }
@@ -12658,12 +14450,20 @@ class _$ReorderPagesInDiaryImpl implements _ReorderPagesInDiary {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderPagesInDiary != null) {
@@ -12856,6 +14656,9 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -12871,8 +14674,20 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addEntryToPage(diaryId, pageId, entry);
   }
@@ -12939,6 +14754,9 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -12952,8 +14770,20 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addEntryToPage?.call(diaryId, pageId, entry);
   }
@@ -13020,6 +14850,9 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -13033,8 +14866,20 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addEntryToPage != null) {
@@ -13086,6 +14931,8 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -13096,6 +14943,14 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addEntryToPage(this);
   }
@@ -13138,12 +14993,21 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addEntryToPage?.call(this);
   }
@@ -13186,12 +15050,20 @@ class _$AddEntryToPageImpl implements _AddEntryToPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addEntryToPage != null) {
@@ -13402,6 +15274,9 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -13417,8 +15292,20 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInPage(diaryId, pageId, entryId, updatedEntry);
   }
@@ -13485,6 +15372,9 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -13498,8 +15388,20 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInPage?.call(diaryId, pageId, entryId, updatedEntry);
   }
@@ -13566,6 +15468,9 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -13579,8 +15484,20 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateEntryInPage != null) {
@@ -13632,6 +15549,8 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -13642,6 +15561,14 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInPage(this);
   }
@@ -13684,12 +15611,21 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateEntryInPage?.call(this);
   }
@@ -13732,12 +15668,20 @@ class _$UpdateEntryInPageImpl implements _UpdateEntryInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateEntryInPage != null) {
@@ -13934,6 +15878,9 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -13949,8 +15896,20 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInPage(diaryId, pageId, reorderedEntries);
   }
@@ -14017,6 +15976,9 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -14030,8 +15992,20 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInPage?.call(diaryId, pageId, reorderedEntries);
   }
@@ -14098,6 +16072,9 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -14111,8 +16088,20 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderEntriesInPage != null) {
@@ -14164,6 +16153,8 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -14174,6 +16165,14 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInPage(this);
   }
@@ -14216,12 +16215,21 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return reorderEntriesInPage?.call(this);
   }
@@ -14264,12 +16272,20 @@ class _$ReorderEntriesInPageImpl implements _ReorderEntriesInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderEntriesInPage != null) {
@@ -14464,6 +16480,9 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -14479,8 +16498,20 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInPage(diaryId, pageId, entryId, taskId);
   }
@@ -14547,6 +16578,9 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -14560,8 +16594,20 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInPage?.call(diaryId, pageId, entryId, taskId);
   }
@@ -14628,6 +16674,9 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -14641,8 +16690,20 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (toggleTaskInPage != null) {
@@ -14694,6 +16755,8 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -14704,6 +16767,14 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInPage(this);
   }
@@ -14746,12 +16817,21 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return toggleTaskInPage?.call(this);
   }
@@ -14794,12 +16874,20 @@ class _$ToggleTaskInPageImpl implements _ToggleTaskInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (toggleTaskInPage != null) {
@@ -15010,6 +17098,9 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -15025,8 +17116,20 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInPage(diaryId, pageId, entryId, taskId, postpone);
   }
@@ -15093,6 +17196,9 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -15106,8 +17212,20 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInPage?.call(diaryId, pageId, entryId, taskId, postpone);
   }
@@ -15174,6 +17292,9 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -15187,8 +17308,20 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (snoozeTaskInPage != null) {
@@ -15240,6 +17373,8 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -15250,6 +17385,14 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInPage(this);
   }
@@ -15292,12 +17435,21 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return snoozeTaskInPage?.call(this);
   }
@@ -15340,12 +17492,20 @@ class _$SnoozeTaskInPageImpl implements _SnoozeTaskInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (snoozeTaskInPage != null) {
@@ -15543,6 +17703,9 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -15558,8 +17721,20 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addSectionToPage(diaryId, pageId, section);
   }
@@ -15626,6 +17801,9 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -15639,8 +17817,20 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addSectionToPage?.call(diaryId, pageId, section);
   }
@@ -15707,6 +17897,9 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -15720,8 +17913,20 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addSectionToPage != null) {
@@ -15773,6 +17978,8 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -15783,6 +17990,14 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addSectionToPage(this);
   }
@@ -15825,12 +18040,21 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addSectionToPage?.call(this);
   }
@@ -15873,12 +18097,20 @@ class _$AddSectionToPageImpl implements _AddSectionToPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addSectionToPage != null) {
@@ -16062,6 +18294,9 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -16077,8 +18312,20 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return deleteSectionFromPage(diaryId, pageId, sectionId);
   }
@@ -16145,6 +18392,9 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -16158,8 +18408,20 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return deleteSectionFromPage?.call(diaryId, pageId, sectionId);
   }
@@ -16226,6 +18488,9 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -16239,8 +18504,20 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteSectionFromPage != null) {
@@ -16292,6 +18569,8 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -16302,6 +18581,14 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return deleteSectionFromPage(this);
   }
@@ -16344,12 +18631,21 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return deleteSectionFromPage?.call(this);
   }
@@ -16392,12 +18688,20 @@ class _$DeleteSectionFromPageImpl implements _DeleteSectionFromPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteSectionFromPage != null) {
@@ -16609,6 +18913,9 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -16624,8 +18931,20 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateSectionInPage(diaryId, pageId, sectionId, updatedSection);
   }
@@ -16692,6 +19011,9 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -16705,8 +19027,20 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateSectionInPage?.call(
         diaryId, pageId, sectionId, updatedSection);
@@ -16774,6 +19108,9 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -16787,8 +19124,20 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateSectionInPage != null) {
@@ -16840,6 +19189,8 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -16850,6 +19201,14 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateSectionInPage(this);
   }
@@ -16892,12 +19251,21 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateSectionInPage?.call(this);
   }
@@ -16940,12 +19308,20 @@ class _$UpdateSectionInPageImpl implements _UpdateSectionInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateSectionInPage != null) {
@@ -17142,6 +19518,9 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -17157,8 +19536,20 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return reorderSectionsInPage(diaryId, pageId, reorderedSections);
   }
@@ -17225,6 +19616,9 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -17238,8 +19632,20 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return reorderSectionsInPage?.call(diaryId, pageId, reorderedSections);
   }
@@ -17306,6 +19712,9 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -17319,8 +19728,20 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderSectionsInPage != null) {
@@ -17372,6 +19793,8 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -17382,6 +19805,14 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return reorderSectionsInPage(this);
   }
@@ -17424,12 +19855,21 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return reorderSectionsInPage?.call(this);
   }
@@ -17472,12 +19912,20 @@ class _$ReorderSectionsInPageImpl implements _ReorderSectionsInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderSectionsInPage != null) {
@@ -17674,6 +20122,9 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -17689,8 +20140,20 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return assignEntryToSection(diaryId, pageId, entryId, sectionId);
   }
@@ -17757,6 +20220,9 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -17770,8 +20236,20 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return assignEntryToSection?.call(diaryId, pageId, entryId, sectionId);
   }
@@ -17838,6 +20316,9 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -17851,8 +20332,20 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (assignEntryToSection != null) {
@@ -17904,6 +20397,8 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -17914,6 +20409,14 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return assignEntryToSection(this);
   }
@@ -17956,12 +20459,21 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return assignEntryToSection?.call(this);
   }
@@ -18004,12 +20516,20 @@ class _$AssignEntryToSectionImpl implements _AssignEntryToSection {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (assignEntryToSection != null) {
@@ -18035,6 +20555,616 @@ abstract class _AssignEntryToSection implements BulletJournalEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AssignEntryToSectionImplCopyWith<_$AssignEntryToSectionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AssignComponentToSectionImplCopyWith<$Res> {
+  factory _$$AssignComponentToSectionImplCopyWith(
+          _$AssignComponentToSectionImpl value,
+          $Res Function(_$AssignComponentToSectionImpl) then) =
+      __$$AssignComponentToSectionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId, String pageId, String componentId, String? sectionId});
+}
+
+/// @nodoc
+class __$$AssignComponentToSectionImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res,
+        _$AssignComponentToSectionImpl>
+    implements _$$AssignComponentToSectionImplCopyWith<$Res> {
+  __$$AssignComponentToSectionImplCopyWithImpl(
+      _$AssignComponentToSectionImpl _value,
+      $Res Function(_$AssignComponentToSectionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? componentId = null,
+    Object? sectionId = freezed,
+  }) {
+    return _then(_$AssignComponentToSectionImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: null == componentId
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      sectionId: freezed == sectionId
+          ? _value.sectionId
+          : sectionId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AssignComponentToSectionImpl implements _AssignComponentToSection {
+  const _$AssignComponentToSectionImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.componentId,
+      required this.sectionId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String componentId;
+  @override
+  final String? sectionId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.assignComponentToSection(diaryId: $diaryId, pageId: $pageId, componentId: $componentId, sectionId: $sectionId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AssignComponentToSectionImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.componentId, componentId) ||
+                other.componentId == componentId) &&
+            (identical(other.sectionId, sectionId) ||
+                other.sectionId == sectionId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, diaryId, pageId, componentId, sectionId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AssignComponentToSectionImplCopyWith<_$AssignComponentToSectionImpl>
+      get copyWith => __$$AssignComponentToSectionImplCopyWithImpl<
+          _$AssignComponentToSectionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
+    required TResult Function(
+            String diaryId, String pageId, PageComponent component)
+        addComponentToPage,
+    required TResult Function(String diaryId, String pageId, String componentId)
+        deleteComponentFromPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)
+        updateComponentInPage,
+    required TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)
+        reorderComponentsInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<String> layoutOrder)
+        updateLayoutOrderInPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)
+        updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
+  }) {
+    return assignComponentToSection(diaryId, pageId, componentId, sectionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult? Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult? Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+  }) {
+    return assignComponentToSection?.call(
+        diaryId, pageId, componentId, sectionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (assignComponentToSection != null) {
+      return assignComponentToSection(diaryId, pageId, componentId, sectionId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
+    required TResult Function(_AddComponentToPage value) addComponentToPage,
+    required TResult Function(_DeleteComponentFromPage value)
+        deleteComponentFromPage,
+    required TResult Function(_UpdateComponentInPage value)
+        updateComponentInPage,
+    required TResult Function(_ReorderComponentsInPage value)
+        reorderComponentsInPage,
+    required TResult Function(_UpdateLayoutOrderInPage value)
+        updateLayoutOrderInPage,
+    required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
+  }) {
+    return assignComponentToSection(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
+    TResult? Function(_AddComponentToPage value)? addComponentToPage,
+    TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+  }) {
+    return assignComponentToSection?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
+    TResult Function(_AddComponentToPage value)? addComponentToPage,
+    TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (assignComponentToSection != null) {
+      return assignComponentToSection(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AssignComponentToSection implements BulletJournalEvent {
+  const factory _AssignComponentToSection(
+      {required final String diaryId,
+      required final String pageId,
+      required final String componentId,
+      required final String? sectionId}) = _$AssignComponentToSectionImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get componentId;
+  String? get sectionId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AssignComponentToSectionImplCopyWith<_$AssignComponentToSectionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -18206,6 +21336,9 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -18221,8 +21354,20 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return addComponentToPage(diaryId, pageId, component);
   }
@@ -18289,6 +21434,9 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -18302,8 +21450,20 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return addComponentToPage?.call(diaryId, pageId, component);
   }
@@ -18370,6 +21530,9 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -18383,8 +21546,20 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addComponentToPage != null) {
@@ -18436,6 +21611,8 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -18446,6 +21623,14 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return addComponentToPage(this);
   }
@@ -18488,12 +21673,21 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return addComponentToPage?.call(this);
   }
@@ -18536,12 +21730,20 @@ class _$AddComponentToPageImpl implements _AddComponentToPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (addComponentToPage != null) {
@@ -18727,6 +21929,9 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -18742,8 +21947,20 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return deleteComponentFromPage(diaryId, pageId, componentId);
   }
@@ -18810,6 +22027,9 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -18823,8 +22043,20 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return deleteComponentFromPage?.call(diaryId, pageId, componentId);
   }
@@ -18891,6 +22123,9 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -18904,8 +22139,20 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteComponentFromPage != null) {
@@ -18957,6 +22204,8 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -18967,6 +22216,14 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return deleteComponentFromPage(this);
   }
@@ -19009,12 +22266,21 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return deleteComponentFromPage?.call(this);
   }
@@ -19057,12 +22323,20 @@ class _$DeleteComponentFromPageImpl implements _DeleteComponentFromPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (deleteComponentFromPage != null) {
@@ -19275,6 +22549,9 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -19290,8 +22567,20 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateComponentInPage(
         diaryId, pageId, componentId, updatedComponent);
@@ -19359,6 +22648,9 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -19372,8 +22664,20 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateComponentInPage?.call(
         diaryId, pageId, componentId, updatedComponent);
@@ -19441,6 +22745,9 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -19454,8 +22761,20 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateComponentInPage != null) {
@@ -19508,6 +22827,8 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -19518,6 +22839,14 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateComponentInPage(this);
   }
@@ -19560,12 +22889,21 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateComponentInPage?.call(this);
   }
@@ -19608,12 +22946,20 @@ class _$UpdateComponentInPageImpl implements _UpdateComponentInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateComponentInPage != null) {
@@ -19813,6 +23159,9 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -19828,8 +23177,20 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return reorderComponentsInPage(diaryId, pageId, reorderedComponents);
   }
@@ -19896,6 +23257,9 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -19909,8 +23273,20 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return reorderComponentsInPage?.call(diaryId, pageId, reorderedComponents);
   }
@@ -19977,6 +23353,9 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -19990,8 +23369,20 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderComponentsInPage != null) {
@@ -20043,6 +23434,8 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -20053,6 +23446,14 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return reorderComponentsInPage(this);
   }
@@ -20095,12 +23496,21 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return reorderComponentsInPage?.call(this);
   }
@@ -20143,12 +23553,20 @@ class _$ReorderComponentsInPageImpl implements _ReorderComponentsInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (reorderComponentsInPage != null) {
@@ -20344,6 +23762,9 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -20359,8 +23780,20 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateLayoutOrderInPage(diaryId, pageId, layoutOrder);
   }
@@ -20427,6 +23860,9 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -20440,8 +23876,20 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateLayoutOrderInPage?.call(diaryId, pageId, layoutOrder);
   }
@@ -20508,6 +23956,9 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -20521,8 +23972,20 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateLayoutOrderInPage != null) {
@@ -20574,6 +24037,8 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -20584,6 +24049,14 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateLayoutOrderInPage(this);
   }
@@ -20626,12 +24099,21 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateLayoutOrderInPage?.call(this);
   }
@@ -20674,12 +24156,20 @@ class _$UpdateLayoutOrderInPageImpl implements _UpdateLayoutOrderInPage {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateLayoutOrderInPage != null) {
@@ -20718,7 +24208,8 @@ abstract class _$$UpdateTimeTableCellImplCopyWith<$Res> {
       String componentId,
       int row,
       int column,
-      String content});
+      String content,
+      String? backgroundColorHex});
 }
 
 /// @nodoc
@@ -20740,6 +24231,7 @@ class __$$UpdateTimeTableCellImplCopyWithImpl<$Res>
     Object? row = null,
     Object? column = null,
     Object? content = null,
+    Object? backgroundColorHex = freezed,
   }) {
     return _then(_$UpdateTimeTableCellImpl(
       diaryId: null == diaryId
@@ -20766,6 +24258,10 @@ class __$$UpdateTimeTableCellImplCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      backgroundColorHex: freezed == backgroundColorHex
+          ? _value.backgroundColorHex
+          : backgroundColorHex // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -20779,7 +24275,8 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
       required this.componentId,
       required this.row,
       required this.column,
-      required this.content});
+      required this.content,
+      this.backgroundColorHex});
 
   @override
   final String diaryId;
@@ -20793,10 +24290,12 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
   final int column;
   @override
   final String content;
+  @override
+  final String? backgroundColorHex;
 
   @override
   String toString() {
-    return 'BulletJournalEvent.updateTimeTableCell(diaryId: $diaryId, pageId: $pageId, componentId: $componentId, row: $row, column: $column, content: $content)';
+    return 'BulletJournalEvent.updateTimeTableCell(diaryId: $diaryId, pageId: $pageId, componentId: $componentId, row: $row, column: $column, content: $content, backgroundColorHex: $backgroundColorHex)';
   }
 
   @override
@@ -20810,12 +24309,14 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
                 other.componentId == componentId) &&
             (identical(other.row, row) || other.row == row) &&
             (identical(other.column, column) || other.column == column) &&
-            (identical(other.content, content) || other.content == content));
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.backgroundColorHex, backgroundColorHex) ||
+                other.backgroundColorHex == backgroundColorHex));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, diaryId, pageId, componentId, row, column, content);
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId, componentId,
+      row, column, content, backgroundColorHex);
 
   /// Create a copy of BulletJournalEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -20898,6 +24399,9 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     required TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)
         assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
     required TResult Function(
             String diaryId, String pageId, PageComponent component)
         addComponentToPage,
@@ -20913,11 +24417,23 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
             String diaryId, String pageId, List<String> layoutOrder)
         updateLayoutOrderInPage,
     required TResult Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)
+            int row, int column, String content, String? backgroundColorHex)
         updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
   }) {
     return updateTimeTableCell(
-        diaryId, pageId, componentId, row, column, content);
+        diaryId, pageId, componentId, row, column, content, backgroundColorHex);
   }
 
   @override
@@ -20982,6 +24498,9 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     TResult? Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult? Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult? Function(String diaryId, String pageId, String componentId)?
@@ -20995,11 +24514,23 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult? Function(String diaryId, String pageId, String componentId,
-            int row, int column, String content)?
+            int row, int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
   }) {
     return updateTimeTableCell?.call(
-        diaryId, pageId, componentId, row, column, content);
+        diaryId, pageId, componentId, row, column, content, backgroundColorHex);
   }
 
   @override
@@ -21064,6 +24595,9 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     TResult Function(
             String diaryId, String pageId, String entryId, String? sectionId)?
         assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
     TResult Function(String diaryId, String pageId, PageComponent component)?
         addComponentToPage,
     TResult Function(String diaryId, String pageId, String componentId)?
@@ -21077,13 +24611,25 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
         updateLayoutOrderInPage,
     TResult Function(String diaryId, String pageId, String componentId, int row,
-            int column, String content)?
+            int column, String content, String? backgroundColorHex)?
         updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateTimeTableCell != null) {
-      return updateTimeTableCell(
-          diaryId, pageId, componentId, row, column, content);
+      return updateTimeTableCell(diaryId, pageId, componentId, row, column,
+          content, backgroundColorHex);
     }
     return orElse();
   }
@@ -21131,6 +24677,8 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     required TResult Function(_ReorderSectionsInPage value)
         reorderSectionsInPage,
     required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
     required TResult Function(_AddComponentToPage value) addComponentToPage,
     required TResult Function(_DeleteComponentFromPage value)
         deleteComponentFromPage,
@@ -21141,6 +24689,14 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     required TResult Function(_UpdateLayoutOrderInPage value)
         updateLayoutOrderInPage,
     required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
   }) {
     return updateTimeTableCell(this);
   }
@@ -21183,12 +24739,21 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
     TResult? Function(_AddComponentToPage value)? addComponentToPage,
     TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
   }) {
     return updateTimeTableCell?.call(this);
   }
@@ -21231,12 +24796,20 @@ class _$UpdateTimeTableCellImpl implements _UpdateTimeTableCell {
     TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
     TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
     TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
     TResult Function(_AddComponentToPage value)? addComponentToPage,
     TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
     TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
     TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
     TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
     TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
     required TResult orElse(),
   }) {
     if (updateTimeTableCell != null) {
@@ -21253,7 +24826,8 @@ abstract class _UpdateTimeTableCell implements BulletJournalEvent {
       required final String componentId,
       required final int row,
       required final int column,
-      required final String content}) = _$UpdateTimeTableCellImpl;
+      required final String content,
+      final String? backgroundColorHex}) = _$UpdateTimeTableCellImpl;
 
   String get diaryId;
   String get pageId;
@@ -21261,10 +24835,2534 @@ abstract class _UpdateTimeTableCell implements BulletJournalEvent {
   int get row;
   int get column;
   String get content;
+  String? get backgroundColorHex;
 
   /// Create a copy of BulletJournalEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateTimeTableCellImplCopyWith<_$UpdateTimeTableCellImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddEntryToTimeTableCellImplCopyWith<$Res> {
+  factory _$$AddEntryToTimeTableCellImplCopyWith(
+          _$AddEntryToTimeTableCellImpl value,
+          $Res Function(_$AddEntryToTimeTableCellImpl) then) =
+      __$$AddEntryToTimeTableCellImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId,
+      String pageId,
+      String componentId,
+      int row,
+      int column,
+      String entryId});
+}
+
+/// @nodoc
+class __$$AddEntryToTimeTableCellImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res,
+        _$AddEntryToTimeTableCellImpl>
+    implements _$$AddEntryToTimeTableCellImplCopyWith<$Res> {
+  __$$AddEntryToTimeTableCellImplCopyWithImpl(
+      _$AddEntryToTimeTableCellImpl _value,
+      $Res Function(_$AddEntryToTimeTableCellImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? componentId = null,
+    Object? row = null,
+    Object? column = null,
+    Object? entryId = null,
+  }) {
+    return _then(_$AddEntryToTimeTableCellImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: null == componentId
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      row: null == row
+          ? _value.row
+          : row // ignore: cast_nullable_to_non_nullable
+              as int,
+      column: null == column
+          ? _value.column
+          : column // ignore: cast_nullable_to_non_nullable
+              as int,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddEntryToTimeTableCellImpl implements _AddEntryToTimeTableCell {
+  const _$AddEntryToTimeTableCellImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.componentId,
+      required this.row,
+      required this.column,
+      required this.entryId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String componentId;
+  @override
+  final int row;
+  @override
+  final int column;
+  @override
+  final String entryId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.addEntryToTimeTableCell(diaryId: $diaryId, pageId: $pageId, componentId: $componentId, row: $row, column: $column, entryId: $entryId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddEntryToTimeTableCellImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.componentId, componentId) ||
+                other.componentId == componentId) &&
+            (identical(other.row, row) || other.row == row) &&
+            (identical(other.column, column) || other.column == column) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, diaryId, pageId, componentId, row, column, entryId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddEntryToTimeTableCellImplCopyWith<_$AddEntryToTimeTableCellImpl>
+      get copyWith => __$$AddEntryToTimeTableCellImplCopyWithImpl<
+          _$AddEntryToTimeTableCellImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
+    required TResult Function(
+            String diaryId, String pageId, PageComponent component)
+        addComponentToPage,
+    required TResult Function(String diaryId, String pageId, String componentId)
+        deleteComponentFromPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)
+        updateComponentInPage,
+    required TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)
+        reorderComponentsInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<String> layoutOrder)
+        updateLayoutOrderInPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)
+        updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
+  }) {
+    return addEntryToTimeTableCell(
+        diaryId, pageId, componentId, row, column, entryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult? Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult? Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+  }) {
+    return addEntryToTimeTableCell?.call(
+        diaryId, pageId, componentId, row, column, entryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (addEntryToTimeTableCell != null) {
+      return addEntryToTimeTableCell(
+          diaryId, pageId, componentId, row, column, entryId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
+    required TResult Function(_AddComponentToPage value) addComponentToPage,
+    required TResult Function(_DeleteComponentFromPage value)
+        deleteComponentFromPage,
+    required TResult Function(_UpdateComponentInPage value)
+        updateComponentInPage,
+    required TResult Function(_ReorderComponentsInPage value)
+        reorderComponentsInPage,
+    required TResult Function(_UpdateLayoutOrderInPage value)
+        updateLayoutOrderInPage,
+    required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
+  }) {
+    return addEntryToTimeTableCell(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
+    TResult? Function(_AddComponentToPage value)? addComponentToPage,
+    TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+  }) {
+    return addEntryToTimeTableCell?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
+    TResult Function(_AddComponentToPage value)? addComponentToPage,
+    TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (addEntryToTimeTableCell != null) {
+      return addEntryToTimeTableCell(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddEntryToTimeTableCell implements BulletJournalEvent {
+  const factory _AddEntryToTimeTableCell(
+      {required final String diaryId,
+      required final String pageId,
+      required final String componentId,
+      required final int row,
+      required final int column,
+      required final String entryId}) = _$AddEntryToTimeTableCellImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get componentId;
+  int get row;
+  int get column;
+  String get entryId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddEntryToTimeTableCellImplCopyWith<_$AddEntryToTimeTableCellImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveEntryFromTimeTableCellImplCopyWith<$Res> {
+  factory _$$RemoveEntryFromTimeTableCellImplCopyWith(
+          _$RemoveEntryFromTimeTableCellImpl value,
+          $Res Function(_$RemoveEntryFromTimeTableCellImpl) then) =
+      __$$RemoveEntryFromTimeTableCellImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId,
+      String pageId,
+      String componentId,
+      int row,
+      int column,
+      String entryId});
+}
+
+/// @nodoc
+class __$$RemoveEntryFromTimeTableCellImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res,
+        _$RemoveEntryFromTimeTableCellImpl>
+    implements _$$RemoveEntryFromTimeTableCellImplCopyWith<$Res> {
+  __$$RemoveEntryFromTimeTableCellImplCopyWithImpl(
+      _$RemoveEntryFromTimeTableCellImpl _value,
+      $Res Function(_$RemoveEntryFromTimeTableCellImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? componentId = null,
+    Object? row = null,
+    Object? column = null,
+    Object? entryId = null,
+  }) {
+    return _then(_$RemoveEntryFromTimeTableCellImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: null == componentId
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      row: null == row
+          ? _value.row
+          : row // ignore: cast_nullable_to_non_nullable
+              as int,
+      column: null == column
+          ? _value.column
+          : column // ignore: cast_nullable_to_non_nullable
+              as int,
+      entryId: null == entryId
+          ? _value.entryId
+          : entryId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveEntryFromTimeTableCellImpl
+    implements _RemoveEntryFromTimeTableCell {
+  const _$RemoveEntryFromTimeTableCellImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.componentId,
+      required this.row,
+      required this.column,
+      required this.entryId});
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String componentId;
+  @override
+  final int row;
+  @override
+  final int column;
+  @override
+  final String entryId;
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.removeEntryFromTimeTableCell(diaryId: $diaryId, pageId: $pageId, componentId: $componentId, row: $row, column: $column, entryId: $entryId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveEntryFromTimeTableCellImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.componentId, componentId) ||
+                other.componentId == componentId) &&
+            (identical(other.row, row) || other.row == row) &&
+            (identical(other.column, column) || other.column == column) &&
+            (identical(other.entryId, entryId) || other.entryId == entryId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, diaryId, pageId, componentId, row, column, entryId);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveEntryFromTimeTableCellImplCopyWith<
+          _$RemoveEntryFromTimeTableCellImpl>
+      get copyWith => __$$RemoveEntryFromTimeTableCellImplCopyWithImpl<
+          _$RemoveEntryFromTimeTableCellImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
+    required TResult Function(
+            String diaryId, String pageId, PageComponent component)
+        addComponentToPage,
+    required TResult Function(String diaryId, String pageId, String componentId)
+        deleteComponentFromPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)
+        updateComponentInPage,
+    required TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)
+        reorderComponentsInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<String> layoutOrder)
+        updateLayoutOrderInPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)
+        updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
+  }) {
+    return removeEntryFromTimeTableCell(
+        diaryId, pageId, componentId, row, column, entryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult? Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult? Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+  }) {
+    return removeEntryFromTimeTableCell?.call(
+        diaryId, pageId, componentId, row, column, entryId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (removeEntryFromTimeTableCell != null) {
+      return removeEntryFromTimeTableCell(
+          diaryId, pageId, componentId, row, column, entryId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
+    required TResult Function(_AddComponentToPage value) addComponentToPage,
+    required TResult Function(_DeleteComponentFromPage value)
+        deleteComponentFromPage,
+    required TResult Function(_UpdateComponentInPage value)
+        updateComponentInPage,
+    required TResult Function(_ReorderComponentsInPage value)
+        reorderComponentsInPage,
+    required TResult Function(_UpdateLayoutOrderInPage value)
+        updateLayoutOrderInPage,
+    required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
+  }) {
+    return removeEntryFromTimeTableCell(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
+    TResult? Function(_AddComponentToPage value)? addComponentToPage,
+    TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+  }) {
+    return removeEntryFromTimeTableCell?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
+    TResult Function(_AddComponentToPage value)? addComponentToPage,
+    TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (removeEntryFromTimeTableCell != null) {
+      return removeEntryFromTimeTableCell(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveEntryFromTimeTableCell implements BulletJournalEvent {
+  const factory _RemoveEntryFromTimeTableCell(
+      {required final String diaryId,
+      required final String pageId,
+      required final String componentId,
+      required final int row,
+      required final int column,
+      required final String entryId}) = _$RemoveEntryFromTimeTableCellImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get componentId;
+  int get row;
+  int get column;
+  String get entryId;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RemoveEntryFromTimeTableCellImplCopyWith<
+          _$RemoveEntryFromTimeTableCellImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateTimeTableColumnWidthsImplCopyWith<$Res> {
+  factory _$$UpdateTimeTableColumnWidthsImplCopyWith(
+          _$UpdateTimeTableColumnWidthsImpl value,
+          $Res Function(_$UpdateTimeTableColumnWidthsImpl) then) =
+      __$$UpdateTimeTableColumnWidthsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId,
+      String pageId,
+      String componentId,
+      List<double> columnWidths});
+}
+
+/// @nodoc
+class __$$UpdateTimeTableColumnWidthsImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res,
+        _$UpdateTimeTableColumnWidthsImpl>
+    implements _$$UpdateTimeTableColumnWidthsImplCopyWith<$Res> {
+  __$$UpdateTimeTableColumnWidthsImplCopyWithImpl(
+      _$UpdateTimeTableColumnWidthsImpl _value,
+      $Res Function(_$UpdateTimeTableColumnWidthsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? componentId = null,
+    Object? columnWidths = null,
+  }) {
+    return _then(_$UpdateTimeTableColumnWidthsImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: null == componentId
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      columnWidths: null == columnWidths
+          ? _value._columnWidths
+          : columnWidths // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateTimeTableColumnWidthsImpl
+    implements _UpdateTimeTableColumnWidths {
+  const _$UpdateTimeTableColumnWidthsImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.componentId,
+      required final List<double> columnWidths})
+      : _columnWidths = columnWidths;
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String componentId;
+  final List<double> _columnWidths;
+  @override
+  List<double> get columnWidths {
+    if (_columnWidths is EqualUnmodifiableListView) return _columnWidths;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_columnWidths);
+  }
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateTimeTableColumnWidths(diaryId: $diaryId, pageId: $pageId, componentId: $componentId, columnWidths: $columnWidths)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTimeTableColumnWidthsImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.componentId, componentId) ||
+                other.componentId == componentId) &&
+            const DeepCollectionEquality()
+                .equals(other._columnWidths, _columnWidths));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId, componentId,
+      const DeepCollectionEquality().hash(_columnWidths));
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTimeTableColumnWidthsImplCopyWith<_$UpdateTimeTableColumnWidthsImpl>
+      get copyWith => __$$UpdateTimeTableColumnWidthsImplCopyWithImpl<
+          _$UpdateTimeTableColumnWidthsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
+    required TResult Function(
+            String diaryId, String pageId, PageComponent component)
+        addComponentToPage,
+    required TResult Function(String diaryId, String pageId, String componentId)
+        deleteComponentFromPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)
+        updateComponentInPage,
+    required TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)
+        reorderComponentsInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<String> layoutOrder)
+        updateLayoutOrderInPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)
+        updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableColumnWidths(
+        diaryId, pageId, componentId, columnWidths);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult? Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult? Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableColumnWidths?.call(
+        diaryId, pageId, componentId, columnWidths);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (updateTimeTableColumnWidths != null) {
+      return updateTimeTableColumnWidths(
+          diaryId, pageId, componentId, columnWidths);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
+    required TResult Function(_AddComponentToPage value) addComponentToPage,
+    required TResult Function(_DeleteComponentFromPage value)
+        deleteComponentFromPage,
+    required TResult Function(_UpdateComponentInPage value)
+        updateComponentInPage,
+    required TResult Function(_ReorderComponentsInPage value)
+        reorderComponentsInPage,
+    required TResult Function(_UpdateLayoutOrderInPage value)
+        updateLayoutOrderInPage,
+    required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableColumnWidths(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
+    TResult? Function(_AddComponentToPage value)? addComponentToPage,
+    TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableColumnWidths?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
+    TResult Function(_AddComponentToPage value)? addComponentToPage,
+    TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (updateTimeTableColumnWidths != null) {
+      return updateTimeTableColumnWidths(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTimeTableColumnWidths implements BulletJournalEvent {
+  const factory _UpdateTimeTableColumnWidths(
+          {required final String diaryId,
+          required final String pageId,
+          required final String componentId,
+          required final List<double> columnWidths}) =
+      _$UpdateTimeTableColumnWidthsImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get componentId;
+  List<double> get columnWidths;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateTimeTableColumnWidthsImplCopyWith<_$UpdateTimeTableColumnWidthsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateTimeTableRowHeightsImplCopyWith<$Res> {
+  factory _$$UpdateTimeTableRowHeightsImplCopyWith(
+          _$UpdateTimeTableRowHeightsImpl value,
+          $Res Function(_$UpdateTimeTableRowHeightsImpl) then) =
+      __$$UpdateTimeTableRowHeightsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String diaryId,
+      String pageId,
+      String componentId,
+      List<double> rowHeights});
+}
+
+/// @nodoc
+class __$$UpdateTimeTableRowHeightsImplCopyWithImpl<$Res>
+    extends _$BulletJournalEventCopyWithImpl<$Res,
+        _$UpdateTimeTableRowHeightsImpl>
+    implements _$$UpdateTimeTableRowHeightsImplCopyWith<$Res> {
+  __$$UpdateTimeTableRowHeightsImplCopyWithImpl(
+      _$UpdateTimeTableRowHeightsImpl _value,
+      $Res Function(_$UpdateTimeTableRowHeightsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? diaryId = null,
+    Object? pageId = null,
+    Object? componentId = null,
+    Object? rowHeights = null,
+  }) {
+    return _then(_$UpdateTimeTableRowHeightsImpl(
+      diaryId: null == diaryId
+          ? _value.diaryId
+          : diaryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageId: null == pageId
+          ? _value.pageId
+          : pageId // ignore: cast_nullable_to_non_nullable
+              as String,
+      componentId: null == componentId
+          ? _value.componentId
+          : componentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      rowHeights: null == rowHeights
+          ? _value._rowHeights
+          : rowHeights // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateTimeTableRowHeightsImpl implements _UpdateTimeTableRowHeights {
+  const _$UpdateTimeTableRowHeightsImpl(
+      {required this.diaryId,
+      required this.pageId,
+      required this.componentId,
+      required final List<double> rowHeights})
+      : _rowHeights = rowHeights;
+
+  @override
+  final String diaryId;
+  @override
+  final String pageId;
+  @override
+  final String componentId;
+  final List<double> _rowHeights;
+  @override
+  List<double> get rowHeights {
+    if (_rowHeights is EqualUnmodifiableListView) return _rowHeights;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_rowHeights);
+  }
+
+  @override
+  String toString() {
+    return 'BulletJournalEvent.updateTimeTableRowHeights(diaryId: $diaryId, pageId: $pageId, componentId: $componentId, rowHeights: $rowHeights)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateTimeTableRowHeightsImpl &&
+            (identical(other.diaryId, diaryId) || other.diaryId == diaryId) &&
+            (identical(other.pageId, pageId) || other.pageId == pageId) &&
+            (identical(other.componentId, componentId) ||
+                other.componentId == componentId) &&
+            const DeepCollectionEquality()
+                .equals(other._rowHeights, _rowHeights));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, diaryId, pageId, componentId,
+      const DeepCollectionEquality().hash(_rowHeights));
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateTimeTableRowHeightsImplCopyWith<_$UpdateTimeTableRowHeightsImpl>
+      get copyWith => __$$UpdateTimeTableRowHeightsImplCopyWithImpl<
+          _$UpdateTimeTableRowHeightsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadEntries,
+    required TResult Function(String entryId, String taskId) toggleTask,
+    required TResult Function(String entryId, String taskId, Duration postpone)
+        snoozeTask,
+    required TResult Function(KeyDefinition definition) addCustomKey,
+    required TResult Function(TaskStatus status, String keyId) updateStatusKey,
+    required TResult Function(String keyId) deleteCustomKey,
+    required TResult Function(TaskStatus status) addTaskStatus,
+    required TResult Function(String statusId) deleteTaskStatus,
+    required TResult Function(String statusId, int newOrder)
+        updateTaskStatusOrder,
+    required TResult Function(Diary diary) addDiary,
+    required TResult Function(String diaryId) deleteDiary,
+    required TResult Function(String diaryId, BulletEntry entry)
+        addEntryToDiary,
+    required TResult Function(String diaryId, String entryId, String taskId)
+        toggleTaskInDiary,
+    required TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)
+        snoozeTaskInDiary,
+    required TResult Function(String entryId, BulletEntry updatedEntry)
+        updateEntry,
+    required TResult Function(
+            String diaryId, String entryId, BulletEntry updatedEntry)
+        updateEntryInDiary,
+    required TResult Function(String diaryId, Diary updatedDiary) updateDiary,
+    required TResult Function(
+            String diaryId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInDiary,
+    required TResult Function(String diaryId, DiaryPage page) addPageToDiary,
+    required TResult Function(String diaryId, String pageId)
+        deletePageFromDiary,
+    required TResult Function(
+            String diaryId, String pageId, DiaryPage updatedPage)
+        updatePageInDiary,
+    required TResult Function(String diaryId, String? pageId)
+        setCurrentPageInDiary,
+    required TResult Function(String diaryId, String pageId)
+        togglePageFavoriteInDiary,
+    required TResult Function(String diaryId, List<DiaryPage> reorderedPages)
+        reorderPagesInDiary,
+    required TResult Function(String diaryId, String pageId, BulletEntry entry)
+        addEntryToPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)
+        updateEntryInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)
+        reorderEntriesInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)
+        toggleTaskInPage,
+    required TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)
+        snoozeTaskInPage,
+    required TResult Function(
+            String diaryId, String pageId, DiarySection section)
+        addSectionToPage,
+    required TResult Function(String diaryId, String pageId, String sectionId)
+        deleteSectionFromPage,
+    required TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)
+        updateSectionInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<DiarySection> reorderedSections)
+        reorderSectionsInPage,
+    required TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)
+        assignEntryToSection,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)
+        assignComponentToSection,
+    required TResult Function(
+            String diaryId, String pageId, PageComponent component)
+        addComponentToPage,
+    required TResult Function(String diaryId, String pageId, String componentId)
+        deleteComponentFromPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)
+        updateComponentInPage,
+    required TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)
+        reorderComponentsInPage,
+    required TResult Function(
+            String diaryId, String pageId, List<String> layoutOrder)
+        updateLayoutOrderInPage,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)
+        updateTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        addEntryToTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)
+        removeEntryFromTimeTableCell,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)
+        updateTimeTableColumnWidths,
+    required TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableRowHeights(diaryId, pageId, componentId, rowHeights);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadEntries,
+    TResult? Function(String entryId, String taskId)? toggleTask,
+    TResult? Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult? Function(KeyDefinition definition)? addCustomKey,
+    TResult? Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult? Function(String keyId)? deleteCustomKey,
+    TResult? Function(TaskStatus status)? addTaskStatus,
+    TResult? Function(String statusId)? deleteTaskStatus,
+    TResult? Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult? Function(Diary diary)? addDiary,
+    TResult? Function(String diaryId)? deleteDiary,
+    TResult? Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult? Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult? Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult? Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult? Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult? Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult? Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult? Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult? Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult? Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult? Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult? Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult? Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult? Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult? Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult? Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult? Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult? Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult? Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult? Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult? Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult? Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult? Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult? Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            int row, int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult? Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableRowHeights?.call(
+        diaryId, pageId, componentId, rowHeights);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadEntries,
+    TResult Function(String entryId, String taskId)? toggleTask,
+    TResult Function(String entryId, String taskId, Duration postpone)?
+        snoozeTask,
+    TResult Function(KeyDefinition definition)? addCustomKey,
+    TResult Function(TaskStatus status, String keyId)? updateStatusKey,
+    TResult Function(String keyId)? deleteCustomKey,
+    TResult Function(TaskStatus status)? addTaskStatus,
+    TResult Function(String statusId)? deleteTaskStatus,
+    TResult Function(String statusId, int newOrder)? updateTaskStatusOrder,
+    TResult Function(Diary diary)? addDiary,
+    TResult Function(String diaryId)? deleteDiary,
+    TResult Function(String diaryId, BulletEntry entry)? addEntryToDiary,
+    TResult Function(String diaryId, String entryId, String taskId)?
+        toggleTaskInDiary,
+    TResult Function(
+            String diaryId, String entryId, String taskId, Duration postpone)?
+        snoozeTaskInDiary,
+    TResult Function(String entryId, BulletEntry updatedEntry)? updateEntry,
+    TResult Function(String diaryId, String entryId, BulletEntry updatedEntry)?
+        updateEntryInDiary,
+    TResult Function(String diaryId, Diary updatedDiary)? updateDiary,
+    TResult Function(String diaryId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInDiary,
+    TResult Function(String diaryId, DiaryPage page)? addPageToDiary,
+    TResult Function(String diaryId, String pageId)? deletePageFromDiary,
+    TResult Function(String diaryId, String pageId, DiaryPage updatedPage)?
+        updatePageInDiary,
+    TResult Function(String diaryId, String? pageId)? setCurrentPageInDiary,
+    TResult Function(String diaryId, String pageId)? togglePageFavoriteInDiary,
+    TResult Function(String diaryId, List<DiaryPage> reorderedPages)?
+        reorderPagesInDiary,
+    TResult Function(String diaryId, String pageId, BulletEntry entry)?
+        addEntryToPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            BulletEntry updatedEntry)?
+        updateEntryInPage,
+    TResult Function(
+            String diaryId, String pageId, List<BulletEntry> reorderedEntries)?
+        reorderEntriesInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String taskId)?
+        toggleTaskInPage,
+    TResult Function(String diaryId, String pageId, String entryId,
+            String taskId, Duration postpone)?
+        snoozeTaskInPage,
+    TResult Function(String diaryId, String pageId, DiarySection section)?
+        addSectionToPage,
+    TResult Function(String diaryId, String pageId, String sectionId)?
+        deleteSectionFromPage,
+    TResult Function(String diaryId, String pageId, String sectionId,
+            DiarySection updatedSection)?
+        updateSectionInPage,
+    TResult Function(String diaryId, String pageId,
+            List<DiarySection> reorderedSections)?
+        reorderSectionsInPage,
+    TResult Function(
+            String diaryId, String pageId, String entryId, String? sectionId)?
+        assignEntryToSection,
+    TResult Function(String diaryId, String pageId, String componentId,
+            String? sectionId)?
+        assignComponentToSection,
+    TResult Function(String diaryId, String pageId, PageComponent component)?
+        addComponentToPage,
+    TResult Function(String diaryId, String pageId, String componentId)?
+        deleteComponentFromPage,
+    TResult Function(String diaryId, String pageId, String componentId,
+            PageComponent updatedComponent)?
+        updateComponentInPage,
+    TResult Function(String diaryId, String pageId,
+            List<PageComponent> reorderedComponents)?
+        reorderComponentsInPage,
+    TResult Function(String diaryId, String pageId, List<String> layoutOrder)?
+        updateLayoutOrderInPage,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String content, String? backgroundColorHex)?
+        updateTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        addEntryToTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId, int row,
+            int column, String entryId)?
+        removeEntryFromTimeTableCell,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> columnWidths)?
+        updateTimeTableColumnWidths,
+    TResult Function(String diaryId, String pageId, String componentId,
+            List<double> rowHeights)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (updateTimeTableRowHeights != null) {
+      return updateTimeTableRowHeights(
+          diaryId, pageId, componentId, rowHeights);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadEntries value) loadEntries,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_SnoozeTask value) snoozeTask,
+    required TResult Function(_AddCustomKey value) addCustomKey,
+    required TResult Function(_UpdateStatusKey value) updateStatusKey,
+    required TResult Function(_DeleteCustomKey value) deleteCustomKey,
+    required TResult Function(_AddTaskStatus value) addTaskStatus,
+    required TResult Function(_DeleteTaskStatus value) deleteTaskStatus,
+    required TResult Function(_UpdateTaskStatusOrder value)
+        updateTaskStatusOrder,
+    required TResult Function(_AddDiary value) addDiary,
+    required TResult Function(_DeleteDiary value) deleteDiary,
+    required TResult Function(_AddEntryToDiary value) addEntryToDiary,
+    required TResult Function(_ToggleTaskInDiary value) toggleTaskInDiary,
+    required TResult Function(_SnoozeTaskInDiary value) snoozeTaskInDiary,
+    required TResult Function(_UpdateEntry value) updateEntry,
+    required TResult Function(_UpdateEntryInDiary value) updateEntryInDiary,
+    required TResult Function(_UpdateDiary value) updateDiary,
+    required TResult Function(_ReorderEntriesInDiary value)
+        reorderEntriesInDiary,
+    required TResult Function(_AddPageToDiary value) addPageToDiary,
+    required TResult Function(_DeletePageFromDiary value) deletePageFromDiary,
+    required TResult Function(_UpdatePageInDiary value) updatePageInDiary,
+    required TResult Function(_SetCurrentPageInDiary value)
+        setCurrentPageInDiary,
+    required TResult Function(_TogglePageFavoriteInDiary value)
+        togglePageFavoriteInDiary,
+    required TResult Function(_ReorderPagesInDiary value) reorderPagesInDiary,
+    required TResult Function(_AddEntryToPage value) addEntryToPage,
+    required TResult Function(_UpdateEntryInPage value) updateEntryInPage,
+    required TResult Function(_ReorderEntriesInPage value) reorderEntriesInPage,
+    required TResult Function(_ToggleTaskInPage value) toggleTaskInPage,
+    required TResult Function(_SnoozeTaskInPage value) snoozeTaskInPage,
+    required TResult Function(_AddSectionToPage value) addSectionToPage,
+    required TResult Function(_DeleteSectionFromPage value)
+        deleteSectionFromPage,
+    required TResult Function(_UpdateSectionInPage value) updateSectionInPage,
+    required TResult Function(_ReorderSectionsInPage value)
+        reorderSectionsInPage,
+    required TResult Function(_AssignEntryToSection value) assignEntryToSection,
+    required TResult Function(_AssignComponentToSection value)
+        assignComponentToSection,
+    required TResult Function(_AddComponentToPage value) addComponentToPage,
+    required TResult Function(_DeleteComponentFromPage value)
+        deleteComponentFromPage,
+    required TResult Function(_UpdateComponentInPage value)
+        updateComponentInPage,
+    required TResult Function(_ReorderComponentsInPage value)
+        reorderComponentsInPage,
+    required TResult Function(_UpdateLayoutOrderInPage value)
+        updateLayoutOrderInPage,
+    required TResult Function(_UpdateTimeTableCell value) updateTimeTableCell,
+    required TResult Function(_AddEntryToTimeTableCell value)
+        addEntryToTimeTableCell,
+    required TResult Function(_RemoveEntryFromTimeTableCell value)
+        removeEntryFromTimeTableCell,
+    required TResult Function(_UpdateTimeTableColumnWidths value)
+        updateTimeTableColumnWidths,
+    required TResult Function(_UpdateTimeTableRowHeights value)
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableRowHeights(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadEntries value)? loadEntries,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_SnoozeTask value)? snoozeTask,
+    TResult? Function(_AddCustomKey value)? addCustomKey,
+    TResult? Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult? Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult? Function(_AddTaskStatus value)? addTaskStatus,
+    TResult? Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult? Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult? Function(_AddDiary value)? addDiary,
+    TResult? Function(_DeleteDiary value)? deleteDiary,
+    TResult? Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult? Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult? Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult? Function(_UpdateEntry value)? updateEntry,
+    TResult? Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult? Function(_UpdateDiary value)? updateDiary,
+    TResult? Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult? Function(_AddPageToDiary value)? addPageToDiary,
+    TResult? Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult? Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult? Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult? Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult? Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult? Function(_AddEntryToPage value)? addEntryToPage,
+    TResult? Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult? Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult? Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult? Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult? Function(_AddSectionToPage value)? addSectionToPage,
+    TResult? Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult? Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult? Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult? Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult? Function(_AssignComponentToSection value)?
+        assignComponentToSection,
+    TResult? Function(_AddComponentToPage value)? addComponentToPage,
+    TResult? Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult? Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult? Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult? Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult? Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult? Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult? Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult? Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult? Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+  }) {
+    return updateTimeTableRowHeights?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadEntries value)? loadEntries,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_SnoozeTask value)? snoozeTask,
+    TResult Function(_AddCustomKey value)? addCustomKey,
+    TResult Function(_UpdateStatusKey value)? updateStatusKey,
+    TResult Function(_DeleteCustomKey value)? deleteCustomKey,
+    TResult Function(_AddTaskStatus value)? addTaskStatus,
+    TResult Function(_DeleteTaskStatus value)? deleteTaskStatus,
+    TResult Function(_UpdateTaskStatusOrder value)? updateTaskStatusOrder,
+    TResult Function(_AddDiary value)? addDiary,
+    TResult Function(_DeleteDiary value)? deleteDiary,
+    TResult Function(_AddEntryToDiary value)? addEntryToDiary,
+    TResult Function(_ToggleTaskInDiary value)? toggleTaskInDiary,
+    TResult Function(_SnoozeTaskInDiary value)? snoozeTaskInDiary,
+    TResult Function(_UpdateEntry value)? updateEntry,
+    TResult Function(_UpdateEntryInDiary value)? updateEntryInDiary,
+    TResult Function(_UpdateDiary value)? updateDiary,
+    TResult Function(_ReorderEntriesInDiary value)? reorderEntriesInDiary,
+    TResult Function(_AddPageToDiary value)? addPageToDiary,
+    TResult Function(_DeletePageFromDiary value)? deletePageFromDiary,
+    TResult Function(_UpdatePageInDiary value)? updatePageInDiary,
+    TResult Function(_SetCurrentPageInDiary value)? setCurrentPageInDiary,
+    TResult Function(_TogglePageFavoriteInDiary value)?
+        togglePageFavoriteInDiary,
+    TResult Function(_ReorderPagesInDiary value)? reorderPagesInDiary,
+    TResult Function(_AddEntryToPage value)? addEntryToPage,
+    TResult Function(_UpdateEntryInPage value)? updateEntryInPage,
+    TResult Function(_ReorderEntriesInPage value)? reorderEntriesInPage,
+    TResult Function(_ToggleTaskInPage value)? toggleTaskInPage,
+    TResult Function(_SnoozeTaskInPage value)? snoozeTaskInPage,
+    TResult Function(_AddSectionToPage value)? addSectionToPage,
+    TResult Function(_DeleteSectionFromPage value)? deleteSectionFromPage,
+    TResult Function(_UpdateSectionInPage value)? updateSectionInPage,
+    TResult Function(_ReorderSectionsInPage value)? reorderSectionsInPage,
+    TResult Function(_AssignEntryToSection value)? assignEntryToSection,
+    TResult Function(_AssignComponentToSection value)? assignComponentToSection,
+    TResult Function(_AddComponentToPage value)? addComponentToPage,
+    TResult Function(_DeleteComponentFromPage value)? deleteComponentFromPage,
+    TResult Function(_UpdateComponentInPage value)? updateComponentInPage,
+    TResult Function(_ReorderComponentsInPage value)? reorderComponentsInPage,
+    TResult Function(_UpdateLayoutOrderInPage value)? updateLayoutOrderInPage,
+    TResult Function(_UpdateTimeTableCell value)? updateTimeTableCell,
+    TResult Function(_AddEntryToTimeTableCell value)? addEntryToTimeTableCell,
+    TResult Function(_RemoveEntryFromTimeTableCell value)?
+        removeEntryFromTimeTableCell,
+    TResult Function(_UpdateTimeTableColumnWidths value)?
+        updateTimeTableColumnWidths,
+    TResult Function(_UpdateTimeTableRowHeights value)?
+        updateTimeTableRowHeights,
+    required TResult orElse(),
+  }) {
+    if (updateTimeTableRowHeights != null) {
+      return updateTimeTableRowHeights(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateTimeTableRowHeights implements BulletJournalEvent {
+  const factory _UpdateTimeTableRowHeights(
+          {required final String diaryId,
+          required final String pageId,
+          required final String componentId,
+          required final List<double> rowHeights}) =
+      _$UpdateTimeTableRowHeightsImpl;
+
+  String get diaryId;
+  String get pageId;
+  String get componentId;
+  List<double> get rowHeights;
+
+  /// Create a copy of BulletJournalEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateTimeTableRowHeightsImplCopyWith<_$UpdateTimeTableRowHeightsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

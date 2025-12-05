@@ -9,6 +9,7 @@ class TimeTableCell with _$TimeTableCell {
     required int row,
     required int column,
     @Default('') String content,
+    String? backgroundColorHex,
   }) = _TimeTableCell;
 }
 
@@ -28,6 +29,7 @@ class PageComponent with _$PageComponent {
     required String id,
     required String name,
     required DateTime createdAt,
+    String? sectionId,
     @Default(0) int order,
     @Default(24) int hourCount, // 시간 수 (기본 24시간)
     @Default(7) int dayCount, // 요일 수 (기본 7일)
@@ -35,6 +37,8 @@ class PageComponent with _$PageComponent {
     @Default(<String>[]) List<String> rowHeaders, // 행 헤더 (시간대)
     @Default(<String>[]) List<String> columnHeaders, // 열 헤더 (요일 등)
     @Default('partial') String expansionState, // 'collapsed', 'partial', 'expanded'
+    @Default(<double>[]) List<double> columnWidths, // 각 열의 너비 (픽셀)
+    @Default(<double>[]) List<double> rowHeights, // 각 행의 높이 (픽셀)
   }) = TimeTableComponent;
 }
 
