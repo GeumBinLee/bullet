@@ -609,10 +609,8 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
       return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Table(
-          // 셀 단위로 border를 그리기 때문에 Table 전체 border는 바깥쪽만 사용
-          border: TableBorder.symmetric(
-            outside: BorderSide(color: Colors.grey.shade300),
-          ),
+          // 기본 그리드 형태: 모든 셀 사이에 선을 표시
+          border: TableBorder.all(color: Colors.grey.shade300),
           columnWidths: columnWidths,
           defaultColumnWidth: const IntrinsicColumnWidth(),
           children: [
@@ -795,9 +793,7 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Table(
-                  border: TableBorder.symmetric(
-                    outside: BorderSide(color: Colors.grey.shade300),
-                  ),
+                  border: TableBorder.all(color: Colors.grey.shade300),
                   columnWidths: columnWidths,
                   defaultColumnWidth: const IntrinsicColumnWidth(),
                   children: [
@@ -1114,9 +1110,6 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
     final baseRow = base?.row ?? row;
     final key = _getCellKey(baseRow, column);
     final isMergedTail = _isMergedTailCell(row, column);
-    final isInMergedSpan = base != null && base.rowSpan > 1;
-    final isBaseRow = isInMergedSpan && row == baseRow;
-    final isLastInSpan = isInMergedSpan && row == baseRow + base.rowSpan - 1;
     // 병합된 영역의 아랫부분 셀에서는 편집 위젯을 그리지 않는다.
     final isEditing = _editingCellKey == key && !isMergedTail;
     final backgroundColor = _getCellBackgroundColor(row, column);
@@ -1219,25 +1212,8 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
       child: Container(
         padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
+          // 색상만 칠하고, 실제 그리드 선은 TableBorder에 맡긴다.
           color: backgroundColor,
-          border: Border(
-            top: BorderSide(
-              // 병합된 영역 안에서는 기준 셀 위쪽에만 선을 그리고,
-              // 나머지 행들 사이에는 선을 그리지 않는다.
-              color: isInMergedSpan && !isBaseRow
-                  ? Colors.transparent
-                  : Colors.grey.shade300,
-            ),
-            bottom: BorderSide(
-              // 병합된 영역 안에서는 마지막 셀 아래쪽에만 선을 그리고,
-              // 그 위쪽 행들 사이에는 선을 그리지 않는다.
-              color: isInMergedSpan && !isLastInSpan
-                  ? Colors.transparent
-                  : Colors.grey.shade300,
-            ),
-            left: BorderSide(color: Colors.grey.shade300),
-            right: BorderSide(color: Colors.grey.shade300),
-          ),
         ),
         alignment: Alignment.topLeft,
         child: isEditing
