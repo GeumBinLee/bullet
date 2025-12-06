@@ -20,6 +20,7 @@ mixin _$TimeTableCell {
   int get column => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String? get backgroundColorHex => throw _privateConstructorUsedError;
+  int get rowSpan => throw _privateConstructorUsedError;
 
   /// Create a copy of TimeTableCell
   /// with the given fields replaced by the non-null parameter values.
@@ -34,7 +35,12 @@ abstract class $TimeTableCellCopyWith<$Res> {
           TimeTableCell value, $Res Function(TimeTableCell) then) =
       _$TimeTableCellCopyWithImpl<$Res, TimeTableCell>;
   @useResult
-  $Res call({int row, int column, String content, String? backgroundColorHex});
+  $Res call(
+      {int row,
+      int column,
+      String content,
+      String? backgroundColorHex,
+      int rowSpan});
 }
 
 /// @nodoc
@@ -56,6 +62,7 @@ class _$TimeTableCellCopyWithImpl<$Res, $Val extends TimeTableCell>
     Object? column = null,
     Object? content = null,
     Object? backgroundColorHex = freezed,
+    Object? rowSpan = null,
   }) {
     return _then(_value.copyWith(
       row: null == row
@@ -74,6 +81,10 @@ class _$TimeTableCellCopyWithImpl<$Res, $Val extends TimeTableCell>
           ? _value.backgroundColorHex
           : backgroundColorHex // ignore: cast_nullable_to_non_nullable
               as String?,
+      rowSpan: null == rowSpan
+          ? _value.rowSpan
+          : rowSpan // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -86,7 +97,12 @@ abstract class _$$TimeTableCellImplCopyWith<$Res>
       __$$TimeTableCellImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int row, int column, String content, String? backgroundColorHex});
+  $Res call(
+      {int row,
+      int column,
+      String content,
+      String? backgroundColorHex,
+      int rowSpan});
 }
 
 /// @nodoc
@@ -106,6 +122,7 @@ class __$$TimeTableCellImplCopyWithImpl<$Res>
     Object? column = null,
     Object? content = null,
     Object? backgroundColorHex = freezed,
+    Object? rowSpan = null,
   }) {
     return _then(_$TimeTableCellImpl(
       row: null == row
@@ -124,6 +141,10 @@ class __$$TimeTableCellImplCopyWithImpl<$Res>
           ? _value.backgroundColorHex
           : backgroundColorHex // ignore: cast_nullable_to_non_nullable
               as String?,
+      rowSpan: null == rowSpan
+          ? _value.rowSpan
+          : rowSpan // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -135,7 +156,8 @@ class _$TimeTableCellImpl implements _TimeTableCell {
       {required this.row,
       required this.column,
       this.content = '',
-      this.backgroundColorHex});
+      this.backgroundColorHex,
+      this.rowSpan = 1});
 
   @override
   final int row;
@@ -146,10 +168,13 @@ class _$TimeTableCellImpl implements _TimeTableCell {
   final String content;
   @override
   final String? backgroundColorHex;
+  @override
+  @JsonKey()
+  final int rowSpan;
 
   @override
   String toString() {
-    return 'TimeTableCell(row: $row, column: $column, content: $content, backgroundColorHex: $backgroundColorHex)';
+    return 'TimeTableCell(row: $row, column: $column, content: $content, backgroundColorHex: $backgroundColorHex, rowSpan: $rowSpan)';
   }
 
   @override
@@ -161,12 +186,13 @@ class _$TimeTableCellImpl implements _TimeTableCell {
             (identical(other.column, column) || other.column == column) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.backgroundColorHex, backgroundColorHex) ||
-                other.backgroundColorHex == backgroundColorHex));
+                other.backgroundColorHex == backgroundColorHex) &&
+            (identical(other.rowSpan, rowSpan) || other.rowSpan == rowSpan));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, row, column, content, backgroundColorHex);
+  int get hashCode => Object.hash(
+      runtimeType, row, column, content, backgroundColorHex, rowSpan);
 
   /// Create a copy of TimeTableCell
   /// with the given fields replaced by the non-null parameter values.
@@ -182,7 +208,8 @@ abstract class _TimeTableCell implements TimeTableCell {
       {required final int row,
       required final int column,
       final String content,
-      final String? backgroundColorHex}) = _$TimeTableCellImpl;
+      final String? backgroundColorHex,
+      final int rowSpan}) = _$TimeTableCellImpl;
 
   @override
   int get row;
@@ -192,6 +219,8 @@ abstract class _TimeTableCell implements TimeTableCell {
   String get content;
   @override
   String? get backgroundColorHex;
+  @override
+  int get rowSpan;
 
   /// Create a copy of TimeTableCell
   /// with the given fields replaced by the non-null parameter values.
@@ -775,9 +804,9 @@ class _$TimeTableComponentImpl implements TimeTableComponent {
     return EqualUnmodifiableListView(_columnWidths);
   }
 
-// 각 열의 너비 (픽셀)
+// 열 너비 (사용자 지정)
   final List<double> _rowHeights;
-// 각 열의 너비 (픽셀)
+// 열 너비 (사용자 지정)
   @override
   @JsonKey()
   List<double> get rowHeights {
@@ -1025,7 +1054,7 @@ abstract class TimeTableComponent implements PageComponent {
   List<String> get rowHeaders; // 행 헤더 (시간대)
   List<String> get columnHeaders; // 열 헤더 (요일 등)
   String get expansionState; // 'collapsed', 'partial', 'expanded'
-  List<double> get columnWidths; // 각 열의 너비 (픽셀)
+  List<double> get columnWidths; // 열 너비 (사용자 지정)
   List<double> get rowHeights;
 
   /// Create a copy of PageComponent

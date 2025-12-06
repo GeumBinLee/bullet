@@ -154,11 +154,36 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
 
   String _getCellKey(int row, int column) => '$row-$column';
 
+  /// (row, column)이 속한 병합 셀(위쪽 기준 셀)을 찾는다.
+  TimeTableCell? _findBaseMergedCell(int row, int column) {
+    for (final cell in widget.component.cells) {
+      if (cell.column != column) continue;
+      final span = cell.rowSpan;
+      if (row >= cell.row && row < cell.row + span) {
+        return cell;
+      }
+    }
+    return null;
+  }
+
+  bool _isMergedTailCell(int row, int column) {
+    final cell = _findBaseMergedCell(row, column);
+    if (cell == null) return false;
+    return cell.rowSpan > 1 && cell.row < row && row < cell.row + cell.rowSpan;
+  }
+
   TimeTableCell _getCell(int row, int column) {
-    return widget.component.cells.firstWhere(
+    // 먼저 정확히 일치하는 셀을 찾는다.
+    final exact = widget.component.cells.firstWhere(
       (c) => c.row == row && c.column == column,
       orElse: () => TimeTableCell(row: row, column: column, content: ''),
     );
+
+    // 병합된 셀(위쪽 기준 셀)이 있으면 그 셀을 사용
+    final base = _findBaseMergedCell(row, column);
+    if (base != null) return base;
+
+    return exact;
   }
 
   String _getCellContent(int row, int column) => _getCell(row, column).content;
@@ -181,7 +206,9 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
   }
 
   TextEditingController _getController(int row, int column) {
-    final key = _getCellKey(row, column);
+    final base = _findBaseMergedCell(row, column);
+    final baseRow = base?.row ?? row;
+    final key = _getCellKey(baseRow, column);
     if (!_controllers.containsKey(key)) {
       _controllers[key] = TextEditingController(
         text: _getCellContent(row, column),
@@ -196,15 +223,105 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
     String content, {
     String? backgroundColorHex,
   }) {
+    // 병합 셀이면 위쪽 기준 셀 좌표로 업데이트
+    final base = _findBaseMergedCell(row, column);
+    final targetRow = base?.row ?? row;
+
     context.read<BulletJournalBloc>().add(
           BulletJournalEvent.updateTimeTableCell(
             diaryId: widget.diaryId,
             pageId: widget.pageId,
             componentId: widget.component.id,
-            row: row,
+            row: targetRow,
             column: column,
             content: content,
             backgroundColorHex: backgroundColorHex,
+          ),
+        );
+  }
+
+  /// 선택한 셀을 바로 아래 행과 병합 (세로 병합 전용, 같은 열만)
+  void _mergeCellDown(int row, int column) {
+    if (row >= widget.component.hourCount - 1) return;
+
+    final base = _findBaseMergedCell(row, column);
+    final baseRow = base?.row ?? row;
+    final currentSpan = base?.rowSpan ?? 1;
+    final lastRow = baseRow + currentSpan - 1;
+
+    if (lastRow >= widget.component.hourCount - 1) return;
+    final targetRow = lastRow + 1;
+
+    // 병합 대상 행이 이미 다른 병합 셀에 속해 있다면 병합 불가
+    final overlapping = _findBaseMergedCell(targetRow, column);
+    if (overlapping != null && overlapping.row != baseRow) {
+      return;
+    }
+
+    final cells = List<TimeTableCell>.from(widget.component.cells);
+
+    // 기준 셀 찾기 (없으면 새로 생성)
+    final existingIndex =
+        cells.indexWhere((c) => c.row == baseRow && c.column == column);
+    TimeTableCell baseCell;
+    if (existingIndex >= 0) {
+      baseCell = cells[existingIndex];
+    } else {
+      baseCell = TimeTableCell(
+        row: baseRow,
+        column: column,
+        content: _getCellContent(row, column),
+        backgroundColorHex: _getCellBackgroundColorHex(row, column),
+      );
+      cells.add(baseCell);
+    }
+
+    final newSpan = baseCell.rowSpan + (targetRow - lastRow);
+    final updatedBase = baseCell.copyWith(rowSpan: newSpan);
+
+    // 기준 셀 교체
+    final idx = cells.indexWhere((c) => c.row == baseRow && c.column == column);
+    if (idx >= 0) {
+      cells[idx] = updatedBase;
+    }
+
+    // 병합 범위 안에 있는 하위 셀 제거 (기존 내용은 버림)
+    cells.removeWhere(
+        (c) => c.column == column && c.row > baseRow && c.row <= targetRow);
+
+    final updatedComponent = widget.component.copyWith(cells: cells);
+    context.read<BulletJournalBloc>().add(
+          BulletJournalEvent.updateComponentInPage(
+            diaryId: widget.diaryId,
+            pageId: widget.pageId,
+            componentId: widget.component.id,
+            updatedComponent: updatedComponent,
+          ),
+        );
+  }
+
+  /// 병합 해제 (이 셀이 속한 병합 그룹을 모두 해제)
+  void _unmergeCell(int row, int column) {
+    final base = _findBaseMergedCell(row, column);
+    if (base == null || base.rowSpan <= 1) return;
+
+    final baseRow = base.row;
+
+    final cells = List<TimeTableCell>.from(widget.component.cells);
+    final idx =
+        cells.indexWhere((c) => c.row == baseRow && c.column == base.column);
+    if (idx < 0) return;
+
+    // 기준 셀의 rowSpan만 1로 되돌린다.
+    cells[idx] = base.copyWith(rowSpan: 1);
+
+    final updatedComponent = widget.component.copyWith(cells: cells);
+    context.read<BulletJournalBloc>().add(
+          BulletJournalEvent.updateComponentInPage(
+            diaryId: widget.diaryId,
+            pageId: widget.pageId,
+            componentId: widget.component.id,
+            updatedComponent: updatedComponent,
           ),
         );
   }
@@ -246,6 +363,67 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
             pageId: widget.pageId,
             componentId: widget.component.id,
             updatedComponent: updatedComponent,
+          ),
+        );
+  }
+
+  Future<void> _showColumnResizeDialog(int columnIndex) async {
+    final screenSize = MediaQuery.of(context).size;
+    final availableWidth = screenSize.width - 200;
+    final baseWidth = widget.component.dayCount > 0
+        ? availableWidth / widget.component.dayCount
+        : 80.0;
+
+    final currentWidths = List<double>.from(widget.component.columnWidths);
+    while (currentWidths.length <= columnIndex) {
+      currentWidths.add(0);
+    }
+    final currentWidth =
+        currentWidths[columnIndex] > 0 ? currentWidths[columnIndex] : baseWidth;
+    double tempWidth = currentWidth;
+
+    final result = await showDialog<double>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('열 너비 조절'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('${tempWidth.toStringAsFixed(0)} px'),
+            Slider(
+              value: tempWidth.clamp(50.0, 500.0),
+              min: 50,
+              max: 500,
+              onChanged: (value) {
+                setState(() {
+                  tempWidth = value;
+                });
+              },
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext),
+            child: const Text('취소'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, tempWidth),
+            child: const Text('저장'),
+          ),
+        ],
+      ),
+    );
+
+    if (result == null) return;
+
+    currentWidths[columnIndex] = result;
+    context.read<BulletJournalBloc>().add(
+          BulletJournalEvent.updateTimeTableColumnWidths(
+            diaryId: widget.diaryId,
+            pageId: widget.pageId,
+            componentId: widget.component.id,
+            columnWidths: currentWidths,
           ),
         );
   }
@@ -366,43 +544,27 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
         );
   }
 
-  void _handleColumnResize(int columnIndex, double delta) {
+  void _resizeColumnByDelta(int columnIndex, double delta) {
+    if (widget.component.dayCount <= 0) return;
+
+    final screenSize = MediaQuery.of(context).size;
+    final baseWidth = screenSize.width / widget.component.dayCount;
+
     final currentWidths = List<double>.from(widget.component.columnWidths);
-    // 리스트 크기가 충분하지 않으면 확장
     while (currentWidths.length <= columnIndex) {
       currentWidths.add(0);
     }
-    final currentWidth = currentWidths[columnIndex] > 0
-        ? currentWidths[columnIndex]
-        : 100.0; // 기본 너비
-    final newWidth = (currentWidth + delta).clamp(50.0, 500.0);
+    final currentWidth =
+        currentWidths[columnIndex] > 0 ? currentWidths[columnIndex] : baseWidth;
+    final newWidth = (currentWidth + delta).clamp(50.0, 600.0);
     currentWidths[columnIndex] = newWidth;
+
     context.read<BulletJournalBloc>().add(
           BulletJournalEvent.updateTimeTableColumnWidths(
             diaryId: widget.diaryId,
             pageId: widget.pageId,
             componentId: widget.component.id,
             columnWidths: currentWidths,
-          ),
-        );
-  }
-
-  void _handleRowResize(int rowIndex, double delta) {
-    final currentHeights = List<double>.from(widget.component.rowHeights);
-    // 리스트 크기가 충분하지 않으면 확장
-    while (currentHeights.length <= rowIndex) {
-      currentHeights.add(0);
-    }
-    final currentHeight =
-        currentHeights[rowIndex] > 0 ? currentHeights[rowIndex] : 40.0; // 기본 높이
-    final newHeight = (currentHeight + delta).clamp(30.0, 300.0);
-    currentHeights[rowIndex] = newHeight;
-    context.read<BulletJournalBloc>().add(
-          BulletJournalEvent.updateTimeTableRowHeights(
-            diaryId: widget.diaryId,
-            pageId: widget.pageId,
-            componentId: widget.component.id,
-            rowHeights: currentHeights,
           ),
         );
   }
@@ -423,22 +585,23 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
         : ['월', '화', '수', '목', '금', '토', '일']
             .sublist(0, widget.component.dayCount);
 
-    // 열 너비와 행 높이 설정
-    final columnWidths = <int, TableColumnWidth>{};
-    for (int i = 0; i < widget.component.dayCount + 1; i++) {
-      // 첫 번째 열은 행 헤더
-      if (i == 0) {
-        columnWidths[i] = const IntrinsicColumnWidth();
-      } else {
-        final columnIndex = i - 1;
-        if (columnIndex < widget.component.columnWidths.length &&
-            widget.component.columnWidths[columnIndex] > 0) {
-          columnWidths[i] =
-              FixedColumnWidth(widget.component.columnWidths[columnIndex]);
-        } else {
-          columnWidths[i] = const IntrinsicColumnWidth();
-        }
+    // 화면 크기에 기반한 기본 열 너비 계산 (전체 화면을 dayCount로 나눈 값)
+    final screenSize = MediaQuery.of(context).size;
+    final baseColumnWidth = widget.component.dayCount > 0
+        ? screenSize.width / widget.component.dayCount
+        : 80.0;
+
+    // 열 너비 설정 (0~dayCount-1 → Table 상에서는 1~dayCount 인덱스)
+    final Map<int, TableColumnWidth> columnWidths = {
+      0: const IntrinsicColumnWidth(), // 첫 번째 열: 행 헤더
+    };
+    for (var i = 0; i < widget.component.dayCount; i++) {
+      double width = baseColumnWidth;
+      if (i < widget.component.columnWidths.length &&
+          widget.component.columnWidths[i] > 0) {
+        width = widget.component.columnWidths[i];
       }
+      columnWidths[i + 1] = FixedColumnWidth(width);
     }
 
     // 상세 화면 모드: 카드와 헤더 없이 표만 표시
@@ -446,7 +609,10 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
       return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Table(
-          border: TableBorder.all(color: Colors.grey.shade300),
+          // 셀 단위로 border를 그리기 때문에 Table 전체 border는 바깥쪽만 사용
+          border: TableBorder.symmetric(
+            outside: BorderSide(color: Colors.grey.shade300),
+          ),
           columnWidths: columnWidths,
           defaultColumnWidth: const IntrinsicColumnWidth(),
           children: [
@@ -476,7 +642,8 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
                   ),
                   ...List.generate(widget.component.dayCount, (column) {
                     return TableCell(
-                      verticalAlignment: TableCellVerticalAlignment.fill,
+                      // 셀 내용에 맞춰 행 높이가 자동으로 결정되도록, top 정렬 사용
+                      verticalAlignment: TableCellVerticalAlignment.top,
                       child: _buildEditableCell(row, column),
                     );
                   }),
@@ -628,7 +795,9 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Table(
-                  border: TableBorder.all(color: Colors.grey.shade300),
+                  border: TableBorder.symmetric(
+                    outside: BorderSide(color: Colors.grey.shade300),
+                  ),
                   columnWidths: columnWidths,
                   defaultColumnWidth: const IntrinsicColumnWidth(),
                   children: [
@@ -659,8 +828,7 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
                           ),
                           ...List.generate(widget.component.dayCount, (column) {
                             return TableCell(
-                              verticalAlignment:
-                                  TableCellVerticalAlignment.fill,
+                              verticalAlignment: TableCellVerticalAlignment.top,
                               child: _buildEditableCell(row, column),
                             );
                           }),
@@ -748,25 +916,26 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
       }
     }
 
-    Future<void> handleReorder() async {
+    Future<void> handleReorderOrResize() async {
       if (!isRowHeader && !isColumnHeader) return;
 
-      // 열의 경우: 왼쪽/오른쪽 이동, 끝단 체크
       if (isColumnHeader) {
         final canMoveLeft = index > 0;
         final canMoveRight = index < widget.component.dayCount - 1;
 
-        if (!canMoveLeft && !canMoveRight) return; // 양쪽 끝이면 이동 불가
-
         final result = await showDialog<String>(
           context: context,
           builder: (dialogContext) => AlertDialog(
-            title: const Text('열 위치 조정'),
-            content: const Text('위치 조정을 선택하세요.'),
+            title: const Text('열 조정'),
+            content: const Text('원하는 작업을 선택하세요.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(dialogContext),
                 child: const Text('취소'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, 'resize'),
+                child: const Text('너비 조절'),
               ),
               if (canMoveLeft)
                 TextButton(
@@ -783,31 +952,29 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
         );
         if (result == null) return;
 
-        final target = result == 'left' ? index - 1 : index + 1;
-        _moveColumn(index, target);
+        if (result == 'resize') {
+          await _showColumnResizeDialog(index);
+        } else {
+          final target = result == 'left' ? index - 1 : index + 1;
+          _moveColumn(index, target);
+        }
       } else if (isRowHeader) {
-        // 행의 경우: 위/아래 이동 (기존 로직 유지)
-        final canMoveUp = index > 0;
-        final canMoveDown = index < widget.component.hourCount - 1;
-
-        if (!canMoveUp && !canMoveDown) return; // 양쪽 끝이면 이동 불가
-
         final result = await showDialog<String>(
           context: context,
           builder: (dialogContext) => AlertDialog(
-            title: const Text('행 위치 조정'),
-            content: const Text('위치 조정을 선택하세요.'),
+            title: const Text('행 조정'),
+            content: const Text('원하는 작업을 선택하세요.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(dialogContext),
                 child: const Text('취소'),
               ),
-              if (canMoveUp)
+              if (index > 0)
                 TextButton(
                   onPressed: () => Navigator.pop(dialogContext, 'up'),
                   child: const Text('위로 이동'),
                 ),
-              if (canMoveDown)
+              if (index < widget.component.hourCount - 1)
                 TextButton(
                   onPressed: () => Navigator.pop(dialogContext, 'down'),
                   child: const Text('아래로 이동'),
@@ -886,81 +1053,56 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
               ),
             ),
           ),
-          child: Stack(
-            children: [
-              InkWell(
-                onTap: handleTap,
-                onLongPress: handleReorder,
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: isHighlighted
-                        ? Colors.teal.shade100
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Center(
-                    child: Text(
-                      text,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-                ),
+          child: InkWell(
+            onTap: handleTap,
+            onLongPress: handleReorderOrResize,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color:
+                    isHighlighted ? Colors.teal.shade100 : Colors.transparent,
+                borderRadius: BorderRadius.circular(4),
               ),
-              // 열 헤더의 경우 오른쪽 경계에 리사이저
-              if (isColumnHeader)
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  width: 4,
-                  child: GestureDetector(
-                    onHorizontalDragUpdate: (details) {
-                      _handleColumnResize(index, details.delta.dx);
-                    },
-                    child: MouseRegion(
-                      cursor: SystemMouseCursors.resizeColumn,
-                      child: Container(
-                        color: Colors.transparent,
-                        child: Center(
-                          child: Container(
-                            width: 2,
-                            color: Colors.grey.shade400,
+              child: () {
+                final textWidget = Text(
+                  text,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                );
+
+                if (isColumnHeader) {
+                  // 열 헤더: 오른쪽에 얇은 리사이즈 핸들 추가
+                  return Row(
+                    children: [
+                      Expanded(child: Center(child: textWidget)),
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onHorizontalDragUpdate: (details) =>
+                            _resizeColumnByDelta(index, details.delta.dx),
+                        child: SizedBox(
+                          width: 8,
+                          child: Center(
+                            child: Container(
+                              width: 2,
+                              height: 20,
+                              color: Colors.grey.shade400,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                ),
-              // 행 헤더의 경우 아래쪽 경계에 리사이저
-              if (isRowHeader)
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: 4,
-                  child: GestureDetector(
-                    onVerticalDragUpdate: (details) {
-                      _handleRowResize(index, details.delta.dy);
-                    },
-                    child: MouseRegion(
-                      cursor: SystemMouseCursors.resizeRow,
-                      child: Container(
-                        color: Colors.transparent,
-                        child: Center(
-                          child: Container(
-                            height: 2,
-                            color: Colors.grey.shade400,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-            ],
+                    ],
+                  );
+                } else if (isRowHeader) {
+                  // 행 헤더: 텍스트만 표시 (행 높이는 셀 내용에 따라 자동 결정)
+                  return Center(child: textWidget);
+                }
+
+                // 일반 헤더
+                return Center(child: textWidget);
+              }(),
+            ),
           ),
         );
       },
@@ -968,8 +1110,15 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
   }
 
   Widget _buildEditableCell(int row, int column) {
-    final key = _getCellKey(row, column);
-    final isEditing = _editingCellKey == key;
+    final base = _findBaseMergedCell(row, column);
+    final baseRow = base?.row ?? row;
+    final key = _getCellKey(baseRow, column);
+    final isMergedTail = _isMergedTailCell(row, column);
+    final isInMergedSpan = base != null && base.rowSpan > 1;
+    final isBaseRow = isInMergedSpan && row == baseRow;
+    final isLastInSpan = isInMergedSpan && row == baseRow + base.rowSpan - 1;
+    // 병합된 영역의 아랫부분 셀에서는 편집 위젯을 그리지 않는다.
+    final isEditing = _editingCellKey == key && !isMergedTail;
     final backgroundColor = _getCellBackgroundColor(row, column);
 
     return GestureDetector(
@@ -979,71 +1128,116 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
         });
       },
       onLongPress: () async {
-        // 셀 배경색 선택
-        final selected = await showDialog<Color?>(
+        // 셀 옵션: 색상 변경 / 아래 행과 병합 / 병합 해제
+        final result = await showDialog<String>(
           context: context,
           builder: (dialogContext) {
-            final candidates = <Color>[
-              Colors.transparent,
-              Colors.yellow.shade200,
-              Colors.lightBlue.shade200,
-              Colors.green.shade200,
-              Colors.pink.shade200,
-              Colors.purple.shade200,
-            ];
-            return AlertDialog(
-              title: const Text('셀 색상 선택'),
-              content: Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: candidates.map((c) {
-                  final isNone = c == Colors.transparent;
-                  return InkWell(
-                    onTap: () => Navigator.pop(dialogContext, c),
-                    child: Container(
-                      width: 32,
-                      height: 32,
-                      decoration: BoxDecoration(
-                        color: isNone ? Colors.white : c,
-                        border: Border.all(color: Colors.grey),
-                      ),
-                      child: isNone
-                          ? const Center(
-                              child: Icon(
-                                Icons.close,
-                                size: 16,
-                              ),
-                            )
-                          : null,
-                    ),
-                  );
-                }).toList(),
-              ),
+            return SimpleDialog(
+              title: const Text('셀 옵션'),
+              children: [
+                SimpleDialogOption(
+                  onPressed: () => Navigator.pop(dialogContext, 'color'),
+                  child: const Text('셀 색상 변경'),
+                ),
+                if (!isMergedTail && row < widget.component.hourCount - 1)
+                  SimpleDialogOption(
+                    onPressed: () => Navigator.pop(dialogContext, 'merge_down'),
+                    child: const Text('아래 행과 병합'),
+                  ),
+                if (base != null && base.rowSpan > 1)
+                  SimpleDialogOption(
+                    onPressed: () => Navigator.pop(dialogContext, 'unmerge'),
+                    child: const Text('병합 해제'),
+                  ),
+              ],
             );
           },
         );
 
-        if (selected == null) return;
-        final hex = selected == Colors.transparent
-            ? null
-            : '#${selected.value.toRadixString(16).padLeft(8, '0')}';
-        _updateCell(
-          row,
-          column,
-          _getCellContent(row, column),
-          backgroundColorHex: hex,
-        );
+        if (result == null) return;
+
+        if (result == 'color') {
+          final selected = await showDialog<Color?>(
+            context: context,
+            builder: (dialogContext) {
+              final candidates = <Color>[
+                Colors.transparent,
+                Colors.yellow.shade200,
+                Colors.lightBlue.shade200,
+                Colors.green.shade200,
+                Colors.pink.shade200,
+                Colors.purple.shade200,
+              ];
+              return AlertDialog(
+                title: const Text('셀 색상 선택'),
+                content: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: candidates.map((c) {
+                    final isNone = c == Colors.transparent;
+                    return InkWell(
+                      onTap: () => Navigator.pop(dialogContext, c),
+                      child: Container(
+                        width: 32,
+                        height: 32,
+                        decoration: BoxDecoration(
+                          color: isNone ? Colors.white : c,
+                          border: Border.all(color: Colors.grey),
+                        ),
+                        child: isNone
+                            ? const Center(
+                                child: Icon(
+                                  Icons.close,
+                                  size: 16,
+                                ),
+                              )
+                            : null,
+                      ),
+                    );
+                  }).toList(),
+                ),
+              );
+            },
+          );
+
+          if (selected == null) return;
+          final hex = selected == Colors.transparent
+              ? null
+              : '#${selected.value.toRadixString(16).padLeft(8, '0')}';
+          _updateCell(
+            row,
+            column,
+            _getCellContent(row, column),
+            backgroundColorHex: hex,
+          );
+        } else if (result == 'merge_down') {
+          _mergeCellDown(row, column);
+        } else if (result == 'unmerge') {
+          _unmergeCell(row, column);
+        }
       },
       child: Container(
         padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
           color: backgroundColor,
-        ),
-        constraints: BoxConstraints(
-          minHeight: row < widget.component.rowHeights.length &&
-                  widget.component.rowHeights[row] > 0
-              ? widget.component.rowHeights[row]
-              : 40.0,
+          border: Border(
+            top: BorderSide(
+              // 병합된 영역 안에서는 기준 셀 위쪽에만 선을 그리고,
+              // 나머지 행들 사이에는 선을 그리지 않는다.
+              color: isInMergedSpan && !isBaseRow
+                  ? Colors.transparent
+                  : Colors.grey.shade300,
+            ),
+            bottom: BorderSide(
+              // 병합된 영역 안에서는 마지막 셀 아래쪽에만 선을 그리고,
+              // 그 위쪽 행들 사이에는 선을 그리지 않는다.
+              color: isInMergedSpan && !isLastInSpan
+                  ? Colors.transparent
+                  : Colors.grey.shade300,
+            ),
+            left: BorderSide(color: Colors.grey.shade300),
+            right: BorderSide(color: Colors.grey.shade300),
+          ),
         ),
         alignment: Alignment.topLeft,
         child: isEditing
@@ -1073,10 +1267,12 @@ class _TimeTableWidgetState extends State<TimeTableWidget> {
                   });
                 },
               )
-            : Text(
-                _getCellContent(row, column),
-                style: const TextStyle(fontSize: 12),
-              ),
+            : (isMergedTail
+                ? const SizedBox.shrink()
+                : Text(
+                    _getCellContent(row, column),
+                    style: const TextStyle(fontSize: 12),
+                  )),
       ),
     );
   }

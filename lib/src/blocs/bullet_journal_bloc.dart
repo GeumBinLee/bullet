@@ -108,6 +108,13 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
                 content, backgroundColorHex) =>
             _onUpdateTimeTableCell(diaryId, pageId, componentId, row, column,
                 content, backgroundColorHex, emit),
+        updateTimeTableColumnWidths: (diaryId, pageId, componentId,
+                columnWidths) =>
+            _onUpdateTimeTableColumnWidths(
+                diaryId, pageId, componentId, columnWidths, emit),
+        updateTimeTableRowHeights: (diaryId, pageId, componentId, rowHeights) =>
+            _onUpdateTimeTableRowHeights(
+                diaryId, pageId, componentId, rowHeights, emit),
         addEntryToTimeTableCell:
             (diaryId, pageId, componentId, row, column, entryId) =>
                 _onAddEntryToTimeTableCell(
@@ -116,13 +123,6 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
             (diaryId, pageId, componentId, row, column, entryId) =>
                 _onRemoveEntryFromTimeTableCell(
                     diaryId, pageId, componentId, row, column, entryId, emit),
-        updateTimeTableColumnWidths: (diaryId, pageId, componentId,
-                columnWidths) =>
-            _onUpdateTimeTableColumnWidths(
-                diaryId, pageId, componentId, columnWidths, emit),
-        updateTimeTableRowHeights: (diaryId, pageId, componentId, rowHeights) =>
-            _onUpdateTimeTableRowHeights(
-                diaryId, pageId, componentId, rowHeights, emit),
       );
     });
     add(const BulletJournalEvent.loadEntries());
@@ -1219,34 +1219,6 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     emit(state.copyWith(diaries: updatedDiaries));
   }
 
-  void _onAddEntryToTimeTableCell(
-    String diaryId,
-    String pageId,
-    String componentId,
-    int row,
-    int column,
-    String entryId,
-    Emitter<BulletJournalState> emit,
-  ) {
-    // TODO: Implement entry addition to time table cell
-    // This requires updating the TimeTableCell model to support entry IDs
-    emit(state);
-  }
-
-  void _onRemoveEntryFromTimeTableCell(
-    String diaryId,
-    String pageId,
-    String componentId,
-    int row,
-    int column,
-    String entryId,
-    Emitter<BulletJournalState> emit,
-  ) {
-    // TODO: Implement entry removal from time table cell
-    // This requires updating the TimeTableCell model to support entry IDs
-    emit(state);
-  }
-
   void _onUpdateTimeTableColumnWidths(
     String diaryId,
     String pageId,
@@ -1301,5 +1273,33 @@ class BulletJournalBloc extends Bloc<BulletJournalEvent, BulletJournalState> {
     }).toList();
 
     emit(state.copyWith(diaries: updatedDiaries));
+  }
+
+  void _onAddEntryToTimeTableCell(
+    String diaryId,
+    String pageId,
+    String componentId,
+    int row,
+    int column,
+    String entryId,
+    Emitter<BulletJournalState> emit,
+  ) {
+    // TODO: Implement entry addition to time table cell
+    // This requires updating the TimeTableCell model to support entry IDs
+    emit(state);
+  }
+
+  void _onRemoveEntryFromTimeTableCell(
+    String diaryId,
+    String pageId,
+    String componentId,
+    int row,
+    int column,
+    String entryId,
+    Emitter<BulletJournalState> emit,
+  ) {
+    // TODO: Implement entry removal from time table cell
+    // This requires updating the TimeTableCell model to support entry IDs
+    emit(state);
   }
 }

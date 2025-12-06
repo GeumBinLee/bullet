@@ -10,6 +10,7 @@ class TimeTableCell with _$TimeTableCell {
     required int column,
     @Default('') String content,
     String? backgroundColorHex,
+    @Default(1) int rowSpan,
   }) = _TimeTableCell;
 }
 
@@ -37,8 +38,8 @@ class PageComponent with _$PageComponent {
     @Default(<String>[]) List<String> rowHeaders, // 행 헤더 (시간대)
     @Default(<String>[]) List<String> columnHeaders, // 열 헤더 (요일 등)
     @Default('partial') String expansionState, // 'collapsed', 'partial', 'expanded'
-    @Default(<double>[]) List<double> columnWidths, // 각 열의 너비 (픽셀)
-    @Default(<double>[]) List<double> rowHeights, // 각 행의 높이 (픽셀)
+    @Default(<double>[]) List<double> columnWidths, // 열 너비 (사용자 지정)
+    @Default(<double>[]) List<double> rowHeights, // 행 높이 (사용자 지정 최소 높이)
   }) = TimeTableComponent;
 }
 

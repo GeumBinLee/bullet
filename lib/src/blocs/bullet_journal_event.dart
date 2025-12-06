@@ -197,6 +197,18 @@ class BulletJournalEvent with _$BulletJournalEvent {
     required String content,
     String? backgroundColorHex,
   }) = _UpdateTimeTableCell;
+  const factory BulletJournalEvent.updateTimeTableColumnWidths({
+    required String diaryId,
+    required String pageId,
+    required String componentId,
+    required List<double> columnWidths,
+  }) = _UpdateTimeTableColumnWidths;
+  const factory BulletJournalEvent.updateTimeTableRowHeights({
+    required String diaryId,
+    required String pageId,
+    required String componentId,
+    required List<double> rowHeights,
+  }) = _UpdateTimeTableRowHeights;
   const factory BulletJournalEvent.addEntryToTimeTableCell({
     required String diaryId,
     required String pageId,
@@ -213,16 +225,4 @@ class BulletJournalEvent with _$BulletJournalEvent {
     required int column,
     required String entryId,
   }) = _RemoveEntryFromTimeTableCell;
-  const factory BulletJournalEvent.updateTimeTableColumnWidths({
-    required String diaryId,
-    required String pageId,
-    required String componentId,
-    required List<double> columnWidths,
-  }) = _UpdateTimeTableColumnWidths;
-  const factory BulletJournalEvent.updateTimeTableRowHeights({
-    required String diaryId,
-    required String pageId,
-    required String componentId,
-    required List<double> rowHeights,
-  }) = _UpdateTimeTableRowHeights;
 }
